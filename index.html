@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cozy Nova - Main</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <!-- Montserrat -->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500&display=swap" rel="stylesheet">
+        <!-- Montserrat Alternates -->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;300;500&display=swap" rel="stylesheet">
+        <!-- Roboto -->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+        <!-- DM Sans -->
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/76c49369ed.js" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <!-- Favicons -->
+    <link rel="title icon" type="image/png" href="assets/img/favicon/3938089_attack_skill_sword_icon_64px.png">
+    <link rel="icon" type="image/png" href="assets/img/favicon/3938089_attack_skill_sword_icon_64px.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="assets/img/favicon/3938089_attack_skill_sword_icon_64px.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="assets/img/favicon/3938089_attack_skill_sword_icon_128px.png" sizes="96x96">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/img/favicon/3938089_attack_skill_sword_icon_black_128px.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/img/favicon/3938089_attack_skill_sword_icon_black_128px.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/img/favicon/3938089_attack_skill_sword_icon_black_128px.png"> 
+</head>
+
+<style>
+
+:root {
+  --light: 0, 0%, 99%; /* white */
+  --dark: 221, 44%, 19%; /* dark blue */
+  --gray: 223, 10%, 59%; /* gray */
+
+  --header-light: 49, 85%, 65%; /* pale golden */
+
+  --link-light: 49, 100%, 100%;
+
+  --container-light: 221, 54%, 34%; /* lightless blue */
+  --container-lighter: 221, 54%, 40%;
+  --container-dark: 221, 50%, 27%; /* darker blue */
+
+  --important-light: 343, 84%, 57%; /* pale wine */
+
+  --bg-light: 221, 40%, 49%; /* higher contrast/light than -dark */
+  --bg-dark: 221, 64%, 19%; /* higher contrast than -dark */
+
+  --text-gray: 0, 0%, 91%;
+
+  --number: 244, 55%, 70%;
+}
+
+*:hover {
+  outline: 1px solid red;
+}
+
+main {
+  font-size: 1rem;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+
+  background-color: hsl(var(--dark));
+  padding: 3rem 8rem;
+}
+
+main .container {
+  color: hsl(var(--light));
+  background-color: hsl(var(--container-dark));
+}
+
+@media only screen and (max-width: 990px) {
+  main {
+    padding: 3rem 2rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  main {
+    padding: 3rem .75rem;
+  }
+}
+
+.shadow-container {
+  box-shadow: 1px 1px 2px hsl(var(--bg-dark), 20%);
+}
+
+.border-rounded {
+  border-radius: .5em;
+}
+
+/* Build + Links */
+.build {
+  border-radius: .5em .5em 0 0;
+  padding: 2em;
+}
+
+.build h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.build h2, .build h3 {
+  font-size: 1rem;
+}
+
+.build h3 {
+  color: hsl(var(--important-light));
+}
+
+.build h3 > span {
+  color: hsl(var(--light))
+}
+
+.content-table {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  
+  background-color: hsl(var(--bg-dark));
+  flex-wrap: wrap;
+  word-break: keep-all;
+  font-size: 1.1rem;
+}
+
+.content-table .link {
+  width: 10em;
+  padding: .5em;
+}
+
+@media only screen and (max-width: 990px) {
+  .content-table .link {
+    width: 50% !important;
+    outline: .1ex solid hsl(var(--light), 5%);
+    outline-offset: -.1ex;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .content-table .link {
+    width: 100% !important;
+    outline: .1ex solid hsl(var(--light), 5%);
+    outline-offset: -.1ex;
+  }
+}
+
+.content-table a {
+  text-decoration: none;
+  color: hsl(var(--link-light));
+}
+
+.content-table a:hover {
+  background-color: hsl(var(--container-dark));
+}
+/* End */
+
+/* Author */
+#Author {
+  border-radius: .5em;
+  background-color: hsl(var(--container-light));
+}
+
+#Author p {
+  margin: 0;
+  padding: 0;
+
+  color: hsl(var(--text-gray));
+}
+
+#Author h3 {
+  color: hsl(var(--header-light));
+}
+
+#Author > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: top;
+  gap: .5em;
+}
+
+.list-container {
+  background-color: hsl(var(--container-lighter));
+  border-radius: .5em;
+  max-width: 100%;
+  width: 49%;
+}
+
+@media only screen and (max-width: 990px) {
+  .list-container {
+    width: 100%;
+  }
+}
+/* End */
+
+/* Data, observations */
+.data-obs-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .25em;
+}
+
+
+#Observations {
+  color: hsl(var(--text-gray));
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+@media only screen and (max-width: 990px) {
+  #Data, #Observations {
+    flex: auto;
+    width: 100%;
+  }
+}
+
+#Data > div, #Observations > div {
+  flex: 1;
+  background-color: hsl(var(--container-light));
+  border-radius: .5em;
+}
+
+#Data span, #Observations span {
+  color: hsl(var(--number));
+}
+/* End */
+
+#Equipment {
+
+}
+
+#Equipment p {
+  margin: 0;
+  padding: 0;
+}
+
+#Equip-tab button {
+  text-decoration: none;
+  border: none;
+
+  color: hsl(var(--text-gray));
+  background-color: hsl(var(--bg-dark));
+
+  padding: .25em 1em;
+}
+
+#Equip-tab button:is(:hover, :focus) {
+  background-color: hsl(var(--important-light));
+}
+
+#Equip-tab button:is(:active) {
+  background-color: hsl(var(--important-light), 80%);
+}
+
+.tab-content .row {
+  background-color: hsl(var(--container-light));
+  border-radius: .5em 0 .5em .5em;
+}
+
+.img-selector img {
+  width: 22px;
+  height: auto;
+}
+
+</style>
+
+<body>
+
+  <!-- Navigation bar -->
+  <nav id="navegation" class="navbar navbar-expand-lg text-white mont-alt-300-14 px-3 py-0 py-lg-1 sticky-top bg-dark">
+    <div class="container-fluid mx-5">
+      <a class="navbar-brand" href="https://www.novaragnarok.com/?module=main" target="_blank"><img src="assets/img/logo/memberLoginLogo.webp" alt="NovaRO Logo" style="width: 48px; height: 48px;"></a>
+      <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- List -->
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 tabs text-center">
+            <li class="nav-item mx-5 mx-lg-2 my-2 mx-lg-0">
+              <a class="nav-link text-white btn" style="cursor: not-allowed;">
+                <i class="fa-solid fa-house"></i> <span> Home</span>
+              </a>
+            </li>
+            <li class="nav-item mx-5 mx-lg-2 my-2 mx-lg-0">
+              <a class="nav-link text-white btn" style="cursor: not-allowed;">
+                <i class="fa-solid fa-book"></i> <span> Guides</span>
+              </a>
+            </li>
+          </ul>
+          <div class="text-center d-none d-lg-flex justify-content-end">
+            <button type="button" class="bg-transparent justify-content-center border-0" data-bs-toggle="modal" data-bs-target="#MyndiModal">
+              <img src="assets/img/icons/3671842_question_icon.png" class=" mx-auto mb-1" width="16" height="16">
+            </button>
+          </div>
+      </div>
+    </div>
+  </nav>
+  <!-- // End -->
+
+  <!-- Main -->
+  <main class="text-light">
+
+      <div class="container p-0 build">
+        <h2 class="ps-3 pt-3 m-0">Nova Ragnarok</h2>
+        <h1 class="ps-3 py-1 m-0">Wind Cutter</h1>
+        <h3 class="ps-3 pb-3 m-0">Physical <span>• Rune Knight</span></h3>
+        <div class="content-table">
+          <a class="link" aria-current="page" href="#Equipment">Equipment</a>
+          <a class="link" href="#Consumables">Consumables</a>
+          <a class="link" href="#Alternative-Items">Alternative Items</a>
+          <a class="link" href="#Guide">Guide</a>
+        </div>
+      </div>
+
+      <div class="container px-3 px-lg-4 py-3 py-lg-4">
+        
+        <div class="col-12 mb-4">
+          <h2 class="fs-5">Introduction</h2>
+          <div id="Author" class="px-3 pt-2 pb-3">
+            <p class="d-flex align-items-baseline gap-1">Hello! My name is <b>Myndi.</b> <img src="https://cdn.discordapp.com/emojis/800858355832324106.webp?size=96&quality=lossless" alt="" width="38" class="d-inline"></p>
+            <p>Been playing Ragnarok for quite a while.</p>
+            <p>Introductions, long paragraphs, too much text; aren't my thing.</p>
+            <p>Hopefully this build is as helpful for you as it was for me.</p>
+
+            <h3 class="fs-5 pt-3">About this build</h3>
+            <p class="mb-1">My personal vision of <span class="fw-bold" style="color: hsl(var(--important-light));">Wind Cutter</span> is Dungeon farming, such as Einbech 3, Juperos, Thanatos, Odin 4, etc.</p>
+            <div class="py-2 m-0">
+              <div class="px-3 py-2 list-container shadow-container">
+                <p class="fw-bold" style="color:hsl(var(--header-light))">Pros:</p>
+                <ul class="pros-list">
+                  <li>Somewhat versatile</li>
+                  <li>Cheap early & midgame</li>
+                  <li>100% DEF PEN</li>
+                </ul>
+              </div>
+              <div class="px-3 py-2 list-container shadow-container">
+                <p class="fw-bold" style="color:hsl(var(--header-light))">Cons:</p>
+                <ul class="cons-list">
+                  <li>Agi-up mobs</li>
+                  <li>Short range</li>
+                  <li>Endgame expensive</li>
+                  <li>Not high DMG</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="data-obs-flex m-0 p-0 mb-4">
+          <div id="Data" class="m-0 p-0 px-1 mb-3 mb-lg-0">
+            <h3 class="fs-5">Data</h3>
+            <div class="d-flex gap-1 p-3 flex-wrap flex-column">
+              <p class="m-0"><b style="color: hsl(var(--header-light));">ACD required</b> <i class="fa-solid fa-angles-right fa-sm"></i> <span>34%</span> (<span>0.5</span> Cast Delay, <span>0.3s</span> CD).</p>
+              <p class="m-0"><b style="color: hsl(var(--header-light));">ASPD required</b> <i class="fa-solid fa-angles-right fa-sm"></i> <span>185</span>, at <span>34%</span> ACD.</p>
+              <p class="m-0"><b style="color: hsl(var(--header-light));">Max. WC/s</b> <i class="fa-solid fa-angles-right fa-sm"></i> <span>3</span>, at <span>34%</span> ACD & <span>185</span> ASPD.</p>
+            </div>
+          </div>
+
+          <div id="Observations" class="m-0 p-0 px-1">
+            <h3 class="fs-5">Observations</h3>
+            <div class="p-3">
+              <p><b style="color: hsl(var(--header-light));">Stats</b> include bonuses from gear or job levels, additionally to those coming from runes and foods</p>
+              <p class="m-0"><b style="color: hsl(var(--header-light));">Status</b> doesn't include RNG enchants, Pets (Eggs), Base Weapon Attack (<span>280</span>), Refine Attack (<span>+15; 105</span>) or Shadow Gear attack that comes from flat refines (don't be confused with item's specifications).</p>
+            </div>
+          </div>
+        </div>
+
+
+        <div id="Equipment">
+          <div class="d-flex" id="Equip-tab" role="tablist">
+            <h2 class="fs-5 me-auto">Equipment</h2>
+            <button id="gear-tab" data-bs-toggle="tab" data-bs-target="#gear-display" type="button" role="tab" aria-controls="gear-display" aria-selected="true">Gear</button>
+            <button id="shadow-tab" data-bs-toggle="tab" data-bs-target="#shadow-display" type="button" role="tab" aria-controls="shadow-display" aria-selected="false">Shadow</button>
+            <button id="cards-tab" data-bs-toggle="tab" data-bs-target="#cards-display" type="button" role="tab" aria-controls="cards-display" aria-selected="false">Cards</button>
+            <button id="enchants-tab" data-bs-toggle="tab" data-bs-target="#enchants-display" type="button" role="tab" aria-controls="enchants-display" aria-selected="false">Enchants</button>
+          </div>
+
+          <!-- Tab content -->
+          <div class="tab-content col-12">
+
+            <!-- Gear -->
+            <div id="gear-display" class="tab-pane fade show active" role="tabpanel" aria-labelledby="gear-tab" tabindex="0">
+              <div class="row m-0 p-0">
+                <div class="col-5">
+                  <div class="d-flex flex-column img-selector">
+                    <div class="d-flex justify-content-end gap-2"><img src="https://www.novaragnarok.com/data/items/icons2/5899.png"><span>Black Ribbon</span></div>
+                    <div class="d-flex justify-content-end gap-2"><img src="https://www.novaragnarok.com/data/items/icons2/18754.png"><span>Bloock Sucker</span></div>
+                    <div class="d-flex justify-content-end gap-2"><img src="https://www.novaragnarok.com/data/items/icons2/600008.png"><span>Hypocrisy Edge</span></div>
+                    <div class="d-flex justify-content-end gap-2"><img src="https://www.novaragnarok.com/data/items/icons2/20963.png"><span>Temporal Str Manteau</span></div>
+                    <div class="d-flex justify-content-end gap-2"><img src="https://www.novaragnarok.com/data/items/icons2/490056.png"><span>Brilliant Light Ruby Ring</span></div>
+                  </div>
+                </div>
+                <div class="col-2">
+                  <img src="https://i.gyazo.com/2b4c9b62f2e17f5b8838d1124a394c33.png" class="img-fluid">
+                </div>
+                <div class="col-5">
+                  <div class="d-flex flex-column text-start">
+                    <p>Magical Booster</p>
+                    <p>Automatic Armor A-type</p>
+                    <p>Hypocrisy Edge</p>
+                    <p>Illusion Sprint Shoes</p>
+                    <p>Brilliant Light Ruby Necklace</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Shadow -->
+            <div id="shadow-display" class="tab-pane fade" role="tabpanel" aria-labelledby="shadow-tab" tabindex="0">
+
+              <div class="row m-0 p-0">
+                <div class="col-5">
+                  <div class="d-flex flex-column text-end">
+                    <p>Melee Amber [U]</p>
+                    <p>Melee Amber [L]</p>
+                    <p>Perfect Size Shadow Gauntlet</p>
+                    <p>HP Absorb Onyx [G]</p>
+                    <p>Almighty Shadow Focus</p>
+                  </div>
+                </div>
+                <div class="col-2">
+                  <img src="https://i.gyazo.com/2b4c9b62f2e17f5b8838d1124a394c33.png" class="img-fluid">
+                </div>
+                <div class="col-5">
+                  <div class="d-flex flex-column text-start">
+                    <p>Melee Amber [M]</p>
+                    <p>Reload Shadow Armor</p>
+                    <p>Reload Shadow Shield</p>
+                    <p>Reload Shadow Boots</p>
+                    <p>Almighty Shadow Brooch</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Cards -->
+            <div id="cards-display" class="tab-pane fade" role="tabpanel" aria-labelledby="cards-tab" tabindex="0">
+
+              <div class="row m-0 p-0">
+                <div class="col-5">
+                  <div class="d-flex flex-column text-end">
+                    <p>Black Ribbon</p>
+                    <p>Blood Sucker</p>
+                    <p>Hypocrisy Edge</p>
+                    <p>Temporal Str Manteau</p>
+                    <p>Brilliant Light Ruby Ring</p>
+                  </div>
+                </div>
+                <div class="col-2">
+                  <img src="https://i.gyazo.com/2b4c9b62f2e17f5b8838d1124a394c33.png" class="img-fluid">
+                </div>
+                <div class="col-5">
+                  <div class="d-flex flex-column text-start">
+                    <p>Magical Booster</p>
+                    <p>Automatic Armor A-type</p>
+                    <p>Hypocrisy Edge</p>
+                    <p>Illusion Sprint Shoes</p>
+                    <p>Brilliant Light Ruby Necklace</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Enchants -->
+            <div id="enchants-display" class="tab-pane fade" role="tabpanel" aria-labelledby="enchants-tab" tabindex="0">
+
+              <div class="row m-0 p-0">
+                <div class="col-5">
+                  <div class="d-flex flex-column text-end">
+                    <p>Black Ribbon</p>
+                    <p>Blood Sucker</p>
+                    <p>Hypocrisy Edge</p>
+                    <p>Temporal Str Manteau</p>
+                    <p>Brilliant Light Ruby Ring</p>
+                  </div>
+                </div>
+                <div class="col-2">
+                  <img src="https://i.gyazo.com/2b4c9b62f2e17f5b8838d1124a394c33.png" class="img-fluid">
+                </div>
+                <div class="col-5">
+                  <div class="d-flex flex-column text-start">
+                    <p>Magical Booster</p>
+                    <p>Automatic Armor A-type</p>
+                    <p>Hypocrisy Edge</p>
+                    <p>Illusion Sprint Shoes</p>
+                    <p>Brilliant Light Ruby Necklace</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div> <!-- Tab content -->
+
+        </div>
+
+
+        <h5>Equipment</h5>
+        <span>Item 1</span>
+        <img src="asd.png" alt="img here">
+        <span>Item 2</span>
+        <h3>Stats</h3>
+        <span>1</span>
+        <h3>Status</h3>
+        <span>1</span>
+        <h3>Pets</h3>
+        <span>1</span>
+        <!-- for all the above, BE A ACCORDION -->
+        <h2>Explanation</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium ea commodi minima cumque nulla quidem tenetur at magnam, est odio, repellendus minus. Sed fugit sapiente id doloremque, nam dolore inventore?
+        Quae incidunt, autem corporis numquam molestiae ut molestias saepe officiis eos deleniti cupiditate blanditiis modi nihil, itaque dicta qui nam eum impedit omnis soluta ab esse culpa laboriosam. Voluptates, sequi!</p>
+        <h3>Consumables</h3>
+        <span>1s</span>
+        <div>
+          <h2>Alternative end-game items & cards</h2>
+          <ul>
+            <li>a</li>
+          </ul>
+          <h2>Dungeon farming items</h2>
+          <ul>
+            <li>a</li>
+          </ul>
+        </div>
+        <h3>Buffs</h3>
+        <span>1</span>
+        <h3>Refresh Time</h3>
+        <span>1</span>
+      
+        <h3>Offensive Skills</h3>
+        <span>1</span>
+        <h3>Runes</h3>
+        <span>1</span>
+        <h2>Guide</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore maxime qui non eum a, similique amet perferendis consequatur ut voluptates porro ea reiciendis, cum, consectetur magnam sunt vel culpa saepe.
+        Quo ut dicta commodi necessitatibus voluptatum nobis tempore illum sed voluptates sunt, autem quisquam blanditiis animi quam temporibus omnis. Magni, non numquam perspiciatis saepe repudiandae earum itaque explicabo vero odit?
+        Accusantium animi deleniti, officiis fuga ratione vel magnam, numquam velit amet saepe harum, quos minima cupiditate rerum nemo id repellat tempore! Quaerat saepe molestiae voluptatem delectus, exercitationem adipisci? Voluptatem, animi!
+        Sapiente, quia molestias. Impedit error nam quibusdam voluptatum necessitatibus ea consequatur quidem dicta tempore quia deserunt sapiente vero, eaque obcaecati molestiae sit cum hic! Dolorem sequi quis iste quisquam perspiciatis?
+        Explicabo iure sed reiciendis accusamus distinctio quasi reprehenderit quisquam pariatur totam. Et in doloremque sit earum, eveniet ducimus ad delectus. Asperiores quia necessitatibus cumque error reiciendis. Labore, magni pariatur! Harum.
+        Quam, facere. Cupiditate molestias voluptatem nemo architecto autem nihil qui maiores, voluptatum inventore accusamus deleniti eum laudantium atque iusto officia blanditiis dignissimos? Quaerat ipsa enim autem beatae, in soluta est!
+        Numquam nesciunt nostrum deserunt ullam quasi omnis, harum qui inventore, quas distinctio minus saepe odit quis quo. Architecto nisi maxime odio esse nihil aliquam voluptatem quaerat! Reprehenderit nisi sed labore!
+        Distinctio reiciendis deleniti ea non voluptas iste alias sunt, nulla, error ab asperiores! Maxime, atque fugit? Quo optio earum quia? Quas soluta maiores dolorum tempore dolores porro aut debitis amet.
+        Omnis corporis necessitatibus dolorum molestias vitae nisi iusto a, illum dignissimos, repellat corrupti iste voluptates assumenda. Accusantium dolore voluptatum quasi voluptatem sit obcaecati, recusandae accusamus suscipit rerum. Mollitia, officia aliquam.
+        Odio, eius nam! Dolorum, maiores voluptatum porro sed, voluptatibus nihil asperiores facere saepe cupiditate aspernatur nostrum vitae amet unde neque nam molestias tempora assumenda ducimus. Similique repellendus in quos et?</p>
+      </div>
+
+  </main>
+
+  <!-- Modal -->
+  <div class="modal fade roboto-300-14" id="MyndiModal" tabindex="-1" aria-labelledby="#MyndiModalBody" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content bg-dark text-white">
+        <div class="modal-header">
+          <h5 class="modal-title fw-normal" id="MyndiModalBody">About the creator</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>This webpage is made by <span><i class="fa-brands fa-discord discord-logo fa-bounce"></i></span> <span class="roboto-500"><a id="Myndi" class="discord-color" href="https://discordapp.com/users/124421052569878528/" target="_blank">Myndi#5041</a></span>.</p>
+          <p>All you see here is done with their own experience, and by doing some extra research, additionally to <span class="discord-color roboto-500">Bootstrap and jQuery</span>.</p>
+          <p>If you want to learn more about it, how to make your own webpages or much more, please contact them.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back to top arrow -->
+  <button type="button"  id="btn-back-to-top" class="btn btn-dark border rounded-circle">
+    <i class="fa-solid fa-angles-up"></i>
+  </button>
+
+  <!-- Bootstrap -->
+    <!-- Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+
+  <!-- jQuery -->
+  <script defer src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+
+  <!-- JS -->
+  <script defer src="assets/js/script.js"></script>
+</body>
+</html> 
