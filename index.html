@@ -59,7 +59,8 @@
 
   --text-gray: 0, 0%, 91%;
 
-  --number: 244, 55%, 70%;
+  --number-purple: 244, 55%, 70%;
+  --number: 120, 68%, 62%;
 }
 
 *:hover {
@@ -98,6 +99,11 @@ main .container {
 
 .border-rounded {
   border-radius: .5em;
+}
+
+.number {
+  font-weight: bold;
+  color: hsl(var(--number-purple));
 }
 
 /* Build + Links */
@@ -237,13 +243,15 @@ main .container {
 }
 /* End */
 
-#Equipment {
-
-}
-
+/* Equipment & tabs */
 #Equipment p {
   margin: 0;
   padding: 0;
+}
+
+.tab-content {
+  background-color: hsl(var(--container-light));
+  border-radius: .5em 0 .5em .5em;
 }
 
 #Equip-tab button {
@@ -264,15 +272,89 @@ main .container {
   background-color: hsl(var(--important-light), 80%);
 }
 
-.tab-content .row {
-  background-color: hsl(var(--container-light));
+.tab-buttons {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 570px) {
+
+  .tab-buttons {
+    width: 100%;
+  }
+
+  #gear-tab, #shadow-tab, #cards-tab, #enchants-tab {
+    width: 50%;
+    outline: .1ex solid hsl(var(--light), 5%);
+    outline-offset: -.1ex;
+  }
+}
+
+.gear-container {
+  display: flex;
+  justify-content: center;
+  
   border-radius: .5em 0 .5em .5em;
+}
+
+@media only screen and (max-width: 801px) {
+  .gear-container {
+    overflow-x: scroll;
+  }
 }
 
 .img-selector img {
   width: 22px;
   height: auto;
 }
+
+.img-equip {
+  text-align: center;
+  width: 200px;
+  object-fit: none;
+  object-position: 53% 50%;
+}
+
+.gear-col {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  width: 300px;
+  border-radius: .5em 0 0 .5em;
+
+  color: hsl(var(--dark));
+  background-color: white;
+
+  word-break: keep-all;
+}
+
+.gear-col-2 {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  width: 300px;
+  border-radius: 0 .5em .5em 0;
+
+  color: hsl(var(--dark));
+  background-color: white;
+}
+
+.gear-col > div > div, .gear-col-2 > div > div {
+  border-bottom: 1px solid hsl(var(--text-gray));
+}
+
+.gear-col select {
+  text-align: end;
+  border: none;
+}
+
+.gear-col-2 select {
+  text-align: start;
+  border: none;
+}
+/* End */
 
 </style>
 
@@ -379,140 +461,165 @@ main .container {
 
 
         <div id="Equipment">
-          <div class="d-flex" id="Equip-tab" role="tablist">
+          <div class="d-flex flex-wrap" id="Equip-tab" role="tablist">
             <h2 class="fs-5 me-auto">Equipment</h2>
-            <button id="gear-tab" data-bs-toggle="tab" data-bs-target="#gear-display" type="button" role="tab" aria-controls="gear-display" aria-selected="true">Gear</button>
-            <button id="shadow-tab" data-bs-toggle="tab" data-bs-target="#shadow-display" type="button" role="tab" aria-controls="shadow-display" aria-selected="false">Shadow</button>
-            <button id="cards-tab" data-bs-toggle="tab" data-bs-target="#cards-display" type="button" role="tab" aria-controls="cards-display" aria-selected="false">Cards</button>
-            <button id="enchants-tab" data-bs-toggle="tab" data-bs-target="#enchants-display" type="button" role="tab" aria-controls="enchants-display" aria-selected="false">Enchants</button>
+            <div class="tab-buttons">
+              <button class="active" id="gear-tab" data-bs-toggle="tab" data-bs-target="#gear-display" type="button" role="tab" aria-controls="gear-display" aria-selected="true">Gear</button>
+              <button id="shadow-tab" data-bs-toggle="tab" data-bs-target="#shadow-display" type="button" role="tab" aria-controls="shadow-display" aria-selected="false">Shadow</button>
+              <button id="cards-tab" data-bs-toggle="tab" data-bs-target="#cards-display" type="button" role="tab" aria-controls="cards-display" aria-selected="false">Cards</button>
+              <button id="enchants-tab" data-bs-toggle="tab" data-bs-target="#enchants-display" type="button" role="tab" aria-controls="enchants-display" aria-selected="false">Enchants</button>
+            </divc>
+            </div>
+
+            <!-- Tab content -->
+            <div class="tab-content col-12">
+
+              <!-- Gear -->
+              <div id="gear-display" class="tab-pane fade show active" role="tabpanel" aria-labelledby="gear-tab" tabindex="0">
+
+                <div class="gear-container m-0 p-0 py-4 ">
+                  <div class="gear-col pt-1">
+                    <div class="d-flex flex-column img-selector gap-1 align-items-end justify-content-center">
+                      <div class="d-flex justify-content-end gap-2"><span>Black Ribbon</span><img src="https://www.novaragnarok.com/data/items/icons2/5899.png"></div>
+                      <div class="d-flex justify-content-end gap-2"><span>Bloock Sucker</span><img src="https://www.novaragnarok.com/data/items/icons2/18754.png"></div>
+                      <div class="d-flex justify-content-end gap-2"><span>Hypocrisy Edge</span><img src="https://www.novaragnarok.com/data/items/icons2/600008.png"></div>
+                      <div class="d-flex justify-content-end gap-2"><span>Temporal Str Manteau</span><img src="https://www.novaragnarok.com/data/items/icons2/20963.png"></div>
+                      <div class="d-flex justify-content-end gap-2"><span>Brilliant Light Ruby Ring</span><img src="https://www.novaragnarok.com/data/items/icons2/490056.png"></div>
+                    </div>
+                  </div>
+                  <div class="m-0 p-0">
+                    <img src="https://i.gyazo.com/80c613b61018867fc96b478deb997543.png" class="img-equip">
+                  </div>
+                  <div class="gear-col-2 pt-1">
+                    <div class="d-flex flex-column img-selector gap-1 align-items-start justify-content-center">
+                      <div class="d-flex justify-content-end gap-2"><img src="https://www.novaragnarok.com/data/items/icons2/400001.png"><span>Victory Wing Ears</span></div>
+                      <div class="d-flex justify-content-end gap-2"><img src="https://www.novaragnarok.com/data/items/icons2/450127.png"><span>Automatic Armor A-type</span></div>
+                      <div class="d-flex justify-content-end gap-2"><img src="https://www.novaragnarok.com/data/items/icons2/600008.png"><span>Hypocrisy Edge</span></div>
+                      <div class="d-flex justify-content-end gap-2"><img src="https://www.novaragnarok.com/data/items/icons2/470066.png"><span>Illusion Sprint Shoes</span></div>
+                      <div class="d-flex justify-content-end gap-2"><img src="https://www.novaragnarok.com/data/items/icons2/490057.png"><span>Brilliant Light Ruby Necklace</span></div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Shadow -->
+              <div id="shadow-display" class="tab-pane fade" role="tabpanel" aria-labelledby="shadow-tab" tabindex="0">
+
+                <div class="gear-container m-0 p-0 py-4 ">
+                  <div class="gear-col pt-1">
+                    <div class="d-flex flex-column img-selector gap-1 align-items-end justify-content-center">
+                      <div class="d-flex justify-content-end gap-2"><span>Melee Amber [U]</span><img src="https://www.novaragnarok.com/data/items/icons2/1000377.png"></div>
+                      <div class="d-flex justify-content-end gap-2"><span>Melee Amber [L]</span><img src="https://www.novaragnarok.com/data/items/icons2/1000377.png"></div>
+                      <div class="d-flex justify-content-end gap-2"><span>Perfect Size Shadow Gauntlet</span><img src="https://www.novaragnarok.com/data/items/icons2/24425.png"></div>
+                      <div class="d-flex justify-content-end gap-2"><span>HP Absorb Onyx [G]</span><img src="https://www.novaragnarok.com/data/items/icons2/25209.png"></div>
+                      <div class="d-flex justify-content-end gap-2"><span>Almighty Shadow Focus</span><img src="https://www.novaragnarok.com/data/items/icons2/24339.png"></div>
+                    </div>
+                  </div>
+                  <div class="m-0 p-0">
+                    <img src="https://i.gyazo.com/80c613b61018867fc96b478deb997543.png" class="img-equip">
+                  </div>
+                  <div class="gear-col-2 pt-1">
+                    <div class="d-flex flex-column img-selector gap-1 align-items-start justify-content-center">
+                      <div class="d-flex justify-content-end gap-2"><img src="https://www.novaragnarok.com/data/items/icons2/1000377.png"><span>Melee Amber [M]</span></div>
+                      <div class="d-flex justify-content-end gap-2"><img src="https://www.novaragnarok.com/data/items/icons2/24245.png"><span>Reload Shadow Armor</span></div>
+                      <div class="d-flex justify-content-end gap-2"><img src="https://www.novaragnarok.com/data/items/icons2/24244.png"><span>Reload Shadow Shield</span></div>
+                      <div class="d-flex justify-content-end gap-2"><img src="https://www.novaragnarok.com/data/items/icons2/24243.png"><span>Reload Shadow Boots</span></div>
+                      <div class="d-flex justify-content-end gap-2"><img src="https://www.novaragnarok.com/data/items/icons2/24340.png"><span>Almighty Shadow Brooch</span></div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Cards -->
+              <div id="cards-display" class="tab-pane fade" role="tabpanel" aria-labelledby="cards-tab" tabindex="0">
+
+                <div class="gear-container m-0 p-0 py-4 ">
+                  <div class="gear-col pt-1">
+                    <div class="d-flex flex-column img-selector gap-1 align-items-end justify-content-center">
+                      <div class="d-flex justify-content-end gap-2"><span>Purple Ferus</span><img src="https://www.novaragnarok.com/data/items/icons2/4009.png"></div>
+                      <div class="d-flex justify-content-end gap-2"><span><i class="pe-2">Empty</i></span></div>
+                      <div class="d-flex justify-content-end gap-2"><span>Contaminated Wanderer</span><img src="https://www.novaragnarok.com/data/items/icons2/4009.png"></div>
+                      <div class="d-flex justify-content-end gap-2"><span>HP Absorb Onyx [G]</span><img src="https://www.novaragnarok.com/data/items/icons2/4009.png"></div>
+                      <div class="d-flex justify-content-end gap-2"><span>Almighty Shadow Focus</span><img src="https://www.novaragnarok.com/data/items/icons2/4009.png"></div>
+                    </div>
+                  </div>
+                  <div class="m-0 p-0">
+                    <img src="https://i.gyazo.com/80c613b61018867fc96b478deb997543.png" class="img-equip">
+                  </div>
+                  <div class="gear-col-2 pt-1">
+                    <div class="d-flex flex-column img-selector gap-1 align-items-start justify-content-center">
+                      <div class="d-flex justify-content-end gap-2"><img src="https://www.novaragnarok.com/data/items/icons2/4009.png"><span>Melee Amber [M]</span></div>
+                      <div class="d-flex justify-content-end gap-2"><img src="https://www.novaragnarok.com/data/items/icons2/4009.png"><span>Reload Shadow Armor</span></div>
+                      <div class="d-flex justify-content-end gap-2"><img src="https://www.novaragnarok.com/data/items/icons2/4009.png"><span>Reload Shadow Shield</span></div>
+                      <div class="d-flex justify-content-end gap-2"><img src="https://www.novaragnarok.com/data/items/icons2/4009.png"><span>Reload Shadow Boots</span></div>
+                      <div class="d-flex justify-content-end gap-2"><img src="https://www.novaragnarok.com/data/items/icons2/4009.png"><span>Almighty Shadow Brooch</span></div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Enchants -->
+              <div id="enchants-display" class="tab-pane fade" role="tabpanel" aria-labelledby="enchants-tab" tabindex="0">
+
+                <div class="gear-container m-0 p-0 py-4 ">
+                  <div class="gear-col pt-1">
+                    <div class="d-flex flex-column img-selector gap-1 align-items-end justify-content-center">
+                      <div class="d-flex justify-content-end gap-2"><span><i class="pe-2">Empty</i></span></div>
+                      <div class="d-flex justify-content-end gap-2"><span><i class="pe-2">Empty</i></span></div>
+                      <div class="d-flex justify-content-end gap-2">
+                        <select>
+                          <option selected>very fucking long text lmao</option>
+                          <option>Saab</option>
+                          <option>Fiat</option>
+                          <option>Audi</option>
+                        </select>
+                      </div>
+                      <div class="d-flex justify-content-end gap-2">
+                        <select>
+                          <option selected>Atk <span class="number">6%</span></option>
+                          <option>Atk <span class="number">5%</span></option>
+                        </select>
+                      </div>
+                      <div class="d-flex justify-content-end gap-2"><span>Almighty Shadow Focus</span></div>
+                    </div>
+                  </div>
+                  <div class="m-0 p-0">
+                    <img src="https://i.gyazo.com/80c613b61018867fc96b478deb997543.png" class="img-equip">
+                  </div>
+                  <div class="gear-col-2 pt-1">
+                    <div class="d-flex flex-column img-selector gap-1 align-items-start justify-content-center">
+                      <div class="d-flex justify-content-end gap-2">
+                        <select>
+                          <option selected>10 Atk, 3% Atk</option>
+                          <option>3% After Cast Delay, 3% Atk</option>
+                          <option>x2 3% After Cast Delay</option>
+                        </select>
+                      </div>
+                      <div class="d-flex justify-content-end gap-2"><span><span class="number">x2</span> Power, Attacker Force</span></div>
+                      <div class="d-flex justify-content-end gap-2"><span>Reload Shadow Shield</span></div>
+                      <div class="d-flex justify-content-end gap-2"><span><span class="number">x2</span> Powerful Nive Lv 2</span></div>
+                      <div class="d-flex justify-content-end gap-2">
+                        <select>
+                          <option selected>Max: Anger Lv 5, Divine Evil Lv 5</option>
+                          <option>Min: Anger Lv 3, Divine Lv 1</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div> <!-- Tab equipment -->
+
+              <div class="w-100 text-center">love u razi</div>
+
+            </div> <!-- Tab content -->
+
           </div>
-
-          <!-- Tab content -->
-          <div class="tab-content col-12">
-
-            <!-- Gear -->
-            <div id="gear-display" class="tab-pane fade show active" role="tabpanel" aria-labelledby="gear-tab" tabindex="0">
-              <div class="row m-0 p-0">
-                <div class="col-5">
-                  <div class="d-flex flex-column img-selector">
-                    <div class="d-flex justify-content-end gap-2"><img src="https://www.novaragnarok.com/data/items/icons2/5899.png"><span>Black Ribbon</span></div>
-                    <div class="d-flex justify-content-end gap-2"><img src="https://www.novaragnarok.com/data/items/icons2/18754.png"><span>Bloock Sucker</span></div>
-                    <div class="d-flex justify-content-end gap-2"><img src="https://www.novaragnarok.com/data/items/icons2/600008.png"><span>Hypocrisy Edge</span></div>
-                    <div class="d-flex justify-content-end gap-2"><img src="https://www.novaragnarok.com/data/items/icons2/20963.png"><span>Temporal Str Manteau</span></div>
-                    <div class="d-flex justify-content-end gap-2"><img src="https://www.novaragnarok.com/data/items/icons2/490056.png"><span>Brilliant Light Ruby Ring</span></div>
-                  </div>
-                </div>
-                <div class="col-2">
-                  <img src="https://i.gyazo.com/2b4c9b62f2e17f5b8838d1124a394c33.png" class="img-fluid">
-                </div>
-                <div class="col-5">
-                  <div class="d-flex flex-column text-start">
-                    <p>Magical Booster</p>
-                    <p>Automatic Armor A-type</p>
-                    <p>Hypocrisy Edge</p>
-                    <p>Illusion Sprint Shoes</p>
-                    <p>Brilliant Light Ruby Necklace</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Shadow -->
-            <div id="shadow-display" class="tab-pane fade" role="tabpanel" aria-labelledby="shadow-tab" tabindex="0">
-
-              <div class="row m-0 p-0">
-                <div class="col-5">
-                  <div class="d-flex flex-column text-end">
-                    <p>Melee Amber [U]</p>
-                    <p>Melee Amber [L]</p>
-                    <p>Perfect Size Shadow Gauntlet</p>
-                    <p>HP Absorb Onyx [G]</p>
-                    <p>Almighty Shadow Focus</p>
-                  </div>
-                </div>
-                <div class="col-2">
-                  <img src="https://i.gyazo.com/2b4c9b62f2e17f5b8838d1124a394c33.png" class="img-fluid">
-                </div>
-                <div class="col-5">
-                  <div class="d-flex flex-column text-start">
-                    <p>Melee Amber [M]</p>
-                    <p>Reload Shadow Armor</p>
-                    <p>Reload Shadow Shield</p>
-                    <p>Reload Shadow Boots</p>
-                    <p>Almighty Shadow Brooch</p>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-            <!-- Cards -->
-            <div id="cards-display" class="tab-pane fade" role="tabpanel" aria-labelledby="cards-tab" tabindex="0">
-
-              <div class="row m-0 p-0">
-                <div class="col-5">
-                  <div class="d-flex flex-column text-end">
-                    <p>Black Ribbon</p>
-                    <p>Blood Sucker</p>
-                    <p>Hypocrisy Edge</p>
-                    <p>Temporal Str Manteau</p>
-                    <p>Brilliant Light Ruby Ring</p>
-                  </div>
-                </div>
-                <div class="col-2">
-                  <img src="https://i.gyazo.com/2b4c9b62f2e17f5b8838d1124a394c33.png" class="img-fluid">
-                </div>
-                <div class="col-5">
-                  <div class="d-flex flex-column text-start">
-                    <p>Magical Booster</p>
-                    <p>Automatic Armor A-type</p>
-                    <p>Hypocrisy Edge</p>
-                    <p>Illusion Sprint Shoes</p>
-                    <p>Brilliant Light Ruby Necklace</p>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-            <!-- Enchants -->
-            <div id="enchants-display" class="tab-pane fade" role="tabpanel" aria-labelledby="enchants-tab" tabindex="0">
-
-              <div class="row m-0 p-0">
-                <div class="col-5">
-                  <div class="d-flex flex-column text-end">
-                    <p>Black Ribbon</p>
-                    <p>Blood Sucker</p>
-                    <p>Hypocrisy Edge</p>
-                    <p>Temporal Str Manteau</p>
-                    <p>Brilliant Light Ruby Ring</p>
-                  </div>
-                </div>
-                <div class="col-2">
-                  <img src="https://i.gyazo.com/2b4c9b62f2e17f5b8838d1124a394c33.png" class="img-fluid">
-                </div>
-                <div class="col-5">
-                  <div class="d-flex flex-column text-start">
-                    <p>Magical Booster</p>
-                    <p>Automatic Armor A-type</p>
-                    <p>Hypocrisy Edge</p>
-                    <p>Illusion Sprint Shoes</p>
-                    <p>Brilliant Light Ruby Necklace</p>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-          </div> <!-- Tab content -->
-
         </div>
 
-
-        <h5>Equipment</h5>
-        <span>Item 1</span>
-        <img src="asd.png" alt="img here">
-        <span>Item 2</span>
         <h3>Stats</h3>
         <span>1</span>
         <h3>Status</h3>
