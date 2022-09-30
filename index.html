@@ -64,7 +64,7 @@
 }
 
 *:hover {
-  /* outline: 1px solid red; */
+  outline: 1px solid red;
 }
 
 main {
@@ -72,6 +72,7 @@ main {
   font-family: 'DM Sans', sans-serif;
   font-weight: 400;
 
+  color: hsl(var(--light));
   background-color: hsl(var(--dark));
   padding: 3rem 8rem;
 }
@@ -103,9 +104,23 @@ main .container {
   border-radius: .5em;
 }
 
+.header {
+  color: hsl(var(--header-light));
+}
+
 .number {
   font-weight: bold;
+  color: hsl(var(--number));
+}
+
+.number-purple {
+  font-weight: bold;
   color: hsl(var(--number-purple));
+}
+
+.important {
+  font-weight: bold;
+  color: hsl(var(--important-light));
 }
 
 /* Footer */
@@ -269,11 +284,15 @@ footer > a > span:hover {
   display: flex;
   flex-wrap: wrap;
   gap: .25em;
+
+  color: hsl(var(--text-gray));
 }
 
+.data-obs-flex h2 {
+  color: hsl(var(--light));
+}
 
 #Observations {
-  color: hsl(var(--text-gray));
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -290,10 +309,6 @@ footer > a > span:hover {
   flex: 1;
   background-color: hsl(var(--container-light));
   border-radius: .5em;
-}
-
-#Data span, #Observations span {
-  color: hsl(var(--number));
 }
 /* End */
 
@@ -358,16 +373,16 @@ footer > a > span:hover {
   }
 }
 
-.img-selector {
+.gear-slot {
   width: 300px;
 }
 
-.img-selector img {
+.gear-slot img {
   width: 22px;
   height: 22px;
 }
 
-.img-selector > div {
+.gear-slot > div {
   width: 90%;
 }
 
@@ -418,6 +433,38 @@ footer > a > span:hover {
 }
 /* End */
 
+#Calculations {
+  color: hsl(var(--text-gray));
+  width: 100%;
+  max-width: 800px;
+}
+
+#Calculations h2 {
+  color: hsl(var(--light));
+}
+
+#Calculations p {
+  margin: 0;
+  padding: 0;
+}
+
+#Calculations .number {
+  letter-spacing: 0.1ex;
+}
+
+#Calculations span {
+  font-size: .75rem;
+}
+
+@media only screen and (max-width: 400px) {
+  #Calculations span {
+    display: none;
+  }
+}
+
+.calc-container {
+  background-color: hsl(var(--container-lighter));
+}
 </style>
 
 <body>
@@ -454,22 +501,25 @@ footer > a > span:hover {
   <!-- // End -->
 
   <!-- Main -->
-  <main class="text-light">
+  <main>
 
+      <!-- Information + content table -->
       <div class="container p-0 build">
         <h2 class="ps-3 pt-3 m-0">Nova Ragnarok</h2>
         <h1 class="ps-3 py-1 m-0">Wind Cutter</h1>
         <h3 class="ps-3 pb-3 m-0">Physical <span>• Rune Knight</span></h3>
         <div class="content-table">
           <a class="link" aria-current="page" href="#Equipment">Equipment</a>
+          <a class="link" href="#Calculations">Calculations</a>
           <a class="link" href="#Consumables">Consumables</a>
-          <a class="link" href="#Alternative-Items">Alternative Items</a>
           <a class="link" href="#Guide">Guide</a>
         </div>
       </div>
 
+      
       <div class="container px-3 px-lg-4 py-3 py-lg-4">
         
+        <!-- Introduction -->
         <div class="col-12 mb-4">
           <h2 class="fs-5">Introduction</h2>
           <div id="Author" class="px-3 pt-2 pb-3">
@@ -502,27 +552,29 @@ footer > a > span:hover {
           </div>
         </div>
 
+        <!-- Data + observations -->
         <div class="data-obs-flex m-0 p-0 mb-4">
           <div id="Data" class="m-0 p-0 px-1 mb-3 mb-lg-0">
             <h3 class="fs-5">Data</h3>
             <div class="d-flex gap-1 p-3 flex-wrap flex-column">
-              <p class="m-0"><b style="color: hsl(var(--header-light));">ACD required</b> <i class="fa-solid fa-angles-right fa-sm"></i> <span>34%</span> (<span>0.5</span> Cast Delay, <span>0.3s</span> CD).</p>
-              <p class="m-0"><b style="color: hsl(var(--header-light));">ASPD required</b> <i class="fa-solid fa-angles-right fa-sm"></i> <span>185</span>, at <span>34%</span> ACD.</p>
-              <p class="m-0"><b style="color: hsl(var(--header-light));">Max. WC/s</b> <i class="fa-solid fa-angles-right fa-sm"></i> <span>3</span>, at <span>34%</span> ACD & <span>185</span> ASPD.</p>
+              <p class="m-0"><b class="header">ACD required</b> <i class="fa-solid fa-angles-right fa-sm"></i> <span class="number">34%</span> (<span class="number-purple">0.5 Cast Delay</span>, <span class="number-purple">0.3s CD</span>).</p>
+              <p class="m-0"><b class="header">ASPD required</b> <i class="fa-solid fa-angles-right fa-sm"></i> <span class="number">185</span> @ <span class="number-purple">34% ACD</span>.</p>
+              <p class="m-0"><b class="header">Max. WC/s</b> <i class="fa-solid fa-angles-right fa-sm"></i> <span class="number">3</span> @ <span class="number-purple">34% ACD</span> & <span class="number-purple">185 ASPD</span>.</p>
             </div>
           </div>
 
           <div id="Observations" class="m-0 p-0 px-1">
             <h3 class="fs-5">Observations</h3>
             <div class="p-3">
-              <p><b style="color: hsl(var(--header-light));">Stats</b> include bonuses from gear or job levels, additionally to those coming from runes and foods</p>
-              <p class="m-0"><b style="color: hsl(var(--header-light));">Status</b> doesn't include RNG enchants, Pets (Eggs), Base Weapon Attack (<span>280</span>), Refine Attack (<span>+15; 105</span>) or Shadow Gear attack that comes from flat refines (don't be confused with item's specifications).</p>
+              <p><b class="header">Stats</b> calculations include bonuses from job levels, gear, runes and foods (<span class="number-purple">Imperfect Almighty</span>).</p>
+              <p class="m-0"><b class="header">Status</b> doesn't include RNG enchants, Pets (<span class="number-purple">Eggs</span>), Base Weapon Attack (<span class="number">280</span>), Refine Attack (<span class="number">+15; 105</span>) or Shadow Gear Refine Attack (<span class="number">+9; 9</span>).</p>
             </div>
           </div>
         </div>
 
 
         <div id="Equipment">
+          <!-- Tabs -->
           <div class="d-flex flex-wrap" id="Equip-tab" role="tablist">
             <h2 class="fs-5 me-auto">Equipment</h2>
             <div class="tab-buttons">
@@ -530,198 +582,292 @@ footer > a > span:hover {
               <button id="shadow-tab" data-bs-toggle="tab" data-bs-target="#shadow-display" type="button" role="tab" aria-controls="shadow-display" aria-selected="false">Shadow</button>
               <button id="cards-tab" data-bs-toggle="tab" data-bs-target="#cards-display" type="button" role="tab" aria-controls="cards-display" aria-selected="false">Cards</button>
               <button id="enchants-tab" data-bs-toggle="tab" data-bs-target="#enchants-display" type="button" role="tab" aria-controls="enchants-display" aria-selected="false">Enchants</button>
-            </divc>
             </div>
+          </div>
 
-            <!-- Tab content -->
-            <div class="tab-content col-12">
+            <!-- Tabs content -->
+          <div class="tab-content col-12">
 
               <!-- Gear -->
-              <div id="gear-display" class="tab-pane fade show active" role="tabpanel" aria-labelledby="gear-tab" tabindex="0">
+            <div id="gear-display" class="tab-pane fade show active" role="tabpanel" aria-labelledby="gear-tab" tabindex="0">
 
-                <div class="gear-container m-0 p-0 py-4">
-                  <div class="gear-col pt-1">
-                    <div class="d-flex flex-column img-selector gap-1 align-items-end justify-content-center">
-                      <div class="d-flex justify-content-end gap-2"><span>Black Ribbon</span><img src="https://www.novaragnarok.com/data/items/icons2/5899.png"></div>
-                      <div class="d-flex justify-content-end gap-2"><span>Bloock Sucker</span><img src="https://www.novaragnarok.com/data/items/icons2/18754.png"></div>
-                      <div class="d-flex justify-content-end gap-2"><span>Hypocrisy Edge</span><img src="https://www.novaragnarok.com/data/items/icons2/600008.png"></div>
-                      <div class="d-flex justify-content-end gap-2"><span>Temporal Str Manteau</span><img src="https://www.novaragnarok.com/data/items/icons2/20963.png"></div>
-                      <div class="d-flex justify-content-end gap-2"><span>Brilliant Light Ruby Ring</span><img src="https://www.novaragnarok.com/data/items/icons2/490056.png"></div>
+              <div class="gear-container m-0 p-0 py-4 shadow-container">
+                <div class="gear-col pt-1">
+                  <div class="d-flex flex-column gear-slot gap-1 align-items-end justify-content-center">
+                    <div class="d-flex justify-content-end gap-1"><span class="number-purple">+8~10</span><span>Black Ribbon</span><img src="https://www.novaragnarok.com/data/items/icons2/5899.png"></div>
+                    <div class="d-flex justify-content-end gap-1"><span>Bloock Sucker</span><img src="https://www.novaragnarok.com/data/items/icons2/18754.png"></div>
+                    <div class="d-flex justify-content-end gap-1"><span class="number-purple">+12~15</span><span>Hypocrisy Edge</span><img src="https://www.novaragnarok.com/data/items/icons2/600008.png"></div>
+                    <div class="d-flex justify-content-end gap-1"><span class="number-purple">+8~12</span><span>Temporal Str Manteau</span><img src="https://www.novaragnarok.com/data/items/icons2/20963.png"></div>
+                    <div class="d-flex justify-content-end gap-1"><span>Brilliant Light Ruby Ring</span><img src="https://www.novaragnarok.com/data/items/icons2/490056.png"></div>
+                  </div>
+                </div>
+                <div class="m-0 p-0">
+                  <img src="https://i.gyazo.com/80c613b61018867fc96b478deb997543.png" class="img-equip">
+                </div>
+                <div class="gear-col-2 pt-1">
+                  <div class="d-flex flex-column gear-slot gap-1 align-items-start justify-content-center">
+                    <div class="d-flex justify-content-start gap-1"><img src="https://www.novaragnarok.com/data/items/icons2/400001.png"><span>Victory Wing Ears</span></div>
+                    <div class="d-flex justify-content-start gap-1"><img src="https://www.novaragnarok.com/data/items/icons2/450127.png"><span>Automatic Armor A-type</span><span class="number-purple">+11</span></div>
+                    <div class="d-flex justify-content-start gap-1"><img src="https://www.novaragnarok.com/data/items/icons2/600008.png"><span>Hypocrisy Edge</span><span class="number-purple">+12~15</span></div>
+                    <div class="d-flex justify-content-start gap-1"><img src="https://www.novaragnarok.com/data/items/icons2/470066.png"><span>Illusion Sprint Shoes</span><span class="number-purple">+11</span></div>
+                    <div class="d-flex justify-content-start gap-1"><img src="https://www.novaragnarok.com/data/items/icons2/490057.png"><span>Brilliant Light Ruby Necklace</span></div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Shadow -->
+            <div id="shadow-display" class="tab-pane fade" role="tabpanel" aria-labelledby="shadow-tab" tabindex="0">
+
+              <div class="gear-container m-0 p-0 py-4 ">
+                <div class="gear-col pt-1">
+                  <div class="d-flex flex-column gear-slot gap-1 align-items-end justify-content-center">
+                    <div class="d-flex justify-content-end gap-1"><span>Melee Amber [U]</span><img src="https://www.novaragnarok.com/data/items/icons2/1000377.png"></div>
+                    <div class="d-flex justify-content-end gap-1"><span>Melee Amber [L]</span><img src="https://www.novaragnarok.com/data/items/icons2/1000377.png"></div>
+                    <div class="d-flex justify-content-end gap-1"><span class="number-purple">+9</span><span>Perfect Size Shadow Gauntlet</span><img src="https://www.novaragnarok.com/data/items/icons2/24425.png"></div>
+                    <div class="d-flex justify-content-end gap-1"><span>HP Absorb Onyx [G]</span><img src="https://www.novaragnarok.com/data/items/icons2/25209.png"></div>
+                    <div class="d-flex justify-content-end gap-1"><span class="number-purple">+5~10</span><span>Almighty Shadow Focus</span><img src="https://www.novaragnarok.com/data/items/icons2/24339.png"></div>
+                  </div>
+                </div>
+                <div class="m-0 p-0">
+                  <img src="https://i.gyazo.com/80c613b61018867fc96b478deb997543.png" class="img-equip">
+                </div>
+                <div class="gear-col-2 pt-1">
+                  <div class="d-flex flex-column gear-slot gap-1 align-items-start justify-content-center">
+                    <div class="d-flex justify-content-start gap-1"><img src="https://www.novaragnarok.com/data/items/icons2/1000377.png"><span>Melee Amber [M]</span></div>
+                    <div class="d-flex justify-content-start gap-1"><img src="https://www.novaragnarok.com/data/items/icons2/24245.png"><span>Reload Shadow Armor</span><span class="number-purple">+9</span></div>
+                    <div class="d-flex justify-content-start gap-1"><img src="https://www.novaragnarok.com/data/items/icons2/24244.png"><span>Reload Shadow Shield</span><span class="number-purple">+9</span></div>
+                    <div class="d-flex justify-content-start gap-1"><img src="https://www.novaragnarok.com/data/items/icons2/24243.png"><span>Reload Shadow Boots</span><span class="number-purple">+9</span></div>
+                    <div class="d-flex justify-content-start gap-1"><img src="https://www.novaragnarok.com/data/items/icons2/24340.png"><span>Almighty Shadow Brooch</span><span class="number-purple">+5~10</span></div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Cards -->
+            <div id="cards-display" class="tab-pane fade" role="tabpanel" aria-labelledby="cards-tab" tabindex="0">
+
+              <div class="gear-container m-0 p-0 py-4 ">
+                <div class="gear-col pt-1">
+                  <div class="d-flex flex-column gear-slot gap-1 align-items-end justify-content-center">
+                    <div class="d-flex justify-content-end gap-1"><span>Purple Ferus</span><img src="https://www.novaragnarok.com/data/items/icons2/4009.png"></div>
+                    <div class="d-flex justify-content-end gap-1"><span><i class="pe-2">Empty</i></span></div>
+                    <div class="d-flex justify-content-end gap-1"><span>Contaminated Wanderer</span><img src="https://www.novaragnarok.com/data/items/icons2/4009.png"></div>
+                    <div class="d-flex justify-content-end gap-1"><span>Happiness Giver</span><img src="https://www.novaragnarok.com/data/items/icons2/4009.png"></div>
+                    <div class="d-flex justify-content-end gap-1"><span>Revolver Buffalo Bandit</span><img src="https://www.novaragnarok.com/data/items/icons2/4009.png"></div>
+                  </div>
+                </div>
+                <div class="m-0 p-0">
+                  <img src="https://i.gyazo.com/80c613b61018867fc96b478deb997543.png" class="img-equip">
+                </div>
+                <div class="gear-col-2 pt-1">
+                  <div class="d-flex flex-column gear-slot gap-1 align-items-start justify-content-center">
+                    <div class="d-flex justify-content-start gap-1"><img src="https://www.novaragnarok.com/data/items/icons2/4009.png">
+                      <select class="form-select">
+                        <option selected>Purple Ferus</option>
+                        <option>Furious Hero</option>
+                      </select>
                     </div>
-                  </div>
-                  <div class="m-0 p-0">
-                    <img src="https://i.gyazo.com/80c613b61018867fc96b478deb997543.png" class="img-equip">
-                  </div>
-                  <div class="gear-col-2 pt-1">
-                    <div class="d-flex flex-column img-selector gap-1 align-items-start justify-content-center">
-                      <div class="d-flex justify-content-start gap-2"><img src="https://www.novaragnarok.com/data/items/icons2/400001.png"><span>Victory Wing Ears</span></div>
-                      <div class="d-flex justify-content-start gap-2"><img src="https://www.novaragnarok.com/data/items/icons2/450127.png"><span>Automatic Armor A-type</span></div>
-                      <div class="d-flex justify-content-start gap-2"><img src="https://www.novaragnarok.com/data/items/icons2/600008.png"><span>Hypocrisy Edge</span></div>
-                      <div class="d-flex justify-content-start gap-2"><img src="https://www.novaragnarok.com/data/items/icons2/470066.png"><span>Illusion Sprint Shoes</span></div>
-                      <div class="d-flex justify-content-start gap-2"><img src="https://www.novaragnarok.com/data/items/icons2/490057.png"><span>Brilliant Light Ruby Necklace</span></div>
+                    <div class="d-flex justify-content-start gap-1"><img src="https://www.novaragnarok.com/data/items/icons2/4009.png"><span>Mistress of Shelter</span></div>
+                    <div class="d-flex justify-content-start gap-1"><img src="https://www.novaragnarok.com/data/items/icons2/4009.png">
+                      <select class="form-select">
+                        <option selected>Rekenber Guard</option>
+                        <option>Contaminated Wanderer</option>
+                        <option>Greater Special Alnoldi</option>
+                      </select>
+                    </div>
+                    <div class="d-flex justify-content-start gap-1"><img src="https://www.novaragnarok.com/data/items/icons2/4009.png">
+                      <select class="form-select">
+                        <option selected>Outrageous Cookie</option>
+                        <option>Ifodes</option>
+                      </select>
+                    </div>
+                    <div class="d-flex justify-content-start gap-1"><img src="https://www.novaragnarok.com/data/items/icons2/4009.png">
+                      <select class="form-select">
+                        <option selected>Gigantes</option>
+                        <option>Shotgun Buffalo Bandit</option>
+                        <option>Chaotic Acolyte</option>
+                      </select>
                     </div>
                   </div>
                 </div>
-
               </div>
 
-              <!-- Shadow -->
-              <div id="shadow-display" class="tab-pane fade" role="tabpanel" aria-labelledby="shadow-tab" tabindex="0">
+            </div>
 
-                <div class="gear-container m-0 p-0 py-4 ">
-                  <div class="gear-col pt-1">
-                    <div class="d-flex flex-column img-selector gap-1 align-items-end justify-content-center">
-                      <div class="d-flex justify-content-end gap-2"><span>Melee Amber [U]</span><img src="https://www.novaragnarok.com/data/items/icons2/1000377.png"></div>
-                      <div class="d-flex justify-content-end gap-2"><span>Melee Amber [L]</span><img src="https://www.novaragnarok.com/data/items/icons2/1000377.png"></div>
-                      <div class="d-flex justify-content-end gap-2"><span>Perfect Size Shadow Gauntlet</span><img src="https://www.novaragnarok.com/data/items/icons2/24425.png"></div>
-                      <div class="d-flex justify-content-end gap-2"><span>HP Absorb Onyx [G]</span><img src="https://www.novaragnarok.com/data/items/icons2/25209.png"></div>
-                      <div class="d-flex justify-content-end gap-2"><span>Almighty Shadow Focus</span><img src="https://www.novaragnarok.com/data/items/icons2/24339.png"></div>
+            <!-- Enchants -->
+            <div id="enchants-display" class="tab-pane fade position-relative" role="tabpanel" aria-labelledby="enchants-tab" tabindex="0">
+
+              <div class="gear-container m-0 p-0 py-4">
+                <div class="gear-col pt-1">
+                  <div class="d-flex flex-column gear-slot gap-1 align-items-end justify-content-center">
+                    <div class="d-flex justify-content-end gap-1"><span><i class="pe-2">Empty</i></span></div>
+                    <div class="d-flex justify-content-end gap-1"><span><i class="pe-2">Empty</i></span></div>
+                    <div class="d-flex justify-content-end gap-1">
+                      <select class="form-select right">
+                        <option selected>Atk 3~5%, Melee 14~20%</option>
+                        <option>Atk 3~5%, Undead 14~20%</option>
+                        <option>Undead 14~20%, Undead 14~20%</option>
+                        <option>Neutral 14~20%, Melee 10~20%</option>
+                        <option>Neutral 14~20%, Formless 14~20%</option>
+                        <option>Ghost 14~20%, Demon 14~20%</option>
+                        <option>Ghost 14~20%, Formless 14~20%</option>
+                      </select>
                     </div>
-                  </div>
-                  <div class="m-0 p-0">
-                    <img src="https://i.gyazo.com/80c613b61018867fc96b478deb997543.png" class="img-equip">
-                  </div>
-                  <div class="gear-col-2 pt-1">
-                    <div class="d-flex flex-column img-selector gap-1 align-items-start justify-content-center">
-                      <div class="d-flex justify-content-start gap-2"><img src="https://www.novaragnarok.com/data/items/icons2/1000377.png"><span>Melee Amber [M]</span></div>
-                      <div class="d-flex justify-content-start gap-2"><img src="https://www.novaragnarok.com/data/items/icons2/24245.png"><span>Reload Shadow Armor</span></div>
-                      <div class="d-flex justify-content-start gap-2"><img src="https://www.novaragnarok.com/data/items/icons2/24244.png"><span>Reload Shadow Shield</span></div>
-                      <div class="d-flex justify-content-start gap-2"><img src="https://www.novaragnarok.com/data/items/icons2/24243.png"><span>Reload Shadow Boots</span></div>
-                      <div class="d-flex justify-content-start gap-2"><img src="https://www.novaragnarok.com/data/items/icons2/24340.png"><span>Almighty Shadow Brooch</span></div>
+                    <div class="d-flex justify-content-end gap-1">
+                      <select class="form-select right">
+                        <option selected>Atk <span class="number">6%</span></option>
+                        <option>Atk <span class="number">5%</span></option>
+                      </select>
+                    </div>
+                    <div class="d-flex justify-content-end gap-1">
+                      <select class="form-select right">
+                        <option selected>Anger Lv 5, Divine Evil Lv 5</option>
+                        <option>Anger Lv 5, Divine Evil Lv 4</option>
+                        <option>Anger Lv 5, Divine Evil Lv 3</option>
+                        <option>Anger Lv 4, Divine Evil Lv 3</option>
+                        <option>Anger Lv 3, Divine Evil Lv 3</option>
+                      </select>
                     </div>
                   </div>
                 </div>
-
-              </div>
-
-              <!-- Cards -->
-              <div id="cards-display" class="tab-pane fade" role="tabpanel" aria-labelledby="cards-tab" tabindex="0">
-
-                <div class="gear-container m-0 p-0 py-4 ">
-                  <div class="gear-col pt-1">
-                    <div class="d-flex flex-column img-selector gap-1 align-items-end justify-content-center">
-                      <div class="d-flex justify-content-end gap-2"><span>Purple Ferus</span><img src="https://www.novaragnarok.com/data/items/icons2/4009.png"></div>
-                      <div class="d-flex justify-content-end gap-2"><span><i class="pe-2">Empty</i></span></div>
-                      <div class="d-flex justify-content-end gap-2"><span>Contaminated Wanderer</span><img src="https://www.novaragnarok.com/data/items/icons2/4009.png"></div>
-                      <div class="d-flex justify-content-end gap-2"><span>Happiness Giver</span><img src="https://www.novaragnarok.com/data/items/icons2/4009.png"></div>
-                      <div class="d-flex justify-content-end gap-2"><span>Revolver Buffalo Bandit</span><img src="https://www.novaragnarok.com/data/items/icons2/4009.png"></div>
+                <div class="m-0 p-0">
+                  <img src="https://i.gyazo.com/80c613b61018867fc96b478deb997543.png" class="img-equip">
+                </div>
+                <div class="gear-col-2 pt-1">
+                  <div class="d-flex flex-column gear-slot gap-1 align-items-start justify-content-center">
+                    <div class="d-flex justify-content-start gap-1">
+                      <select class="form-select">
+                        <option selected>10 Atk, 3% Atk</option>
+                        <option>3% After Cast Delay, 3% Atk</option>
+                        <option>[x2] 3% After Cast Delay</option>
+                      </select>
                     </div>
-                  </div>
-                  <div class="m-0 p-0">
-                    <img src="https://i.gyazo.com/80c613b61018867fc96b478deb997543.png" class="img-equip">
-                  </div>
-                  <div class="gear-col-2 pt-1">
-                    <div class="d-flex flex-column img-selector gap-1 align-items-start justify-content-center">
-                      <div class="d-flex justify-content-start gap-2"><img src="https://www.novaragnarok.com/data/items/icons2/4009.png">
-                        <select class="form-select">
-                          <option selected>Purple Ferus</option>
-                          <option>Furious Hero</option>
-                        </select>
-                      </div>
-                      <div class="d-flex justify-content-start gap-2"><img src="https://www.novaragnarok.com/data/items/icons2/4009.png"><span>Mistress of Shelter</span></div>
-                      <div class="d-flex justify-content-start gap-2"><img src="https://www.novaragnarok.com/data/items/icons2/4009.png">
-                        <select class="form-select">
-                          <option selected>Rekenber Guard</option>
-                          <option>Contaminated Wanderer</option>
-                          <option>Greater Special Alnoldi</option>
-                        </select>
-                      </div>
-                      <div class="d-flex justify-content-start gap-2"><img src="https://www.novaragnarok.com/data/items/icons2/4009.png">
-                        <select class="form-select">
-                          <option selected>Outrageous Cookie</option>
-                          <option>Ifodes</option>
-                        </select>
-                      </div>
-                      <div class="d-flex justify-content-start gap-2"><img src="https://www.novaragnarok.com/data/items/icons2/4009.png">
-                        <select class="form-select">
-                          <option selected>Gigantes</option>
-                          <option>Shotgun Buffalo Bandit</option>
-                          <option>Chaotic Acolyte</option>
-                        </select>
-                      </div>
+                    <div class="d-flex justify-content-start gap-1"><span>[x2] Power, Attacker Force</span></div>
+                    <div class="d-flex justify-content-start gap-1">
+                      <select class="form-select">
+                        <option selected>Normal 6~10%</option>
+                        <option>Boss 6~10%</option>
+                      </select>
+                    </div>
+                    <div class="d-flex justify-content-start gap-1"><span>[x2] Powerful Nive Lv 2</span></div>
+                    <div class="d-flex justify-content-start gap-1">
+                      <select class="form-select">
+                        <option selected>Anger Lv 5, Divine Evil Lv 5</option>
+                        <option>Anger Lv 5, Divine Evil Lv 4</option>
+                        <option>Anger Lv 5, Divine Evil Lv 3</option>
+                        <option>Anger Lv 4, Divine Evil Lv 3</option>
+                        <option>Anger Lv 3, Divine Evil Lv 3</option>
+                      </select>
                     </div>
                   </div>
                 </div>
-
               </div>
 
-              <!-- Enchants -->
-              <div id="enchants-display" class="tab-pane fade position-relative" role="tabpanel" aria-labelledby="enchants-tab" tabindex="0">
+            </div>
 
-                <div class="gear-container m-0 p-0 py-4">
-                  <div class="gear-col pt-1">
-                    <div class="d-flex flex-column img-selector gap-1 align-items-end justify-content-center">
-                      <div class="d-flex justify-content-end gap-2"><span><i class="pe-2">Empty</i></span></div>
-                      <div class="d-flex justify-content-end gap-2"><span><i class="pe-2">Empty</i></span></div>
-                      <div class="d-flex justify-content-end gap-2">
-                        <select class="form-select right">
-                          <option selected>Atk 3~5%, Melee 14~20%</option>
-                          <option>Atk 3~5%, Undead 14~20%</option>
-                          <option>Undead 14~20%, Undead 14~20%</option>
-                          <option>Neutral 14~20%, Melee 10~20%</option>
-                          <option>Neutral 14~20%, Formless 14~20%</option>
-                          <option>Ghost 14~20%, Demon 14~20%</option>
-                          <option>Ghost 14~20%, Formless 14~20%</option>
-                        </select>
-                      </div>
-                      <div class="d-flex justify-content-end gap-2">
-                        <select class="form-select right">
-                          <option selected>Atk <span class="number">6%</span></option>
-                          <option>Atk <span class="number">5%</span></option>
-                        </select>
-                      </div>
-                      <div class="d-flex justify-content-end gap-2">
-                        <select class="form-select right">
-                          <option selected>Anger Lv 5, Divine Evil Lv 5</option>
-                          <option>Anger Lv 5, Divine Evil Lv 4</option>
-                          <option>Anger Lv 5, Divine Evil Lv 3</option>
-                          <option>Anger Lv 4, Divine Evil Lv 3</option>
-                          <option>Anger Lv 3, Divine Evil Lv 3</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="m-0 p-0">
-                    <img src="https://i.gyazo.com/80c613b61018867fc96b478deb997543.png" class="img-equip">
-                  </div>
-                  <div class="gear-col-2 pt-1">
-                    <div class="d-flex flex-column img-selector gap-1 align-items-start justify-content-center">
-                      <div class="d-flex justify-content-start gap-2">
-                        <select class="form-select">
-                          <option selected>10 Atk, 3% Atk</option>
-                          <option>3% After Cast Delay, 3% Atk</option>
-                          <option>x2 3% After Cast Delay</option>
-                        </select>
-                      </div>
-                      <div class="d-flex justify-content-start gap-2"><span><span class="number">x2</span> Power, Attacker Force</span></div>
-                      <div class="d-flex justify-content-start gap-2">
-                        <select class="form-select">
-                          <option selected>Normal 6~10%</option>
-                          <option>Boss 6~10%</option>
-                        </select>
-                      </div>
-                      <div class="d-flex justify-content-start gap-2"><span><span class="number">x2</span> Powerful Nive Lv 2</span></div>
-                      <div class="d-flex justify-content-start gap-2">
-                        <select class="form-select">
-                          <option selected>Anger Lv 5, Divine Evil Lv 5</option>
-                          <option>Anger Lv 5, Divine Evil Lv 4</option>
-                          <option>Anger Lv 5, Divine Evil Lv 3</option>
-                          <option>Anger Lv 4, Divine Evil Lv 3</option>
-                          <option>Anger Lv 3, Divine Evil Lv 3</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
+              <!-- Damage calculations -->
+            <div class="d-flex w-100 justify-content-center my-3"> <!-- Parent giving 100% width -->
+              <div id="Calculations" class="p-3">
+                <div class="d-flex p-2">
+                  <h2 class="fs-5 me-auto">
+                    Damage calculations
+                  </h2>
+                  <span class="align-self-end header small" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Swapping gear alters the damage values">
+                    <i class="fa-regular fa-lightbulb"></i> Upcoming!
+                  </span>
                 </div>
+                <div class="calc-container border-rounded shadow-container row p-0 m-0 p-3">
+                  <div class="header w-100 d-flex align-items-baseline m-0 p-0"><p class="me-auto p-0 fw-bold">Average damage against</p> <div class="fw-bold" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Flat damage, not DPS"><i class="fa-solid fa-triangle-exclamation fa-sm text-white"></i></div></div>
+                  <!-- Dummy -->
+                  <div class="col-12 col-md-6 m-0 p-0 p-2">
+                    <p class="header">Dummy</p>
+                    <div class="d-flex flex-wrap gap-1">
+                      <p class="me-auto">Small</p>
+                      <p class="number">1,833,548</p>
+                    </div>
+                    <div class="d-flex flex-wrap gap-1">
+                      <p class="me-auto">Medium</p>
+                      <p class="number">2,114,918</p>
+                    </div>
+                    <div class="d-flex flex-wrap gap-1">
+                      <p class="me-auto">Large</p>
+                      <p class="number">2,437,674</p>
+                    </div>
+                    <hr>
+                  </div>
 
+                  <!-- Einbech 3 -->
+                  <div class="col-12 col-md-6 m-0 p-0 p-2">
+                    <p class="header">Einbech 3 <img src="https://www.novaragnarok.com/data/items/icons2/29989.png" width="22" height="22" class="d-inline"></p>
+                    <div class="d-flex flex-wrap gap-1">
+                      <p class="me-auto">Porcellio <span class="number-purple">(Earth 4)</span></p>
+                      <p class="number">3,447,567</p>
+                    </div>
+                    <div class="d-flex flex-wrap gap-1">
+                      <p class="me-auto">Abyssman <span class="number-purple">(Neutral 4)</span></p>
+                      <p class="number">2,437,674</p>
+                    </div>
+                    <div class="d-flex flex-wrap gap-1">
+                      <p class="me-auto">Mineral <span class="number-purple">(Neutral 4)</span></p>
+                      <p class="number">2,437,674</p>
+                    </div>
+                    <hr>
+                  </div>
+
+                  <!-- Thanathos F12 -->
+                  <div class="col-12 col-md-6 m-0 p-0 p-2">
+                    <p class="header">Thanatos F12 <img src="https://www.novaragnarok.com/data/items/icons2/32107.png" width="22" height="22"></p>
+                    <div class="d-flex flex-wrap gap-1">
+                      <p class="me-auto">Anger <span class="number-purple">(Fire 4)</span></p>
+                      <p class="number">2,685,556</p>
+                    </div>
+                    <div class="d-flex flex-wrap gap-1">
+                      <p class="me-auto">Horror <span class="number-purple">(Poison 4)</span></p>
+                      <p class="number">3,210,271</p>
+                    </div>
+                    <div class="d-flex flex-wrap gap-1">
+                      <p class="me-auto">Resentment <span class="number-purple">(Ghost 4)</span></p>
+                      <p class="number">2,842,091</p>
+                    </div>
+                    <div class="d-flex flex-wrap gap-1">
+                      <p class="me-auto">Regret <span class="number-purple">(Ghost 4)</span></p>
+                      <p class="number">3,320,425</p>
+                    </div>
+                  </div>
+
+                  <!-- Juperos -->
+                  <div class="col-12 col-md-6 m-0 p-0 p-2">
+                    <p class="header">Juperos</p>
+                    <div class="d-flex flex-wrap gap-1">
+                      <p class="me-auto">Apocalypse <span class="number-purple">(Holy 2)</span></p>
+                      <p class="number">2,437,674</p>
+                    </div>
+                    <div class="d-flex flex-wrap gap-1">
+                      <p class="me-auto">Archdam <span class="number-purple">(Ghost 2)</span></p>
+                      <p class="number">1,234,284</p>
+                    </div>
+                    <div class="d-flex flex-wrap gap-1">
+                      <p class="me-auto">Robot <span class="number-purple">(Dark 2)</span></p>
+                      <p class="number">2,437,674</p>
+                    </div>
+                    <div class="d-flex flex-wrap gap-1">
+                      <p class="me-auto">Excavator <span class="number-purple">(Poison 2)</span></p>
+                      <p class="number">1,833,548</p>
+                    </div>
+                  </div>
+
+                </div>
               </div>
+            </div>
 
               
 
-            </div> <!-- Tab content -->
-
-          </div>
-        </div>
+          </div> <!-- Tabs content -->
+        </div> <!-- Tabs -->
+      </div>
 
         <h3>Stats</h3>
         <span>1</span>
@@ -736,10 +882,6 @@ footer > a > span:hover {
         <h3>Consumables</h3>
         <span>1s</span>
         <div>
-          <h2>Alternative end-game items & cards</h2>
-          <ul>
-            <li>a</li>
-          </ul>
           <h2>Dungeon farming items</h2>
           <ul>
             <li>a</li>
