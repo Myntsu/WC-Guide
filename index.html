@@ -79,6 +79,8 @@ main {
 main .container {
   color: hsl(var(--light));
   background-color: hsl(var(--container-dark));
+
+  border-radius: 0 0 .5em .5em;
 }
 
 @media only screen and (max-width: 990px) {
@@ -105,6 +107,58 @@ main .container {
   font-weight: bold;
   color: hsl(var(--number-purple));
 }
+
+/* Footer */
+footer  {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1em;
+
+  margin: 0;
+  padding: 2em 0;
+
+  font-size: 1rem;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+
+  color: hsl(var(--light));
+  background-color: hsl(var(--bg-dark));
+}
+footer p {
+  margin: 0;
+  padding: 0;
+}
+
+footer a {
+  text-decoration: none;
+  color: hsl(var(--important-light));
+}
+
+footer a:hover {
+  color: hsl(var(--important-light), 60%);
+}
+
+footer > a > span:hover {
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 570px) {
+  footer > * {
+    text-align: center;
+    width: 100%;
+    gap: 0;
+  }
+
+  footer p {
+    padding-top: .75em;
+  }
+
+  footer a {
+    padding-bottom: .75em;
+  }
+}
+/* End */
 
 /* Build + Links */
 .build {
@@ -297,15 +351,20 @@ main .container {
   border-radius: .5em 0 .5em .5em;
 }
 
-@media only screen and (max-width: 801px) {
+@media only screen and (max-width: 1130px){
   .gear-container {
     overflow-x: scroll;
+    justify-content: start;
   }
+}
+
+.img-selector {
+  width: 300px;
 }
 
 .img-selector img {
   width: 22px;
-  height: auto;
+  height: 22px;
 }
 
 .img-equip {
@@ -325,8 +384,6 @@ main .container {
 
   color: hsl(var(--dark));
   background-color: white;
-
-  word-break: keep-all;
 }
 
 .gear-col-2 {
@@ -477,7 +534,7 @@ main .container {
               <!-- Gear -->
               <div id="gear-display" class="tab-pane fade show active" role="tabpanel" aria-labelledby="gear-tab" tabindex="0">
 
-                <div class="gear-container m-0 p-0 py-4 ">
+                <div class="gear-container m-0 p-0 py-4">
                   <div class="gear-col pt-1">
                     <div class="d-flex flex-column img-selector gap-1 align-items-end justify-content-center">
                       <div class="d-flex justify-content-end gap-2"><span>Black Ribbon</span><img src="https://www.novaragnarok.com/data/items/icons2/5899.png"></div>
@@ -666,18 +723,22 @@ main .container {
 
   </main>
 
+  <footer>
+    <p>Created by <i class="fa-brands fa-discord"></i> Myndi#5041</p>
+    <span class="d-none d-md-inline">|</span>
+    <a href="https://www.buymeacoffee.com/myndi"><i class="fa-solid fa-mug-saucer"></i> <span>Buy me a coffee</span></a>
+  </footer>
+
   <!-- Modal -->
   <div class="modal fade roboto-300-14" id="MyndiModal" tabindex="-1" aria-labelledby="#MyndiModalBody" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content bg-dark text-white">
         <div class="modal-header">
-          <h5 class="modal-title fw-normal" id="MyndiModalBody">About the creator</h5>
+          <h5 class="modal-title fw-normal" id="MyndiModalBody">not functioning lul</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p>This webpage is made by <span><i class="fa-brands fa-discord discord-logo fa-bounce"></i></span> <span class="roboto-500"><a id="Myndi" class="discord-color" href="https://discordapp.com/users/124421052569878528/" target="_blank">Myndi#5041</a></span>.</p>
-          <p>All you see here is done with their own experience, and by doing some extra research, additionally to <span class="discord-color roboto-500">Bootstrap and jQuery</span>.</p>
-          <p>If you want to learn more about it, how to make your own webpages or much more, please contact them.</p>
+          test
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
