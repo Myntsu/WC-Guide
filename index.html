@@ -61,6 +61,7 @@
 
   --number-purple: 244, 55%, 70%;
   --number: 120, 68%, 62%;
+  --bababoi: hsl(221, 65%, 19%);
 }
 
 *:hover {
@@ -74,7 +75,24 @@ main {
 
   color: hsl(var(--light));
   background-color: hsl(var(--dark));
-  padding: 3rem 8rem;
+  padding: 3rem 9rem;
+
+  background-image: url('/assets/img/bg/ragnarok-x-game-class-hd-wallpaper-1920x1080-uhdpaper.com-31.0_b.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  position: relative;
+  isolation: isolate;
+}
+
+main::after {
+  content: '';
+  position: absolute;
+  background-color: hsl(var(--bg-dark));
+  inset: 0;
+  z-index: -2;
+  opacity: .94;
+  
 }
 
 main .container {
@@ -124,7 +142,7 @@ main .container {
 }
 
 /* Footer */
-footer  {
+footer {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -139,6 +157,9 @@ footer  {
 
   color: hsl(var(--light));
   background-color: hsl(var(--bg-dark));
+
+  box-shadow: 0 0 50px 0 hsl(var(--container-light), 50%);
+  isolation: isolate;
 }
 footer p {
   margin: 0;
@@ -177,8 +198,24 @@ footer > a > span:hover {
 
 /* Build + Links */
 .build {
+  position: relative;
+  isolation: isolate;
+
+  background-image: url('/assets/img/bg/ragnarok-x-game-class-hd-wallpaper-1920x1080-uhdpaper.com-31.0_b.jpg');
+  background-position: 50% 45%;
+
   border-radius: .5em .5em 0 0;
-  padding: 2em;
+}
+
+.build::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background-color: hsl(var(--container-dark));
+  opacity: 0.7;
+
+  border-radius: .5em .5em 0 0;
 }
 
 .build h1 {
@@ -188,6 +225,7 @@ footer > a > span:hover {
 
 .build h2, .build h3 {
   font-size: 1rem;
+  
 }
 
 .build h3 {
@@ -218,7 +256,7 @@ footer > a > span:hover {
   .content-table .link {
     width: 50% !important;
     outline: .1ex solid hsl(var(--light), 5%);
-    outline-offset: -.1ex;
+    outline-offset: -.2ex;
   }
 }
 
@@ -226,7 +264,7 @@ footer > a > span:hover {
   .content-table .link {
     width: 100% !important;
     outline: .1ex solid hsl(var(--light), 5%);
-    outline-offset: -.1ex;
+    outline-offset: -.2ex;
   }
 }
 
@@ -433,6 +471,7 @@ footer > a > span:hover {
 }
 /* End */
 
+/* Calculations + math */
 #Calculations {
   color: hsl(var(--text-gray));
   width: 100%;
@@ -465,49 +504,23 @@ footer > a > span:hover {
 .calc-container {
   background-color: hsl(var(--container-lighter));
 }
+/* End */
+
 </style>
 
 <body>
 
-  <!-- Navigation bar -->
-  <nav id="navegation" class="navbar navbar-expand-lg text-white mont-alt-300-14 px-3 py-0 py-lg-1 sticky-top bg-dark">
-    <div class="container-fluid mx-5">
-      <a class="navbar-brand" href="https://www.novaragnarok.com/?module=main" target="_blank"><img src="assets/img/logo/memberLoginLogo.webp" alt="NovaRO Logo" style="width: 48px; height: 48px;"></a>
-      <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <!-- List -->
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 tabs text-center">
-            <li class="nav-item mx-5 mx-lg-2 my-2 mx-lg-0">
-              <a class="nav-link text-white btn" style="cursor: not-allowed;">
-                <i class="fa-solid fa-house"></i> <span> Home</span>
-              </a>
-            </li>
-            <li class="nav-item mx-5 mx-lg-2 my-2 mx-lg-0">
-              <a class="nav-link text-white btn" style="cursor: not-allowed;">
-                <i class="fa-solid fa-book"></i> <span> Guides</span>
-              </a>
-            </li>
-          </ul>
-          <div class="text-center d-none d-lg-flex justify-content-end">
-            <button type="button" class="bg-transparent justify-content-center border-0" data-bs-toggle="modal" data-bs-target="#MyndiModal">
-              <img src="assets/img/icons/3671842_question_icon.png" class=" mx-auto mb-1" width="16" height="16">
-            </button>
-          </div>
-      </div>
-    </div>
-  </nav>
-  <!-- // End -->
-
   <!-- Main -->
   <main>
 
+    <div class="bg-image"></div>
+    <div class="bg-blur"></div>
+
       <!-- Information + content table -->
-      <div class="container p-0 build">
+      <div class="build">
         <h2 class="ps-3 pt-3 m-0">Nova Ragnarok</h2>
         <h1 class="ps-3 py-1 m-0">Wind Cutter</h1>
-        <h3 class="ps-3 pb-3 m-0">Physical <span>• Rune Knight</span></h3>
+        <h3 class="ps-3 pb-3 m-0"><b>PVE</b> <span>• Rune Knight</span></h3>
         <div class="content-table">
           <a class="link" aria-current="page" href="#Equipment">Equipment</a>
           <a class="link" href="#Calculations">Calculations</a>
@@ -523,7 +536,8 @@ footer > a > span:hover {
         <div class="col-12 mb-4">
           <h2 class="fs-5">Introduction</h2>
           <div id="Author" class="px-3 pt-2 pb-3">
-            <p class="d-flex align-items-baseline gap-1">Hello! My name is <b>Myndi.</b> <img src="https://cdn.discordapp.com/emojis/800858355832324106.webp?size=96&quality=lossless" alt="" width="38" class="d-inline"></p>
+            <h3 class="fs-5 m-0 p-0 pt-3 pb-2">Author</h3>
+            <p class="d-flex align-items-baseline gap-1">Hello! My name is <b>Myndi.</b></p>
             <p>Been playing Ragnarok for quite a while.</p>
             <p>Introductions, long paragraphs, too much text; aren't my thing.</p>
             <p>Hopefully this build is as helpful for you as it was for me.</p>
@@ -771,11 +785,11 @@ footer > a > span:hover {
               <!-- Damage calculations -->
             <div class="d-flex w-100 justify-content-center my-3"> <!-- Parent giving 100% width -->
               <div id="Calculations" class="p-3">
-                <div class="d-flex p-2">
+                <div class="d-flex">
                   <h2 class="fs-5 me-auto">
                     Damage calculations
                   </h2>
-                  <span class="align-self-end header small" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Swapping gear alters the damage values">
+                  <span class="align-self-end header small" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Swapping gear alters the damage values below">
                     <i class="fa-regular fa-lightbulb"></i> Upcoming!
                   </span>
                 </div>
