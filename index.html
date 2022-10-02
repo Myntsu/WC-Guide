@@ -77,9 +77,10 @@ main {
   background-color: hsl(var(--dark));
   padding: 3rem 9rem;
 
-  background-image: url('assets/img/bg/ragnarok-x-game-class-hd-wallpaper-1920x1080-uhdpaper.com-31.0_b.jpg');
-  background-repeat: no-repeat;
-  background-size: contain;
+  background-image: linear-gradient(0deg, hsl(var(--bg-dark)) 80%, transparent),
+                    url('assets/img/bg/ragnarok-x-game-class-hd-wallpaper-1920x1080-uhdpaper.com-31.0_b.jpg');
+  background-repeat: repeat-x;
+  background-position: top center;
 
   position: relative;
   isolation: isolate;
@@ -91,7 +92,7 @@ main::after {
   background-color: hsl(var(--bg-dark));
   inset: 0;
   z-index: -2;
-  opacity: .94;
+  opacity: .75;
   
 }
 
@@ -140,6 +141,24 @@ main .container {
   font-weight: bold;
   color: hsl(var(--important-light));
 }
+
+/* P swap on hover */
+.text-swap {
+  display: none;
+}
+
+.div-hover:is(:focus, :hover):has(.text-default) .text-default {
+  display: none;
+}
+
+.div-hover:is(:focus, :hover):has(.text-default) .text-swap {
+  display: block;
+}
+
+div-hover:hover:is(.fa-toggle-on, .fa-goggle-off) {
+  --fa-animation-duration: 0.2s;
+}
+/* End */
 
 /* Footer */
 footer {
@@ -204,7 +223,7 @@ footer > a > span:hover {
   background-image: url('assets/img/bg/ragnarok-x-game-class-hd-wallpaper-1920x1080-uhdpaper.com-31.0_b.jpg');
   background-position: 50% 45%;
 
-  border-radius: .5em .5em 0 0;
+  border-radius: .5em .5em 0 0 !important;
 }
 
 .build::after {
@@ -226,10 +245,6 @@ footer > a > span:hover {
 .build h2, .build h3 {
   font-size: 1rem;
   
-}
-
-.build h3 {
-  color: hsl(var(--important-light));
 }
 
 .build h3 > span {
@@ -330,6 +345,11 @@ footer > a > span:hover {
   color: hsl(var(--light));
 }
 
+#Data {
+  min-width: 350px;
+
+}
+
 #Observations {
   flex: 1;
   display: flex;
@@ -340,6 +360,10 @@ footer > a > span:hover {
   #Data, #Observations {
     flex: auto;
     width: 100%;
+  }
+
+  #Data {
+    min-width: auto;
   }
 }
 
@@ -506,6 +530,67 @@ footer > a > span:hover {
 }
 /* End */
 
+/* Status, Battle Stats, Pets */
+.stats-battle-pets {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 1em;
+}
+
+.stats-battle-pets > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.stats-battle-pets-cont {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  background-color: hsl(var(--container-light));
+  border-radius: .5em;
+}
+
+#Status, #Battle-Stats, #Pets {
+  color: hsl(var(--text-gray));
+  background-color: hsl(var(--container-lighter));
+}
+
+#Status {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+#Status span:nth-child(1) {
+  color: hsl(var(--number-purple));
+}
+
+#Status span:nth-child(2) {
+  color: hsl(var(--number));
+}
+
+#Battle-Stats {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 100%;
+}
+
+#Battle-Stats span:nth-child(1) {
+  color: hsl(var(--header-light));
+}
+
+#Battle-Stats span:nth-child(2) {
+  color: hsl(var(--number));
+}
+
+
+/* End */
+
 </style>
 
 <body>
@@ -513,17 +598,14 @@ footer > a > span:hover {
   <!-- Main -->
   <main>
 
-    <div class="bg-image"></div>
-    <div class="bg-blur"></div>
-
       <!-- Information + content table -->
-      <div class="build">
+      <div class="build container p-0">
         <h2 class="ps-3 pt-3 m-0">Nova Ragnarok</h2>
         <h1 class="ps-3 py-1 m-0">Wind Cutter</h1>
         <h3 class="ps-3 pb-3 m-0"><b>PVE</b> <span>• Rune Knight</span></h3>
         <div class="content-table">
           <a class="link" aria-current="page" href="#Equipment">Equipment</a>
-          <a class="link" href="#Calculations">Calculations</a>
+          <a class="link" href="#Status">Status</a>
           <a class="link" href="#Consumables">Consumables</a>
           <a class="link" href="#Guide">Guide</a>
         </div>
@@ -537,9 +619,9 @@ footer > a > span:hover {
           <h2 class="fs-5">Introduction</h2>
           <div id="Author" class="px-3 pt-2 pb-3">
             <h3 class="fs-5 m-0 p-0 pt-3 pb-2">Author</h3>
-            <p class="d-flex align-items-baseline gap-1">Hello! My name is <b>Myndi.</b></p>
-            <p>Been playing Ragnarok for quite a while.</p>
-            <p>Introductions, long paragraphs, too much text; aren't my thing.</p>
+            <p>Hello! My nickname is <b class="important">Myndi.</b></p>
+            <p>I have been playing Ragnarok for around 2 years, and <b class="important">Wind Cutter</b> almost ever since.</p>
+            <p>My main goal is to have fun and help as many people as I can, so without further a do.</p>
             <p>Hopefully this build is as helpful for you as it was for me.</p>
 
             <h3 class="fs-5 pt-3">About this build</h3>
@@ -570,18 +652,25 @@ footer > a > span:hover {
         <div class="data-obs-flex m-0 p-0 mb-4">
           <div id="Data" class="m-0 p-0 px-1 mb-3 mb-lg-0">
             <h3 class="fs-5">Data</h3>
-            <div class="d-flex gap-1 p-3 flex-wrap flex-column">
-              <p class="m-0"><b class="header">ACD required</b> <i class="fa-solid fa-angles-right fa-sm"></i> <span class="number">34%</span> (<span class="number-purple">0.5 Cast Delay</span>, <span class="number-purple">0.3s CD</span>).</p>
-              <p class="m-0"><b class="header">ASPD required</b> <i class="fa-solid fa-angles-right fa-sm"></i> <span class="number">185</span> @ <span class="number-purple">34% ACD</span>.</p>
-              <p class="m-0"><b class="header">Max. WC/s</b> <i class="fa-solid fa-angles-right fa-sm"></i> <span class="number">3</span> @ <span class="number-purple">34% ACD</span> & <span class="number-purple">185 ASPD</span>.</p>
+            <div class="d-flex gap-1 p-3 flex-wrap flex-column div-hover">
+              <div class="d-flex gap-1 flex-wrap">
+                <p class="m-0 text-default"><b class="header">ACD required</b> <i class="fa-solid fa-angles-right fa-sm"></i> <span class="number">34%</span> </p>
+                <p class="m-0 text-swap">Has <span class="number-purple">0.5 Cast Delay</span>, <span class="number-purple">0.3s CD</span>.</p>
+                <i class="fa-solid fa-arrow-pointer ms-auto"></i>
+              </div>
+              <p class="m-0 text-default"><b class="header">ASPD required</b> <i class="fa-solid fa-angles-right fa-sm"></i> <span class="number">185</span></p>
+              <p class="m-0 text-swap">Using <span class="number-purple">34% ACD</span>.</p>
+              <p class="m-0 text-default"><b class="header">Max. WC/s</b> <i class="fa-solid fa-angles-right fa-sm"></i> <span class="number">3</span></p>
+              <p class="m-0 text-swap">Using <span class="number-purple">34% ACD</span> & <span class="number-purple">185 ASPD</span>.</pc>
             </div>
           </div>
 
           <div id="Observations" class="m-0 p-0 px-1">
             <h3 class="fs-5">Observations</h3>
             <div class="p-3">
-              <p><b class="header">Stats</b> calculations include bonuses from job levels, gear, runes and foods (<span class="number-purple">Imperfect Almighty</span>).</p>
-              <p class="m-0"><b class="header">Status</b> doesn't include RNG enchants, Pets (<span class="number-purple">Eggs</span>), Base Weapon Attack (<span class="number">280</span>), Refine Attack (<span class="number">+15; 105</span>) or Shadow Gear Refine Attack (<span class="number">+9; 9</span>).</p>
+              <p><b class="header">Equipment</b> shows the best gear by default. In some cases there's alternatives to select from.</p>
+              <p><b class="header">Status</b> calculations include bonuses from job levels, gear, runes and foods (<span class="number-purple">Imperfect Almighty</span>).</p>
+              <p class="m-0"><b class="header">Battle Stats</b> doesn't include RNG enchants, Pets (<span class="number-purple">Eggs</span>), Base Weapon Attack (<span class="number">280</span>), Refine Attack (<span class="number">+15; 105</span>) or Shadow Gear Refine Attack (<span class="number">+9; 9</span>).</p>
             </div>
           </div>
         </div>
@@ -605,7 +694,7 @@ footer > a > span:hover {
               <!-- Gear -->
             <div id="gear-display" class="tab-pane fade show active" role="tabpanel" aria-labelledby="gear-tab" tabindex="0">
 
-              <div class="gear-container m-0 p-0 py-4 shadow-container">
+              <div class="gear-container m-0 p-0 py-4">
                 <div class="gear-col pt-1">
                   <div class="d-flex flex-column gear-slot gap-1 align-items-end justify-content-center">
                     <div class="d-flex justify-content-end gap-1"><span class="number-purple">+8~10</span><span>Black Ribbon</span><img src="https://www.novaragnarok.com/data/items/icons2/5899.png"></div>
@@ -789,12 +878,12 @@ footer > a > span:hover {
                   <h2 class="fs-5 me-auto">
                     Damage calculations
                   </h2>
-                  <span class="align-self-end header small" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Swapping gear alters the damage values below">
-                    <i class="fa-regular fa-lightbulb"></i> Upcoming!
+                  <span class="align-self-end pe-1 pb-1" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Upcoming: Swapping gear alters the damage values below">
+                    <i class="fa-regular fa-lightbulb"></i>
                   </span>
                 </div>
                 <div class="calc-container border-rounded shadow-container row p-0 m-0 p-3">
-                  <div class="header w-100 d-flex align-items-baseline m-0 p-0"><p class="me-auto p-0 fw-bold">Average damage against</p> <div class="fw-bold" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Flat damage, not DPS"><i class="fa-solid fa-triangle-exclamation fa-sm text-white"></i></div></div>
+                  <div class="header w-100 d-flex align-items-baseline m-0 p-0"><p class="me-auto p-0 fw-bold">Average damage against</p> <div class="fw-bold" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Disclaimer: This is flat damage, not damage per second."><i class="fa-solid fa-triangle-exclamation fa-sm text-white"></i></div></div>
                   <!-- Dummy -->
                   <div class="col-12 col-md-6 m-0 p-0 p-2">
                     <p class="header">Dummy</p>
@@ -850,6 +939,7 @@ footer > a > span:hover {
                       <p class="me-auto">Regret <span class="number-purple">(Ghost 4)</span></p>
                       <p class="number">3,320,425</p>
                     </div>
+                    <hr class="d-block d-md-none">
                   </div>
 
                   <!-- Juperos -->
@@ -881,14 +971,70 @@ footer > a > span:hover {
 
           </div> <!-- Tabs content -->
         </div> <!-- Tabs -->
+
+        <div class="stats-battle-pets">
+
+          <!-- Status -->
+          <div>
+            <h2 class="fs-5">Stats</h2>
+            <div class="stats-battle-pets-cont p-3">
+              <div id="Status" class="border-rounded p-3">
+                <div class="d-flex flex-column w-50 pe-1 flex-wrap">
+                  <p class="m-0 p-0 d-flex"><b class="header me-auto">Str</b> 120</p>
+                  <p class="m-0 p-0 d-flex"><b class="header me-auto">Agi</b> 96</p>
+                  <p class="m-0 p-0 d-flex"><b class="header me-auto">Vit</b> 84</p>
+                  <p class="m-0 p-0 d-flex"><b class="header me-auto">Int</b> 80</p>
+                  <p class="m-0 p-0 d-flex"><b class="header me-auto">Dex</b> 120</p>
+                  <p class="m-0 p-0 d-flex"><b class="header me-auto">Luk</b> 87</p>
+                </div>
+                <div class="d-flex flex-column w-50 flex-wrap">
+                  <p class="m-0 p-0 d-flex">(<span>+82</span>) <span class="ms-auto">202</span></p>
+                  <p class="m-0 p-0 d-flex">(<span>+39</span>) <span class="ms-auto">135</span></p>
+                  <p class="m-0 p-0 d-flex">(<span>+35</span>) <span class="ms-auto">119</span></p>
+                  <p class="m-0 p-0 d-flex">(<span>+44</span>) <span class="ms-auto">124</span></p>
+                  <p class="m-0 p-0 d-flex">(<span>+37</span>) <span class="ms-auto">157</span></p>
+                  <p class="m-0 p-0 d-flex">(<span>+33</span>) <span class="ms-auto">120</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Battle Stats -->
+          <div>
+            <h2 class="fs-5">Battle Stats</h2>
+            <div class="stats-battle-pets-cont p-3"> 
+              <div id="Battle-Stats" class="p-3 border-rounded">
+                <p class="m-0 p-0 d-flex"><span class="me-auto">Atk</span> <span>593</span></p>
+                <p class="m-0 p-0 d-flex"><span class="me-auto">Atk/Class</span> <span>74%</span></p>
+                <p class="m-0 p-0 d-flex"><span class="me-auto">Small</span> <span>42%</span></p>
+                <p class="m-0 p-0 d-flex"><span class="me-auto">Medium</span> <span>72%</span></p>
+                <p class="m-0 p-0 d-flex"><span class="me-auto">Large</span> <span>72%</span></p>
+                <p class="m-0 p-0 d-flex"><span class="me-auto">Race</span> <span>14%</span></p>
+                <p class="m-0 p-0 d-flex"><span class="me-auto">Melee</span> <span>125%</span></p>
+                <p class="m-0 p-0 d-flex"><span class="me-auto">WC</span> <span>85%</span></p>
+                <p class="m-0 p-0 d-flex"><span class="me-auto">SW</span> <span>50%</span></p>
+                <p class="m-0 p-0 d-flex"><span class="me-auto">IB</span> <span>30%</span></p>
+                <p class="m-0 p-0 d-flex"><span class="me-auto">ACD</span> <span>34%</span></p>
+                <p class="m-0 p-0 d-flex"><span class="me-auto">ASPD</span> <span>24%</span></p>
+                <p class="m-0 p-0 d-flex"><span class="me-auto">Hit rate</span> <span>~570</span></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pets -->
+          <div>
+            <h2 class="fs-5">Pets</h2>
+            <div class="stats-battle-pets-cont p-3"> 
+              <div id="Pets" class="p-3 border-rounded">
+                <p>a</p>
+              </div>
+            </div>
+          </div>
+        </div> <!-- Row -->
+
       </div>
 
-        <h3>Stats</h3>
-        <span>1</span>
-        <h3>Status</h3>
-        <span>1</span>
-        <h3>Pets</h3>
-        <span>1</span>
+
         <!-- for all the above, BE A ACCORDION -->
         <h2>Explanation</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium ea commodi minima cumque nulla quidem tenetur at magnam, est odio, repellendus minus. Sed fugit sapiente id doloremque, nam dolore inventore?

@@ -438,11 +438,8 @@
     opacity: 1 !important;
     box-shadow: 0px 0px 1px 2px #202429;
     border-color: transparent !important;  
-  }
-
-  #btn-back-to-top:focus {
     animation: pulsate .6s ease-in infinite alternate !important;
-  }
+  }  
 
   @keyframes pulsate {
     from {
