@@ -94,6 +94,12 @@ body {
 
     margin: 0;
     margin-bottom: .25em;
+
+    color: hsl(var(--header-light));
+}
+
+.body-container i {
+    color: hsl(var(--light));
 }
 
 @media only screen and (max-width: 570px) {
@@ -143,8 +149,8 @@ small {
     background-color: hsl(var(--container-light));
     border-radius: 0.5em;
 
-    user-select: none;
     cursor: pointer;
+    user-select: none;
 
     transition: 300ms linear;
 }
@@ -189,6 +195,12 @@ input[type="checkbox"] {
 
     margin: 0;
     margin-bottom: .25em;
+
+    color: hsl(var(--header-light));
+}
+
+.ingredients-container i {
+    color: hsl(var(--light));
 }
 
 .ingredients-container b {
@@ -218,7 +230,7 @@ input[type="checkbox"] {
 
 .ingredients-container > p > span {
     font-weight: 700;
-    color: hsl(var(--number-purple));
+    color: hsl(var(--number));
 }
 
 .grid-ingredient-wrapper {
@@ -243,7 +255,7 @@ input[type="checkbox"] {
 
 .grid-ingredient-wrapper > div {
     display: none;
-    visibility: hidden;
+    /* visibility: hidden; */
     opacity: 0;
     transition: visibility 0s, opacity 0.5s linear;
 }
@@ -313,7 +325,7 @@ input[type="checkbox"] {
 
 .ingredients-container:has([value="Blood Bisque"]:checked) .first-dish {
     display: flex;
-    visibility: visible;
+    /* visibility: visible; */
     opacity: 1;
     transition: visibility .2s, opacity 1s linear;
 }
