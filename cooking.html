@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halloween Cooking</title>
 
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,6 +45,7 @@
   --container-dark: 221, 50%, 27%; /* darker blue */
 
   --important-light: 343, 84%, 57%; /* pale wine */
+  --important-lighter: 343, 100%, 66%;
 
   --bg-light: 221, 40%, 49%; /* higher contrast/light than -dark */
   --bg-dark: 221, 64%, 19%; /* higher contrast than -dark */
@@ -50,6 +54,10 @@
 
   --number-purple: 244, 55%, 70%;
   --number: 120, 68%, 62%;
+}
+
+* {
+    box-sizing: content-box;
 }
 
 *:hover {
@@ -70,6 +78,15 @@
 }
 
 body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    
+    min-height: 120vh;
+    margin: 0;
+    padding: 0;
+
     font-size: 1rem;
     font-family: 'DM Sans', sans-serif;
     font-weight: 400;
@@ -81,7 +98,7 @@ body {
 .body-container {
     max-width: 1200px;
 
-    margin: auto;
+    margin: 0 auto;
     padding: 3em;
 }
 
@@ -408,8 +425,61 @@ input[type="checkbox"] {
     transition: visibility .2s, opacity 1s linear;
 }
 
+/* Footer */
+footer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1em;
 
+  width: 100%;
 
+  margin-block-start: auto;
+  padding: 2em 0;
+
+  font-size: 1rem;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+
+  color: hsl(var(--light));
+  background-color: hsl(var(--bg-dark));
+
+  box-shadow: 0 0 50px 0 hsl(var(--container-light), 50%);
+  isolation: isolate;
+}
+footer p {
+  margin: 0;
+  padding: 0;
+}
+
+footer a {
+  text-decoration: none;
+  color: hsl(var(--important-lighter));
+}
+
+footer a:hover {
+  color: hsl(var(--important-lighter), 60%);
+}
+
+footer > a > span:hover {
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 570px) {
+  footer > * {
+    text-align: center;
+    width: 100%;
+    gap: 0;
+  }
+
+  footer p {
+    padding-top: .75em;
+  }
+
+  footer a {
+    padding-bottom: .75em;
+  }
+}
 
 </style>
 
@@ -694,6 +764,16 @@ input[type="checkbox"] {
         
         </div>
     </main>
+
+    <footer>
+        <p>Created by <i class="fa-brands fa-discord"></i> Myndi#5041</p>
+        <span class="d-none d-md-inline">|</span>
+        <a href="https://www.buymeacoffee.com/myndi"><i class="fa-solid fa-mug-saucer"></i> <span>Buy me a coffee</span></a>
+    </footer>
+
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
