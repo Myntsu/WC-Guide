@@ -1,0 +1,173 @@
+:root {
+    --light: 0, 0%, 99%; /* white */
+    --dark: 221, 44%, 19%; /* dark blue */
+    --gray: 223, 10%, 59%; /* gray */
+  
+    --header-light: 49, 85%, 65%; /* pale golden */
+  
+    --link-light: 49, 100%, 100%;
+  
+    --container-light: 221, 54%, 34%; /* lightless blue */
+    --container-lighter: 221, 54%, 40%;
+    --container-dark: 221, 50%, 27%; /* darker blue */
+  
+    --important-light: 343, 84%, 57%; /* pale wine */
+  
+    --bg-light: 221, 40%, 49%; /* higher contrast/light than -dark */
+    --bg-dark: 221, 64%, 19%; /* higher contrast than -dark */
+  
+    --text-gray: 0, 0%, 91%;
+  
+    --number-purple: 244, 55%, 70%;
+    --number: 120, 68%, 62%;
+  }
+  
+  *:hover {
+    /* outline: 1px solid red; */
+  }
+
+  body {
+    font-size: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+
+    color: hsl(var(--light));
+    background-color: hsl(var(--dark));
+  }
+  
+  main {
+    padding: 3rem;
+    background-image: linear-gradient(0deg, hsl(var(--bg-dark)) 40%, transparent),
+                      url('/assets/img/bg/ragnarok-x-game-class-hd-wallpaper-1920x1080-uhdpaper.com-31.0_b.jpg');
+    background-repeat: repeat-x;
+    background-position: top center;
+  
+    position: relative;
+    isolation: isolate;
+  }
+  
+  main::after {
+    content: '';
+    position: absolute;
+    background-color: hsl(var(--bg-dark));
+    inset: 0;
+    z-index: -1;
+    opacity: .75;
+    
+  }
+  
+  .main-container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 3rem;
+
+    color: hsl(var(--light));
+    background-color: hsl(var(--container-dark));
+  
+    border-radius: 0 0 .5em .5em;
+  }
+  
+  @media only screen and (max-width: 1200px) {
+    main {
+        padding: 3rem 0;
+    }
+
+    .main-container {
+        width: 90%;
+    }
+  }
+  
+  @media only screen and (max-width: 880px) {
+    .main-container {
+        padding: 1.5rem;
+        width: 92.5%;
+    }
+  }
+
+  @media only screen and (max-width: 570px) {
+    .main-container {
+        width: 95%;
+    }
+  }
+
+  /* Utility classes */
+  .shadow-container {
+    box-shadow: 1px 1px 2px hsl(var(--bg-dark), 20%);
+  }
+  
+  .border-rounded {
+    border-radius: .5em;
+  }
+  
+  .header {
+    color: hsl(var(--header-light));
+  }
+  
+  .number {
+    font-weight: bold;
+    color: hsl(var(--number));
+  }
+  
+  .number-purple {
+    font-weight: bold;
+    color: hsl(var(--number-purple));
+  }
+  
+  .important {
+    font-weight: bold;
+    color: hsl(var(--important-light));
+  }
+
+  /* Footer */
+footer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1em;
+  
+    margin: 0;
+    padding: 2em 0;
+  
+    font-size: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+  
+    color: hsl(var(--light));
+    background-color: hsl(var(--bg-dark));
+  
+    box-shadow: 0 0 50px 0 hsl(var(--container-light), 50%);
+    isolation: isolate;
+  }
+  footer p {
+    margin: 0;
+    padding: 0;
+  }
+  
+  footer a {
+    text-decoration: none;
+    color: hsl(var(--important-light));
+  }
+  
+  footer a:hover {
+    color: hsl(var(--important-light), 60%);
+  }
+  
+  footer > a > span:hover {
+    text-decoration: underline;
+  }
+  
+  @media only screen and (max-width: 570px) {
+    footer > * {
+      text-align: center;
+      width: 100%;
+      gap: 0;
+    }
+  
+    footer p {
+      padding-top: .75em;
+    }
+  
+    footer a {
+      padding-bottom: .75em;
+    }
+  }

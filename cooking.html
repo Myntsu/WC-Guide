@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- DM Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<style>
+
+:root {
+  --light: 0, 0%, 99%; /* white */
+  --dark: 221, 44%, 19%; /* dark blue */
+  --gray: 223, 10%, 59%; /* gray */
+
+  --header-light: 49, 85%, 65%; /* pale golden */
+
+  --link-light: 49, 100%, 100%;
+
+  --container-light: 221, 54%, 34%; /* lightless blue */
+  --container-lighter: 221, 54%, 40%;
+  --container-dark: 221, 50%, 27%; /* darker blue */
+
+  --important-light: 343, 84%, 57%; /* pale wine */
+
+  --bg-light: 221, 40%, 49%; /* higher contrast/light than -dark */
+  --bg-dark: 221, 64%, 19%; /* higher contrast than -dark */
+
+  --text-gray: 0, 0%, 91%;
+
+  --number-purple: 244, 55%, 70%;
+  --number: 120, 68%, 62%;
+}
+
+*:hover {
+  outline: 1px solid red;
+}
+
+body {
+    font-size: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+
+    color: hsl(var(--light));
+    background-color: hsl(var(--bg-dark));
+}
+
+/* Main recipes grid */
+.grid-wrapper {
+    display: grid;
+    grid-column: auto;
+    grid-template-columns: repeat(6, 1fr);
+    grid: 
+    "header"
+    "column column column column";
+    gap: .5em;
+
+    padding: 3em;
+}
+
+@media only screen and (max-width: 12000px) {
+    .grid-wrapper {
+        grid-template-columns: repeat(4 , 1fr);
+    }
+}
+
+@media only screen and (max-width: 880px) {
+    .grid-wrapper {
+        grid-template-columns: repeat(3 , 1fr);
+    }
+}
+
+@media only screen and (max-width: 570px) {
+    .grid-wrapper {
+        grid-template-columns: repeat(2 , 1fr);
+    }
+}
+
+.grid-wrapper > div {
+    display: flex;
+    align-items: center;
+
+    text-align: center;
+}
+
+.grid-wrapper label {
+    flex: 1 0 0;
+
+    margin: 0;
+    padding: .5em 2em;
+
+    color: white;
+    background: hsl(var(--container-light));
+
+    border-radius: .5em;
+    cursor: pointer;
+
+    transition: 300ms linear;
+}
+
+.grid-wrapper label:hover {
+    background-color: hsl(var(--container-lighter));
+}
+
+.grid-wrapper label:active {
+    background-color: hsl(var(--important-light));
+}
+
+label.container-switch {
+    background: hsl(var(--important-light));
+}
+
+form {
+    display: none;
+}
+
+
+</style>
+
+<body>
+    <div class="grid-wrapper">
+        <!-- <h1>Select your dish</h1> -->
+        <div class="clickable">
+            <label for="Blood Bisque">Blood Bisque</label>
+        </div>
+        <div>
+            <label for="Chili con Goblin">Chili con Goblin</label>
+        </div>
+        <div>
+            <label for="Screeching Potluck">Screeching Potluck</label>
+        </div>
+        <div>
+            <label for="Spooky Saute">Spooky Saute</label>
+        </div>
+        <div>
+            <label for="Bones au Gratin">Bones au Gratin</label>
+        </div>
+        <div>
+            <label for="Meaty Fingers">Meaty Fingers</label>
+        </div>
+        <div>
+            <label for="Quivering Kibbeling">Quivering Kibbeling</label>
+        </div>
+        <div>
+            <label for="Vampire Special">Vampire Special</label>
+        </div>
+        <div>
+            <label for="Rafflesia on Platter">Rafflesia on Platter</label>
+        </div>
+        <div>
+            <label for="Haunted Roll">Haunted Roll</label>
+        </div>
+        <div>
+            <label for="Grilled Mandragora Roots">Grilled Mandragora Roots</label>
+        </div>
+        <div>
+            <label for="Fried Brain Sandwich">Fried Brain Sandwich</label>
+        </div>
+    </div>
+
+    <div>
+        <form>
+            <input type="radio" id="Blood Bisque" name="ingredient" value="Blood Bisque">
+            <input type="radio" id="Chili con Goblin" name="ingredient" value="Chili con Goblin">
+            <input type="radio" id="Screeching Potluck" name="ingredient" value="Screeching Potluck">
+            <input type="radio" id="Spooky Saute" name="ingredient" value="Spooky Saute">
+            <input type="radio" id="Bones au Gratin" name="ingredient" value="Bones au Gratin">
+            <input type="radio" id="Meaty Fingers" name="ingredient" value="Meaty Fingers">
+            <input type="radio" id="Quivering Kibbeling" name="ingredient" value="Quivering Kibbeling">
+            <input type="radio" id="Vampire Special" name="ingredient" value="Vampire Special">
+            <input type="radio" id="Rafflesia on Platter" name="ingredient" value="Rafflesia on Platter">
+            <input type="radio" id="Haunted Roll" name="ingredient" value="Haunted Roll">
+            <input type="radio" id="Grilled Mandragora Roots" name="ingredient" value="Grilled Mandragora Roots">
+            <input type="radio" id="Fried Brain Sandwich" name="ingredient" value="Fried Brain Sandwich">
+        </form>
+        
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+    <!-- JS -->
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

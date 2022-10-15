@@ -4,28 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cozy Nova - Main</title>
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <meta name="description" content="Web dedicated to showcase a Wind Cutter build for Nova Ragnarok Server.">
+    <title>Wind Cutter • Myndi - Cozy Nova</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <!-- Montserrat -->
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500&display=swap" rel="stylesheet">
-        <!-- Montserrat Alternates -->
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;300;500&display=swap" rel="stylesheet">
-        <!-- Roboto -->
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
-        <!-- DM Sans -->
-        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-
+    <!-- Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500&display=swap" rel="stylesheet">
+    <!-- Montserrat Alternates -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;300;500&display=swap" rel="stylesheet">
+    <!-- Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+    <!-- DM Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/76c49369ed.js" crossorigin="anonymous"></script>
-
+    
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
 
     <!-- Favicons -->
     <link rel="title icon" type="image/png" href="assets/img/favicon/3938089_attack_skill_sword_icon_64px.png">
@@ -36,570 +37,13 @@
     <link rel="apple-touch-icon" sizes="114x114" href="assets/img/favicon/3938089_attack_skill_sword_icon_black_128px.png">
     <link rel="apple-touch-icon" sizes="152x152" href="assets/img/favicon/3938089_attack_skill_sword_icon_black_128px.png"> 
 </head>
-
-<style>
-
-:root {
-  --light: 0, 0%, 99%; /* white */
-  --dark: 221, 44%, 19%; /* dark blue */
-  --gray: 223, 10%, 59%; /* gray */
-
-  --header-light: 49, 85%, 65%; /* pale golden */
-
-  --link-light: 49, 100%, 100%;
-
-  --container-light: 221, 54%, 34%; /* lightless blue */
-  --container-lighter: 221, 54%, 40%;
-  --container-dark: 221, 50%, 27%; /* darker blue */
-
-  --important-light: 343, 84%, 57%; /* pale wine */
-
-  --bg-light: 221, 40%, 49%; /* higher contrast/light than -dark */
-  --bg-dark: 221, 64%, 19%; /* higher contrast than -dark */
-
-  --text-gray: 0, 0%, 91%;
-
-  --number-purple: 244, 55%, 70%;
-  --number: 120, 68%, 62%;
-  --bababoi: hsl(221, 65%, 19%);
-}
-
-*:hover {
-  /* outline: 1px solid red; */
-}
-
-main {
-  font-size: 1rem;
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 400;
-
-  color: hsl(var(--light));
-  background-color: hsl(var(--dark));
-  padding: 3rem 9rem;
-
-  background-image: linear-gradient(0deg, hsl(var(--bg-dark)) 80%, transparent),
-                    url('assets/img/bg/ragnarok-x-game-class-hd-wallpaper-1920x1080-uhdpaper.com-31.0_b.jpg');
-  background-repeat: repeat-x;
-  background-position: top center;
-
-  position: relative;
-  isolation: isolate;
-}
-
-main::after {
-  content: '';
-  position: absolute;
-  background-color: hsl(var(--bg-dark));
-  inset: 0;
-  z-index: -2;
-  opacity: .75;
-  
-}
-
-main .container {
-  color: hsl(var(--light));
-  background-color: hsl(var(--container-dark));
-
-  border-radius: 0 0 .5em .5em;
-}
-
-@media only screen and (max-width: 990px) {
-  main {
-    padding: 3rem 2rem;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  main {
-    padding: 3rem .75rem;
-  }
-}
-
-.shadow-container {
-  box-shadow: 1px 1px 2px hsl(var(--bg-dark), 20%);
-}
-
-.border-rounded {
-  border-radius: .5em;
-}
-
-.header {
-  color: hsl(var(--header-light));
-}
-
-.number {
-  font-weight: bold;
-  color: hsl(var(--number));
-}
-
-.number-purple {
-  font-weight: bold;
-  color: hsl(var(--number-purple));
-}
-
-.important {
-  font-weight: bold;
-  color: hsl(var(--important-light));
-}
-
-/* P swap on hover */
-.text-swap {
-  display: none;
-}
-
-.div-hover:is(:focus, :hover):has(.text-default) .text-default {
-  display: none;
-}
-
-.div-hover:is(:focus, :hover):has(.text-default) .text-swap {
-  display: block;
-}
-
-div-hover:hover:is(.fa-toggle-on, .fa-goggle-off) {
-  --fa-animation-duration: 0.2s;
-}
-/* End */
-
-/* Footer */
-footer {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1em;
-
-  margin: 0;
-  padding: 2em 0;
-
-  font-size: 1rem;
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 400;
-
-  color: hsl(var(--light));
-  background-color: hsl(var(--bg-dark));
-
-  box-shadow: 0 0 50px 0 hsl(var(--container-light), 50%);
-  isolation: isolate;
-}
-footer p {
-  margin: 0;
-  padding: 0;
-}
-
-footer a {
-  text-decoration: none;
-  color: hsl(var(--important-light));
-}
-
-footer a:hover {
-  color: hsl(var(--important-light), 60%);
-}
-
-footer > a > span:hover {
-  text-decoration: underline;
-}
-
-@media only screen and (max-width: 570px) {
-  footer > * {
-    text-align: center;
-    width: 100%;
-    gap: 0;
-  }
-
-  footer p {
-    padding-top: .75em;
-  }
-
-  footer a {
-    padding-bottom: .75em;
-  }
-}
-/* End */
-
-/* Build + Links */
-.build {
-  position: relative;
-  isolation: isolate;
-
-  background-image: url('assets/img/bg/ragnarok-x-game-class-hd-wallpaper-1920x1080-uhdpaper.com-31.0_b.jpg');
-  background-position: 50% 45%;
-
-  border-radius: .5em .5em 0 0 !important;
-}
-
-.build::after {
-  content: '';
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  background-color: hsl(var(--container-dark));
-  opacity: 0.7;
-
-  border-radius: .5em .5em 0 0;
-}
-
-.build h1 {
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-
-.build h2, .build h3 {
-  font-size: 1rem;
-  
-}
-
-.build h3 > span {
-  color: hsl(var(--light))
-}
-
-.content-table {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  
-  background-color: hsl(var(--bg-dark));
-  flex-wrap: wrap;
-  word-break: keep-all;
-  font-size: 1.1rem;
-}
-
-.content-table .link {
-  width: 10em;
-  padding: .5em;
-}
-
-@media only screen and (max-width: 990px) {
-  .content-table .link {
-    width: 50% !important;
-    outline: .1ex solid hsl(var(--light), 5%);
-    outline-offset: -.2ex;
-  }
-}
-
-@media only screen and (max-width: 400px) {
-  .content-table .link {
-    width: 100% !important;
-    outline: .1ex solid hsl(var(--light), 5%);
-    outline-offset: -.2ex;
-  }
-}
-
-.content-table a {
-  text-decoration: none;
-  color: hsl(var(--link-light));
-}
-
-.content-table a:hover {
-  background-color: hsl(var(--container-dark));
-}
-/* End */
-
-/* Author */
-#Author {
-  border-radius: .5em;
-  background-color: hsl(var(--container-light));
-}
-
-#Author p {
-  margin: 0;
-  padding: 0;
-
-  color: hsl(var(--text-gray));
-}
-
-#Author h3 {
-  color: hsl(var(--header-light));
-}
-
-#Author > div {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: top;
-  gap: .5em;
-}
-
-.list-container {
-  background-color: hsl(var(--container-lighter));
-  border-radius: .5em;
-  max-width: 100%;
-  width: 49%;
-}
-
-@media only screen and (max-width: 990px) {
-  .list-container {
-    width: 100%;
-  }
-}
-/* End */
-
-/* Data, observations */
-.data-obs-flex {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .25em;
-
-  color: hsl(var(--text-gray));
-}
-
-.data-obs-flex h2 {
-  color: hsl(var(--light));
-}
-
-#Data {
-  min-width: 350px;
-
-}
-
-#Observations {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-@media only screen and (max-width: 990px) {
-  #Data, #Observations {
-    flex: auto;
-    width: 100%;
-  }
-
-  #Data {
-    min-width: auto;
-  }
-}
-
-#Data > div, #Observations > div {
-  flex: 1;
-  background-color: hsl(var(--container-light));
-  border-radius: .5em;
-}
-/* End */
-
-/* Equipment & tabs */
-#Equipment p {
-  margin: 0;
-  padding: 0;
-}
-
-.tab-content {
-  background-color: hsl(var(--container-light));
-  border-radius: .5em 0 .5em .5em;
-}
-
-#Equip-tab button {
-  text-decoration: none;
-  border: none;
-
-  color: hsl(var(--text-gray));
-  background-color: hsl(var(--bg-dark));
-
-  padding: .25em 1em;
-}
-
-#Equip-tab button:is(:hover, :focus) {
-  background-color: hsl(var(--important-light));
-}
-
-#Equip-tab button:is(:active) {
-  background-color: hsl(var(--important-light), 80%);
-}
-
-.tab-buttons {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-@media only screen and (max-width: 570px) {
-
-  .tab-buttons {
-    width: 100%;
-  }
-
-  #gear-tab, #shadow-tab, #cards-tab, #enchants-tab {
-    width: 50%;
-    outline: .1ex solid hsl(var(--light), 5%);
-    outline-offset: -.1ex;
-  }
-}
-
-.gear-container {
-  display: flex;
-  justify-content: center;
-  
-  border-radius: .5em 0 .5em .5em;
-}
-
-@media only screen and (max-width: 1130px){
-  .gear-container {
-    overflow-x: scroll;
-    justify-content: start;
-  }
-}
-
-.gear-slot {
-  width: 300px;
-}
-
-.gear-slot img {
-  width: 22px;
-  height: 22px;
-}
-
-.gear-slot > div {
-  width: 90%;
-}
-
-.img-equip {
-  text-align: center;
-  width: 200px;
-  object-fit: none;
-  object-position: 53% 50%;
-}
-
-.gear-col {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-
-  width: 300px;
-  border-radius: .5em 0 0 .5em;
-
-  color: hsl(var(--dark));
-  background-color: white;
-}
-
-.gear-col-2 {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-
-  width: 300px;
-  border-radius: 0 .5em .5em 0;
-
-  color: hsl(var(--dark));
-  background-color: white;
-}
-
-.gear-col > div > div, .gear-col-2 > div > div {
-  border-bottom: 1px solid hsl(var(--text-gray));
-}
-
-.form-select {
-  padding: 0 2em 0 0;
-  border: none;
-}
-
-.right {
-  text-align: right;
-  margin: 0;
-  z-index: 3;
-}
-/* End */
-
-/* Calculations + math */
-#Calculations {
-  color: hsl(var(--text-gray));
-  width: 100%;
-  max-width: 800px;
-}
-
-#Calculations h2 {
-  color: hsl(var(--light));
-}
-
-#Calculations p {
-  margin: 0;
-  padding: 0;
-}
-
-#Calculations .number {
-  letter-spacing: 0.1ex;
-}
-
-#Calculations span {
-  font-size: .75rem;
-}
-
-@media only screen and (max-width: 400px) {
-  #Calculations span {
-    display: none;
-  }
-}
-
-.calc-container {
-  background-color: hsl(var(--container-lighter));
-}
-/* End */
-
-/* Status, Battle Stats, Pets */
-.stats-battle-pets {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: stretch;
-  gap: 1em;
-}
-
-.stats-battle-pets > div {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.stats-battle-pets-cont {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-
-  background-color: hsl(var(--container-light));
-  border-radius: .5em;
-}
-
-#Status, #Battle-Stats, #Pets {
-  color: hsl(var(--text-gray));
-  background-color: hsl(var(--container-lighter));
-}
-
-#Status {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-}
-
-#Status span:nth-child(1) {
-  color: hsl(var(--number-purple));
-}
-
-#Status span:nth-child(2) {
-  color: hsl(var(--number));
-}
-
-#Battle-Stats {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  width: 100%;
-}
-
-#Battle-Stats span:nth-child(1) {
-  color: hsl(var(--header-light));
-}
-
-#Battle-Stats span:nth-child(2) {
-  color: hsl(var(--number));
-}
-
-
-/* End */
-
-</style>
-
 <body>
 
   <!-- Main -->
   <main>
 
       <!-- Information + content table -->
-      <div class="build container p-0">
+      <div class="build main-container p-0">
         <h2 class="ps-3 pt-3 m-0">Nova Ragnarok</h2>
         <h1 class="ps-3 py-1 m-0">Wind Cutter</h1>
         <h3 class="ps-3 pb-3 m-0"><b>PVE</b> <span>• Rune Knight</span></h3>
@@ -612,7 +56,7 @@ footer > a > span:hover {
       </div>
 
       
-      <div class="container px-3 px-lg-4 py-3 py-lg-4">
+      <div class="main-container px-3 px-lg-4 py-3 py-lg-4">
         
         <!-- Introduction -->
         <div class="col-12 mb-4">
@@ -665,7 +109,7 @@ footer > a > span:hover {
             </div>
           </div>
 
-          <div id="Observations" class="m-0 p-0 px-1">
+          <div id="Observations" class="m-0 p-0">
             <h3 class="fs-5">Observations</h3>
             <div class="p-3">
               <p><b class="header">Equipment</b> shows the best gear by default. In some cases there's alternatives to select from.</p>
@@ -697,11 +141,11 @@ footer > a > span:hover {
               <div class="gear-container m-0 p-0 py-4">
                 <div class="gear-col pt-1">
                   <div class="d-flex flex-column gear-slot gap-1 align-items-end justify-content-center">
-                    <div class="d-flex justify-content-end gap-1"><span class="number-purple">+8~10</span><span>Black Ribbon</span><img src="https://www.novaragnarok.com/data/items/icons2/5899.png"></div>
-                    <div class="d-flex justify-content-end gap-1"><span>Bloock Sucker</span><img src="https://www.novaragnarok.com/data/items/icons2/18754.png"></div>
-                    <div class="d-flex justify-content-end gap-1"><span class="number-purple">+12~15</span><span>Hypocrisy Edge</span><img src="https://www.novaragnarok.com/data/items/icons2/600008.png"></div>
-                    <div class="d-flex justify-content-end gap-1"><span class="number-purple">+8~12</span><span>Temporal Str Manteau</span><img src="https://www.novaragnarok.com/data/items/icons2/20963.png"></div>
-                    <div class="d-flex justify-content-end gap-1"><span>Brilliant Light Ruby Ring</span><img src="https://www.novaragnarok.com/data/items/icons2/490056.png"></div>
+                    <div class="d-flex justify-content-end gap-1"><span class="number-purple">+8~10</span><span>Black Ribbon</span><img src="https://www.novaragnarok.com/data/items/icons2/5899.png" alt="Black Ribbon"></div>
+                    <div class="d-flex justify-content-end gap-1"><span>Blood Sucker</span><img src="https://www.novaragnarok.com/data/items/icons2/18754.png" alt="Blood Sucker"></div>
+                    <div class="d-flex justify-content-end gap-1"><span class="number-purple">+12~15</span><span>Hypocrisy Edge</span><img src="https://www.novaragnarok.com/data/items/icons2/600008.png" alt="Hypocrisy Edge"></div>
+                    <div class="d-flex justify-content-end gap-1"><span class="number-purple">+8~12</span><span>Temporal Str Manteau</span><img src="https://www.novaragnarok.com/data/items/icons2/20963.png" alt="Temporal Str Manteau"></div>
+                    <div class="d-flex justify-content-end gap-1"><span>Brilliant Light Ruby Ring</span><img src="https://www.novaragnarok.com/data/items/icons2/490056.png" alt="Brilliant Light Ruby Ring"></div>
                   </div>
                 </div>
                 <div class="m-0 p-0">
@@ -709,11 +153,11 @@ footer > a > span:hover {
                 </div>
                 <div class="gear-col-2 pt-1">
                   <div class="d-flex flex-column gear-slot gap-1 align-items-start justify-content-center">
-                    <div class="d-flex justify-content-start gap-1"><img src="https://www.novaragnarok.com/data/items/icons2/400001.png"><span>Victory Wing Ears</span></div>
-                    <div class="d-flex justify-content-start gap-1"><img src="https://www.novaragnarok.com/data/items/icons2/450127.png"><span>Automatic Armor A-type</span><span class="number-purple">+11</span></div>
-                    <div class="d-flex justify-content-start gap-1"><img src="https://www.novaragnarok.com/data/items/icons2/600008.png"><span>Hypocrisy Edge</span><span class="number-purple">+12~15</span></div>
-                    <div class="d-flex justify-content-start gap-1"><img src="https://www.novaragnarok.com/data/items/icons2/470066.png"><span>Illusion Sprint Shoes</span><span class="number-purple">+11</span></div>
-                    <div class="d-flex justify-content-start gap-1"><img src="https://www.novaragnarok.com/data/items/icons2/490057.png"><span>Brilliant Light Ruby Necklace</span></div>
+                    <div class="d-flex justify-content-start gap-1"><img src="https://www.novaragnarok.com/data/items/icons2/400001.png" alt="Victory Wing Ears"><span>Victory Wing Ears</span></div>
+                    <div class="d-flex justify-content-start gap-1"><img src="https://www.novaragnarok.com/data/items/icons2/450127.png" alt="Automatic Armor A-type"><span>Automatic Armor A-type</span><span class="number-purple">+11</span></div>
+                    <div class="d-flex justify-content-start gap-1"><img src="https://www.novaragnarok.com/data/items/icons2/600008.png" alt="Hypocrisy Edge"><span>Hypocrisy Edge</span><span class="number-purple">+12~15</span></div>
+                    <div class="d-flex justify-content-start gap-1"><img src="https://www.novaragnarok.com/data/items/icons2/470066.png" alt="Illusion Sprint Shoes"><span>Illusion Sprint Shoes</span><span class="number-purple">+11</span></div>
+                    <div class="d-flex justify-content-start gap-1"><img src="https://www.novaragnarok.com/data/items/icons2/490057.png" alt="Brilliant Light Ruby Necklace"><span>Brilliant Light Ruby Necklace</span></div>
                   </div>
                 </div>
               </div>
@@ -1096,9 +540,9 @@ footer > a > span:hover {
   </div>
 
   <!-- Back to top arrow -->
-  <button type="button"  id="btn-back-to-top" class="btn btn-dark border rounded-circle">
+  <!-- <button type="button"  id="btn-back-to-top" class="btn btn-dark border rounded-circle">
     <i class="fa-solid fa-angles-up"></i>
-  </button>
+  </button> -->
 
   <!-- Bootstrap -->
     <!-- Popper -->
