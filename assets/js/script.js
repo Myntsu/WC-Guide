@@ -49,7 +49,11 @@ $(document).ready(function() {
 });
 
 $(function() {
-  $("label").click( function() {
+  $(".clickable").click( function() {
     $(this).toggleClass("container-switch");
   } );
 } );
+
+$("li").click(function() {
+  $(this).toggleClass('stroked');
+  });

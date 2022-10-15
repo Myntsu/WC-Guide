@@ -6,8 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- DM Sans -->
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/76c49369ed.js" crossorigin="anonymous"></script>
 </head>
 
 <style>
@@ -16,6 +22,7 @@
   --light: 0, 0%, 99%; /* white */
   --dark: 221, 44%, 19%; /* dark blue */
   --gray: 223, 10%, 59%; /* gray */
+  --gray-dark: 0, 0%, 24%; /* actual dark */
 
   --header-light: 49, 85%, 65%; /* pale golden */
 
@@ -37,7 +44,19 @@
 }
 
 *:hover {
-  outline: 1px solid red;
+  /* outline: 1px solid red; */
+}
+
+/* Utility classes */
+.stroked {
+    text-decoration: line-through;
+}
+
+.code {
+    padding: .25em 1em;
+    color: hsl(var(--light)) !important;
+    background-color: hsl(var(--gray-dark));
+    border-radius: .5em;
 }
 
 body {
@@ -49,136 +68,610 @@ body {
     background-color: hsl(var(--bg-dark));
 }
 
-/* Main recipes grid */
-.grid-wrapper {
-    display: grid;
-    grid-column: auto;
-    grid-template-columns: repeat(6, 1fr);
-    grid: 
-    "header"
-    "column column column column";
-    gap: .5em;
+.body-container {
+    max-width: 1200px;
 
+    margin: auto;
     padding: 3em;
 }
 
-@media only screen and (max-width: 12000px) {
-    .grid-wrapper {
-        grid-template-columns: repeat(4 , 1fr);
+.body-container h1 {
+    display: flex;
+    align-items: center;
+    gap: .5em;
+
+    font-weight: 700;
+    font-size: 1.5rem;
+
+    margin: 0;
+    margin-bottom: .25em;
+}
+
+@media only screen and (max-width: 570px) {
+    .body-container {
+        padding: 3em 1em;
     }
 }
 
+small {
+    font-size: .75rem;
+    align-self: center;
+    color: hsl(var(--number-purple))
+}
+
+/* Recipes grid */
+.grid-dish-wrapper {
+    display: grid;
+    grid-column: auto;
+    grid-template-columns: repeat(4, 1fr);
+    gap: .5em;
+    place-content: center;
+}
+
 @media only screen and (max-width: 880px) {
-    .grid-wrapper {
+    .grid-dish-wrapper {
         grid-template-columns: repeat(3 , 1fr);
     }
 }
 
 @media only screen and (max-width: 570px) {
-    .grid-wrapper {
+    .grid-dish-wrapper {
         grid-template-columns: repeat(2 , 1fr);
     }
 }
 
-.grid-wrapper > div {
+@media only screen and (max-width: 400px) {
+    .grid-dish-wrapper {
+        grid-template-columns: repeat(1 , 1fr);
+    }
+}
+
+.grid-dish-wrapper > div {
     display: flex;
     align-items: center;
 
-    text-align: center;
-}
+    color: hsl(var(--text-gray));
+    background-color: hsl(var(--container-light));
+    border-radius: 0.5em;
 
-.grid-wrapper label {
-    flex: 1 0 0;
-
-    margin: 0;
-    padding: .5em 2em;
-
-    color: white;
-    background: hsl(var(--container-light));
-
-    border-radius: .5em;
+    user-select: none;
     cursor: pointer;
 
     transition: 300ms linear;
 }
 
-.grid-wrapper label:hover {
-    background-color: hsl(var(--container-lighter));
+.grid-dish-wrapper label {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: .5em;
+
+    width: 100%;
+    padding: 0.5em 2em;
 }
 
-.grid-wrapper label:active {
-    background-color: hsl(var(--important-light));
+label > img {
+    align-self: center;
+    margin: 0;
+    padding: 0;
 }
 
-label.container-switch {
+.grid-dish-wrapper> div.container-switch {
     background: hsl(var(--important-light));
 }
 
-form {
+
+input[type="checkbox"] {
     display: none;
 }
+
+/* Ingredients grid */
+.ingredients-container {
+    margin-block-start: 2em;
+}
+
+.ingredients-container h2 {
+    display: flex;
+    align-items: center;
+    gap: .5em;
+
+    font-weight: 700;
+    font-size: 1.5rem;
+
+    margin: 0;
+    margin-bottom: .25em;
+}
+
+.ingredients-container b {
+    font-weight: 700;
+}
+
+.ingredients-container p {
+    display: flex;
+    align-items: center;
+    gap: .25em;
+
+    margin: 0;
+    padding: 0;
+    
+    font-size: .9rem;
+    color: hsl(var(--text-gray));
+}
+
+.ingredients-container p:nth-child(4) {
+    margin-bottom: .75em;
+}
+
+.ingredients-container > p > img {
+    width: 24px;
+    height: 24px;
+}
+
+.ingredients-container > p > span {
+    font-weight: 700;
+    color: hsl(var(--number-purple));
+}
+
+.grid-ingredient-wrapper {
+    display: grid;
+    grid-column: auto;
+    grid-template-columns: repeat(4, 1fr);
+    gap: .5em;
+    place-content: center;
+}
+
+@media only screen and (max-width: 1200px) {
+    .grid-ingredient-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 880px) {
+    .grid-ingredient-wrapper {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.grid-ingredient-wrapper > div {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+}
+
+.ingredient-list {
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+
+    padding: 1em;
+
+    border-radius: .5em;
+    background-color: hsl(var(--container-light));
+}
+
+.ingredient-list ul:nth-child(1) {
+    margin: 0;
+    padding: 0;
+}
+
+.ingredient-list ul:nth-child(1) li {
+    display: flex;
+    gap: .5em;
+
+    user-select: none;
+    cursor: pointer;
+
+    word-break: keep-all;
+}
+
+.ingredient-list ul:nth-child(1) img {
+    justify-self: end;
+    width: 24px;
+    height: 24px;
+}
+
+.ingredient-list span {
+    width: 2em;
+
+    font-weight: 700;
+    color: hsl(var(--number));
+    text-align: center;
+}
+
+.ingredient-list ul:nth-child(2) {
+    margin: 0;
+    padding: 0;
+}
+
+.ingredient-list ul:nth-child(2) li {
+    display: flex;
+    gap: .5em;
+
+    padding-left: 1em;
+    border-inline-start: .15em solid hsl(var(--light));
+}
+
+.ingredient-list ul:nth-child(2) a {
+    padding-bottom: .2em;
+    text-decoration: none;
+    color: hsl(var(--important-light));
+}
+
+.ingredient-list ul:nth-child(2) a:hover {
+    color: hsl(var(--important-light), 50%);
+}
+
+.ingredients-container:has([value="Blood Bisque"]:checked) .first-dish {
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+    transition: visibility .2s, opacity 1s linear;
+}
+
+.ingredients-container:has([value="Chili con Goblin"]:checked) .second-dish {
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+    transition: visibility .2s, opacity 1s linear;
+}
+
+.ingredients-container:has([value="Screeching Potluck"]:checked) .third-dish {
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+    transition: visibility .2s, opacity 1s linear;
+}
+
+.ingredients-container:has([value="Spooky Saute"]:checked) .fourth-dish {
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+    transition: visibility .2s, opacity 1s linear;
+}
+
+.ingredients-container:has([value="Bones au Gratin"]:checked) .fifth-dish {
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+    transition: visibility .2s, opacity 1s linear;
+}
+
+.ingredients-container:has([value="Meaty Fingers"]:checked) .sixth-dish {
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+    transition: visibility .2s, opacity 1s linear;
+}
+
+.ingredients-container:has([value="Quivering Kibbeling"]:checked) .seventh-dish {
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+    transition: visibility .2s, opacity 1s linear;
+}
+
+.ingredients-container:has([value="Vampire Special"]:checked) .eight-dish {
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+    transition: visibility .2s, opacity 1s linear;
+}
+
+.ingredients-container:has([value="Rafflesia on Platter"]:checked) .nine-dish {
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+    transition: visibility .2s, opacity 1s linear;
+}
+
+.ingredients-container:has([value="Haunted Roll"]:checked) .tenth-dish {
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+    transition: visibility .2s, opacity 1s linear;
+}
+
+.ingredients-container:has([value="Grilled Mandragora Roots"]:checked) .eleven-dish {
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+    transition: visibility .2s, opacity 1s linear;
+}
+
+.ingredients-container:has([value="Fried Brain Sandwich"]:checked) .twelve-dish {
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+    transition: visibility .2s, opacity 1s linear;
+}
+
+
 
 
 </style>
 
 <body>
-    <div class="grid-wrapper">
-        <!-- <h1>Select your dish</h1> -->
-        <div class="clickable">
-            <label for="Blood Bisque">Blood Bisque</label>
-        </div>
-        <div>
-            <label for="Chili con Goblin">Chili con Goblin</label>
-        </div>
-        <div>
-            <label for="Screeching Potluck">Screeching Potluck</label>
-        </div>
-        <div>
-            <label for="Spooky Saute">Spooky Saute</label>
-        </div>
-        <div>
-            <label for="Bones au Gratin">Bones au Gratin</label>
-        </div>
-        <div>
-            <label for="Meaty Fingers">Meaty Fingers</label>
-        </div>
-        <div>
-            <label for="Quivering Kibbeling">Quivering Kibbeling</label>
-        </div>
-        <div>
-            <label for="Vampire Special">Vampire Special</label>
-        </div>
-        <div>
-            <label for="Rafflesia on Platter">Rafflesia on Platter</label>
-        </div>
-        <div>
-            <label for="Haunted Roll">Haunted Roll</label>
-        </div>
-        <div>
-            <label for="Grilled Mandragora Roots">Grilled Mandragora Roots</label>
-        </div>
-        <div>
-            <label for="Fried Brain Sandwich">Fried Brain Sandwich</label>
-        </div>
-    </div>
+    <main class="body-container">
+        <h1>Select your dish <i class="fa-solid fa-lightbulb fa-xs"></i></h1>
+        <section id="content-table" class="grid-dish-wrapper">
+            <div class="clickable">
+                <label for="Blood Bisque"><img src="https://novaragnarok.com/data/items/icons2/32489.png" alt="Nova Ragnarok dish"> Blood Bisque</label>
+            </div>
+            <div class="clickable">
+                <label for="Chili con Goblin"><img src="https://novaragnarok.com/data/items/icons2/32490.png" alt="Nova Ragnarok dish"> Chili con Goblin</label>
+            </div>
+            <div class="clickable">
+                <label for="Screeching Potluck"><img src="https://novaragnarok.com/data/items/icons2/32491.png" alt="Nova Ragnarok dish"> Screeching Potluck</label>
+            </div>
+            <div class="clickable">
+                <label for="Spooky Saute"><img src="https://novaragnarok.com/data/items/icons2/32492.png" alt="Nova Ragnarok dish"> Spooky Saute</label>
+            </div>
+            <div class="clickable">
+                <label for="Bones au Gratin"><img src="https://novaragnarok.com/data/items/icons2/32493.png" alt="Nova Ragnarok dish"> Bones au Gratin</label>
+            </div>
+            <div class="clickable">
+                <label for="Meaty Fingers"><img src="https://novaragnarok.com/data/items/icons2/32494.png" alt="Nova Ragnarok dish"> Meaty Fingers</label>
+            </div>
+            <div class="clickable">
+                <label for="Quivering Kibbeling"><img src="https://novaragnarok.com/data/items/icons2/32495.png" alt="Nova Ragnarok dish"> Quivering Kibbeling</label>
+            </div>
+            <div class="clickable">
+                <label for="Vampire Special"><img src="https://novaragnarok.com/data/items/icons2/32496.png" alt="Nova Ragnarok dish"> Vampire Special</label>
+            </div>
+            <div class="clickable">
+                <label for="Rafflesia on Platter"><img src="https://novaragnarok.com/data/items/icons2/32497.png" alt="Nova Ragnarok dish"> Rafflesia on Platter</label>
+            </div>
+            <div class="clickable">
+                <label for="Haunted Roll"><img src="https://novaragnarok.com/data/items/icons2/32498.png" alt="Nova Ragnarok dish"> Haunted Roll</label>
+            </div>
+            <div class="clickable">
+                <label for="Grilled Mandragora Roots"><img src="https://novaragnarok.com/data/items/icons2/32499.png" alt="Nova Ragnarok dish"> Grilled Mandragora Roots</label>
+            </div>
+            <div class="clickable">
+                <label for="Fried Brain Sandwich"><img src="https://novaragnarok.com/data/items/icons2/32500.png" alt="Nova Ragnarok dish"> Fried Brain Sandwich</label>
+            </div>
+        </section>
+        <div class="ingredients-container">
+            <form>
+                <input type="checkbox" id="Blood Bisque" name="ingredient" value="Blood Bisque">
+                <input type="checkbox" id="Chili con Goblin" name="ingredient" value="Chili con Goblin">
+                <input type="checkbox" id="Screeching Potluck" name="ingredient" value="Screeching Potluck">
+                <input type="checkbox" id="Spooky Saute" name="ingredient" value="Spooky Saute">
+                <input type="checkbox" id="Bones au Gratin" name="ingredient" value="Bones au Gratin">
+                <input type="checkbox" id="Meaty Fingers" name="ingredient" value="Meaty Fingers">
+                <input type="checkbox" id="Quivering Kibbeling" name="ingredient" value="Quivering Kibbeling">
+                <input type="checkbox" id="Vampire Special" name="ingredient" value="Vampire Special">
+                <input type="checkbox" id="Rafflesia on Platter" name="ingredient" value="Rafflesia on Platter">
+                <input type="checkbox" id="Haunted Roll" name="ingredient" value="Haunted Roll">
+                <input type="checkbox" id="Grilled Mandragora Roots" name="ingredient" value="Grilled Mandragora Roots">
+                <input type="checkbox" id="Fried Brain Sandwich" name="ingredient" value="Fried Brain Sandwich">
+            </form>
 
-    <div>
-        <form>
-            <input type="radio" id="Blood Bisque" name="ingredient" value="Blood Bisque">
-            <input type="radio" id="Chili con Goblin" name="ingredient" value="Chili con Goblin">
-            <input type="radio" id="Screeching Potluck" name="ingredient" value="Screeching Potluck">
-            <input type="radio" id="Spooky Saute" name="ingredient" value="Spooky Saute">
-            <input type="radio" id="Bones au Gratin" name="ingredient" value="Bones au Gratin">
-            <input type="radio" id="Meaty Fingers" name="ingredient" value="Meaty Fingers">
-            <input type="radio" id="Quivering Kibbeling" name="ingredient" value="Quivering Kibbeling">
-            <input type="radio" id="Vampire Special" name="ingredient" value="Vampire Special">
-            <input type="radio" id="Rafflesia on Platter" name="ingredient" value="Rafflesia on Platter">
-            <input type="radio" id="Haunted Roll" name="ingredient" value="Haunted Roll">
-            <input type="radio" id="Grilled Mandragora Roots" name="ingredient" value="Grilled Mandragora Roots">
-            <input type="radio" id="Fried Brain Sandwich" name="ingredient" value="Fried Brain Sandwich">
-        </form>
+            <h2>Check the ingredients <i class="fa-solid fa-check fa-sm"></i> <small>(Click on the ingredient to strike it)</small></h2>
+            <p><b>Tip 1:</b> The first ingredient always costs <span>10</span> <img src="https://novaragnarok.com/data/items/icons2/32573.png" alt="Spectral Nanner"> <b>Spectral Nanner</b>, and you need <span>36</span> <img src="https://novaragnarok.com/data/items/icons2/32573.png" alt="Spectral Nanner"> <b>Spectral Nanner</b> per daily ( <span>180</span> <img src="https://novaragnarok.com/data/items/icons2/29561.png" alt="Halloween coin"> <b>Halloween Coins</b> )</p>
+            <p><b>Tip 2:</b> Use <b>@wn</b> <span class="code">@whatnpc</span>, <b>@wd</b> <span class="code">@whodrops</span> or <b>@ws</b> <span class="code">@whosells</span> to acquire them easier.</p>
+            <section class="grid-ingredient-wrapper">
+
+                <!-- 1 -->
+                <div class="ingredient-list first-dish">
+                    <ul>
+                        <li><span>1</span><img src="https://novaragnarok.com/data/items/icons2/32575.png" alt="Nova Ragnarok ingredient"> Fresh Blood</li>
+                        <li><span>5</span><img src="https://novaragnarok.com/data/items/icons2/6252.png" alt="Nova Ragnarok ingredient"> Blood of Wolf</li>
+                        <li><span>10</span><img src="https://novaragnarok.com/data/items/icons2/657.png" alt="Nova Ragnarok ingredient">  Berserk Potion</li>
+                        <li><span>15</span><img src="https://novaragnarok.com/data/items/icons2/7134.png" alt="Nova Ragnarok ingredient">  Medicine Bowl</li>
+                        <li><span>20</span><img src="https://novaragnarok.com/data/items/icons2/7563.png" alt="Nova Ragnarok ingredient">  Bloody Rune</li>
+                        <li><span>10</span><img src="https://novaragnarok.com/data/items/icons2/702.png" alt="Nova Ragnarok ingredient">  Animal Gore</li>
+                    </ul>
+                    <ul>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=32575" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=6252" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=657" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7134" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7563" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=702" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                    </ul>
+                </div>
+                
+                <!-- 2 -->
+                <div  class="ingredient-list second-dish">
+                    <ul>
+                        <li><span>1</span><img src="https://novaragnarok.com/data/items/icons2/32501.png" alt="Nova Ragnarok ingredient"> Minced Meat</li>
+                        <li><span>2</span><img src="https://novaragnarok.com/data/items/icons2/566.png" alt="Nova Ragnarok ingredient"> Tom Yun Goongs</li>
+                        <li><span>10</span><img src="https://novaragnarok.com/data/items/icons2/7456.png" alt="Nova Ragnarok ingredient"> Red Spice</li>
+                        <li><span>10</span><img src="https://novaragnarok.com/data/items/icons2/7455.png" alt="Nova Ragnarok ingredient"> Spicy Sauce</li>
+                        <li><span>20</span><img src="https://novaragnarok.com/data/items/icons2/7122.png" alt="Nova Ragnarok ingredient"> Burning Hair</li>
+                        <li><span>10</span><img src="https://novaragnarok.com/data/items/icons2/7286.png" alt="Nova Ragnarok ingredient"> Red Chiles</li>
+                    </ul>
+                    <ul>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=32501" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=566" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7456" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7455" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7122" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7286" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                    </ul>
+                </div>
+
+                <!-- 3 -->
+                <div class="ingredient-list third-dish">
+                    <ul>
+                        <li><span>1</span><img src="https://novaragnarok.com/data/items/icons2/32503.png" alt="Nova Ragnarok ingredient"> Egg Yolk</li>
+                        <li><span>1</span><img src="https://novaragnarok.com/data/items/icons2/2408.png" alt="Nova Ragnarok ingredient"> Shackles</li>
+                        <li><span>2</span><img src="https://novaragnarok.com/data/items/icons2/1901.png" alt="Nova Ragnarok ingredient">  Violin</li>
+                        <li><span>10</span><img src="https://novaragnarok.com/data/items/icons2/737.png" alt="Nova Ragnarok ingredient"> Black Ladle</li>
+                        <li><span>5</span><img src="https://novaragnarok.com/data/items/icons2/1017.png" alt="Nova Ragnarok ingredient"> Mole Whisker</li>
+                        <li><span>5</span><img src="https://novaragnarok.com/data/items/icons2/1043.png" alt="Nova Ragnarok ingredient"> Orc Claw</li>
+                    </ul>
+                    <ul>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=32503" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=2408" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=1901" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=737" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=1017" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=1043" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                    </ul>
+                </div>
+
+                <!-- 4 -->
+                <div class="ingredient-list fourth-dish">
+                    <ul>
+                        <li><span>1</span><img src="https://novaragnarok.com/data/items/icons2/32575.png" alt="Nova Ragnarok ingredient"> Fresh Blood</li>
+                        <li><span>3</span><img src="https://novaragnarok.com/data/items/icons2/621.png" alt="Nova Ragnarok ingredient"> Bitter Herb</li>
+                        <li><span>20</span><img src="https://novaragnarok.com/data/items/icons2/602.png" alt="Nova Ragnarok ingredient"> Butterfly Wing</li>
+                        <li><span>5</span><img src="https://novaragnarok.com/data/items/icons2/7457.png" alt="Nova Ragnarok ingredient"> Cooking Oil</li>
+                        <li><span>20</span><img src="https://novaragnarok.com/data/items/icons2/1063.png" alt="Nova Ragnarok ingredient"> Fang</li>
+                        <li><span>25</span><img src="https://novaragnarok.com/data/items/icons2/1039.png" alt="Nova Ragnarok ingredient"> Little Evil Wing</li>
+                    </ul>
+                    <ul>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=32575" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=621" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=602" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7457" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=1063" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=1093" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                    </ul>
+                </div>
+
+                <!-- 5 -->
+                <div class="ingredient-list fifth-dish">
+                    <ul>
+                        <li><span>1</span><img src="https://novaragnarok.com/data/items/icons2/32502.png" alt="Nova Ragnarok ingredient"> Sweet Rice</li>
+                        <li><span>1</span><img src="https://novaragnarok.com/data/items/icons2/628.png" alt="Nova Ragnarok ingredient"> Well-dried Bone</li>
+                        <li><span>2</span><img src="https://novaragnarok.com/data/items/icons2/736.png" alt="Nova Ragnarok ingredient"> China</li>
+                        <li><span>20</span><img src="https://novaragnarok.com/data/items/icons2/965.png" alt="Nova Ragnarok ingredient"> Clam Shell</li>
+                        <li><span>30</span><img src="https://novaragnarok.com/data/items/icons2/25276.png" alt="Nova Ragnarok ingredient"> Clean Bone</li>
+                        <li><span>30</span><img src="https://novaragnarok.com/data/items/icons2/932.png" alt="Nova Ragnarok ingredient"> Skel-bone</li>
+                    </ul>
+                    <ul>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=32502" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=628" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=736" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=965" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=25276" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=932" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                    </ul>
+                </div>
+
+                <!-- 6 -->
+                <div class="ingredient-list sixth-dish">
+                    <ul>
+                        <li><span>1</span><img src="https://novaragnarok.com/data/items/icons2/32504.png" alt="Nova Ragnarok ingredient"> Weisswurst</li>
+                        <li><span>5</span><img src="https://novaragnarok.com/data/items/icons2/7011.png" alt="Nova Ragnarok ingredient"> Claw of Monkey</li>
+                        <li><span>1</span><img src="https://novaragnarok.com/data/items/icons2/1803.png" alt="Nova Ragnarok ingredient"> Knuckle Duster</li>
+                        <li><span>5</span><img src="https://novaragnarok.com/data/items/icons2/6262.png" alt="Nova Ragnarok ingredient"> Cool Gravy</li>
+                        <li><span>5</span><img src="https://novaragnarok.com/data/items/icons2/2610.png" alt="Nova Ragnarok ingredient"> Gold Ring</li>
+                        <li><span>25</span><img src="https://novaragnarok.com/data/items/icons2/957.png" alt="Nova Ragnarok ingredient"> Decayed Nail</li>
+                    </ul>
+                    <ul>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=32504" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7011" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=1803" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=6262" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=2610" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=957" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                    </ul>
+                </div>
+
+                <!-- 7 -->
+                <div class="ingredient-list seventh-dish">
+                    <ul>
+                        <li><span>1</span><img src="https://novaragnarok.com/data/items/icons2/32576.png" alt="Nova Ragnarok ingredient"> Moldy Flour</li>
+                        <li><span>25</span><img src="https://novaragnarok.com/data/items/icons2/919.png" alt="Nova Ragnarok ingredient"> Animal Skin</li>
+                        <li><span>25</span><img src="https://novaragnarok.com/data/items/icons2/7001.png" alt="Nova Ragnarok ingredient"> Mould Powder</li>
+                        <li><span>25</span><img src="https://novaragnarok.com/data/items/icons2/7220.png" alt="Nova Ragnarok ingredient"> Ectoplasm</li>
+                    </ul>
+                    <ul>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=32576" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=919" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7001" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7220" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                    </ul>
+                </div>
+
+                <!-- 8 -->
+                <div class="ingredient-list eight-dish">
+                    <ul>
+                        <li><span>1</span><img src="https://novaragnarok.com/data/items/icons2/32503.png" alt="Nova Ragnarok ingredient"> Egg Yolk</li>
+                        <li><span>1</span><img src="https://novaragnarok.com/data/items/icons2/2505.png" alt="Nova Ragnarok ingredient"> Manteau</li>
+                        <li><span>15</span><img src="https://novaragnarok.com/data/items/icons2/550.png" alt="Nova Ragnarok ingredient"> Rice Cake</li>
+                        <li><span>20</span><img src="https://novaragnarok.com/data/items/icons2/7006.png" alt="Nova Ragnarok ingredient"> Wing of Red Bat</li>
+                    </ul>
+                    <ul>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=32503" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=2505" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=550" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7006" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                    </ul>
+                </div>
+                
+                <!-- 9 -->
+                <div class="ingredient-list nine-dish">
+                    <ul>
+                        <li><span>1</span><img src="https://novaragnarok.com/data/items/icons2/32502.png" alt="Nova Ragnarok ingredient"> Sweet Rice</li>
+                        <li><span>5</span><img src="https://novaragnarok.com/data/items/icons2/6112.png" alt="Nova Ragnarok ingredient"> Fresh Plant</li>
+                        <li><span>20</span><img src="https://novaragnarok.com/data/items/icons2/7100.png" alt="Nova Ragnarok ingredient"> Sharp Leaf</li>
+                        <li><span>25</span><img src="https://novaragnarok.com/data/items/icons2/7298.png" alt="Nova Ragnarok ingredient"> Fig Leaf</li>
+                    </ul>
+                    <ul>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=32502" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=6112" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7100" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7298" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                    </ul>
+                </div>
+
+                <!-- 10 -->
+                <div class="ingredient-list tenth-dish">
+                    <ul>
+                        <li><span>1</span><img src="https://novaragnarok.com/data/items/icons2/32576.png" alt="Nova Ragnarok ingredient"> Mouldy Flour</li>
+                        <li><span>20</span><img src="https://novaragnarok.com/data/items/icons2/535.png" alt="Nova Ragnarok ingredient"> Pumpkin</li>
+                        <li><span>15</span><img src="https://novaragnarok.com/data/items/icons2/7268.png" alt="Nova Ragnarok ingredient"> Little Ghost Doll</li>
+                        <li><span>15</span><img src="https://novaragnarok.com/data/items/icons2/1025.png" alt="Nova Ragnarok ingredient"> Cobweb</li>
+                    </ul>
+                    <ul>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=32576" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=535" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7268" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=1025" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                    </ul>
+                </div>
+
+                <!-- 11 -->
+                <div class="ingredient-list eleven-dish">
+                    <ul>
+                        <li><span>1</span><img src="https://novaragnarok.com/data/items/icons2/32504.png" alt="Nova Ragnarok ingredient"> Weisswurst</li>
+                        <li><span>20</span><img src="https://novaragnarok.com/data/items/icons2/902.png" alt="Nova Ragnarok ingredient"> Tree Root</li>
+                        <li><span>20</span><img src="https://novaragnarok.com/data/items/icons2/7188.png" alt="Nova Ragnarok ingredient"> Brown Root</li>
+                        <li><span>10</span><img src="https://novaragnarok.com/data/items/icons2/6217.png" alt="Nova Ragnarok ingredient"> Mandragora Flowerpot</li>
+                    </ul>
+                    <ul>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=32504" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=902" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7188" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=6217" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                    </ul>
+                </div>
+
+                <!-- 12 -->
+                <div class="ingredient-list twelve-dish">
+                    <ul>
+                        <li><span>1</span><img src="https://novaragnarok.com/data/items/icons2/32501.png" alt="Nova Ragnarok ingredient"> Minced Meat</li>
+                        <li><span>15</span><img src="https://novaragnarok.com/data/items/icons2/580.png" alt="Nova Ragnarok ingredient"> Bread</li>
+                        <li><span>15</span><img src="https://novaragnarok.com/data/items/icons2/1051.png" alt="Nova Ragnarok ingredient"> Detonator</li>
+                        <li><span>15</span><img src="https://novaragnarok.com/data/items/icons2/548.png" alt="Nova Ragnarok ingredient"> Cheese</li>
+                    </ul>
+                    <ul>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=32501" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=580" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=1051" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=548" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
+                    </ul>
+                </div>
+            </section>
         
-    </div>
+        </div>
+    </main>
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
