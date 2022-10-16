@@ -56,3 +56,53 @@ $("li").click(function() {
 $("#toggle").click(function(){
   $(".target").toggle
 });
+
+$(".hide-one").click(function(){
+  $(".first-dish").toggle(1000, function(){
+    alert('potato');
+  });
+});
+
+$(".hide-two").click(function(){
+  $(".second-dish").toggle();
+});
+
+$(".hide-three").click(function(){
+  $(".third-dish").toggle();
+});
+
+$(".hide-four").click(function(){
+  $(".fourth-dish").toggle();
+});
+
+$(".hide-five").click(function(){
+  $(".fifth-dish").toggle();
+});
+
+$(".hide-six").click(function(){
+  $(".sixth-dish").toggle();
+});
+
+$(".hide-seven").click(function(){
+  $(".seventh-dish").toggle();
+});
+
+$(".hide-eight").click(function(){
+  $(".eight-dish").toggle();
+});
+
+$(".hide-nine").click(function(){
+  $(".nine-dish").toggle();
+});
+
+$(".hide-ten").click(function(){
+  $(".tenth-dish").toggle();
+});
+
+$(".hide-eleven").click(function(){
+  $(".eleven-dish").toggle();
+});
+
+$(".hide-twelve").click(function(){
+  $(".twelve-dish").toggle();
+});
