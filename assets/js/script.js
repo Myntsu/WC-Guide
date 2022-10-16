@@ -1,10 +1,10 @@
 // Enabling popover
-const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+const popoverTriggerList = document.querySelectorAll('[data-bs-slideToggle="popover"]')
 const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
 
 
 // Enabling tooltip
-const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipTriggerList = document.querySelectorAll('[data-bs-slideToggle="tooltip"]')
 const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
 
@@ -53,56 +53,50 @@ $("li").click(function() {
   $(this).toggleClass('stroked');
 });
 
-$("#toggle").click(function(){
-  $(".target").toggle
-});
-
 $(".hide-one").click(function(){
-  $(".first-dish").toggle(1000, function(){
-    alert('potato');
-  });
+  $(".first-dish").slideToggle(1000);
 });
 
 $(".hide-two").click(function(){
-  $(".second-dish").toggle();
+  $(".second-dish").slideToggle(1000);
 });
 
 $(".hide-three").click(function(){
-  $(".third-dish").toggle();
+  $(".third-dish").slideToggle(1000);
 });
 
 $(".hide-four").click(function(){
-  $(".fourth-dish").toggle();
+  $(".fourth-dish").slideToggle(1000);
 });
 
 $(".hide-five").click(function(){
-  $(".fifth-dish").toggle();
+  $(".fifth-dish").slideToggle(1000);
 });
 
 $(".hide-six").click(function(){
-  $(".sixth-dish").toggle();
+  $(".sixth-dish").slideToggle(1000);
 });
 
 $(".hide-seven").click(function(){
-  $(".seventh-dish").toggle();
+  $(".seventh-dish").slideToggle(1000);
 });
 
 $(".hide-eight").click(function(){
-  $(".eight-dish").toggle();
+  $(".eight-dish").slideToggle(1000);
 });
 
 $(".hide-nine").click(function(){
-  $(".nine-dish").toggle();
+  $(".nine-dish").slideToggle(1000);
 });
 
 $(".hide-ten").click(function(){
-  $(".tenth-dish").toggle();
+  $(".tenth-dish").slideToggle(1000);
 });
 
 $(".hide-eleven").click(function(){
-  $(".eleven-dish").toggle();
+  $(".eleven-dish").slideToggle(1000);
 });
 
 $(".hide-twelve").click(function(){
-  $(".twelve-dish").toggle();
+  $(".twelve-dish").slideToggle(1000);
 });

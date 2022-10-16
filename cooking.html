@@ -63,7 +63,6 @@
 
 * {
     box-sizing: content-box;
-    line-height: auto;
 }
 
 *:hover {
@@ -124,8 +123,16 @@
     font-weight: 700 !important;
 }
 
+.grid {
+    display: grid;
+    grid-column: auto;
+    grid-template-columns: 1fr;
+}
+
 /* Body */
 body {
+    display: flex;
+    flex-direction: column;
     position: relative;
     
     min-height: 120vh;
@@ -143,7 +150,7 @@ body {
 .body-container {
     max-width: 1200px;
 
-    margin: 0 auto 100vh;
+    margin: 0 auto;
     padding: 3em;
 }
 
@@ -316,19 +323,11 @@ label > img {
     justify-content: space-between;
     gap: 1em;
 
+    height: fill;
     padding: 1em;
 
     border-radius: .5em;
     background-color: hsl(var(--container-light));
-}
-
-.hide-one, .hide-two, .hide-three, .hide-four, .hide-five, .hide-six, .hide-seven, .hide-eight, .hide-nine, .hide-ten, .hide-eleven, .hide-twelve {
-    display: flex;
-    height: inherit;
-}
-
-.grid-ingredient-wrapper div:is(.first-dish, .second-dish, .third-dish, .fourth-dish, .fifth-dish, .sixth-dish, .seventh-dish, .eight-dish, .nine-dish, .tenth-dish, .eleven-dish, .twelve-dish) {
-    display: none;
 }
 
 .ingredient-list ul:nth-child(1) {
@@ -392,7 +391,7 @@ footer {
 
   width: 100%;
 
-  margin-top: 1000px;
+  margin-top: auto;
   padding: 2em 0;
 
   font-size: 1rem;
@@ -507,55 +506,54 @@ footer > a > span:hover {
 </style>
 
 <body>
-    <main class="body-container">
-        <h1>Select your dish <i class="fa-solid fa-lightbulb fa-xs"></i></h1>
-        <section id="content-table" class="grid-dish-wrapper">
-            <div class="clickable hide-one">
-                <label for="Blood Bisque"><img src="https://novaragnarok.com/data/items/icons2/32489.png" alt="Nova Ragnarok dish"> Blood Bisque</label>
-            </div>
-            <div class="clickable hide-two">
-                <label for="Chili con Goblin"><img src="https://novaragnarok.com/data/items/icons2/32490.png" alt="Nova Ragnarok dish"> Chili con Goblin</label>
-            </div>
-            <div class="clickable hide-three">
-                <label for="Screeching Potluck"><img src="https://novaragnarok.com/data/items/icons2/32491.png" alt="Nova Ragnarok dish"> Screeching Potluck</label>
-            </div>
-            <div class="clickable hide-four">
-                <label for="Spooky Saute"><img src="https://novaragnarok.com/data/items/icons2/32492.png" alt="Nova Ragnarok dish"> Spooky Saute</label>
-            </div>
-            <div class="clickable hide-five">
-                <label for="Bones au Gratin"><img src="https://novaragnarok.com/data/items/icons2/32493.png" alt="Nova Ragnarok dish"> Bones au Gratin</label>
-            </div>
-            <div class="clickable hide-six">
-                <label for="Meaty Fingers"><img src="https://novaragnarok.com/data/items/icons2/32494.png" alt="Nova Ragnarok dish"> Meaty Fingers</label>
-            </div>
-            <div class="clickable hide-seven">
-                <label for="Quivering Kibbeling"><img src="https://novaragnarok.com/data/items/icons2/32495.png" alt="Nova Ragnarok dish"> Quivering Kibbeling</label>
-            </div>
-            <div class="clickable hide-eight">
-                <label for="Vampire Special"><img src="https://novaragnarok.com/data/items/icons2/32496.png" alt="Nova Ragnarok dish"> Vampire Special</label>
-            </div>
-            <div class="clickable hide-nine">
-                <label for="Rafflesia on Platter"><img src="https://novaragnarok.com/data/items/icons2/32497.png" alt="Nova Ragnarok dish"> Rafflesia on Platter</label>
-            </div>
-            <div class="clickable hide-ten">
-                <label for="Haunted Roll"><img src="https://novaragnarok.com/data/items/icons2/32498.png" alt="Nova Ragnarok dish"> Haunted Roll</label>
-            </div>
-            <div class="clickable hide-eleven">
-                <label for="Grilled Mandragora Roots"><img src="https://novaragnarok.com/data/items/icons2/32499.png" alt="Nova Ragnarok dish"> Grilled Mandragora Roots</label>
-            </div>
-            <div class="clickable hide-twelve">
-                <label for="Fried Brain Sandwich"><img src="https://novaragnarok.com/data/items/icons2/32500.png" alt="Nova Ragnarok dish"> Fried Brain Sandwich</label>
-            </div>
-        </section>
-        <div class="ingredients-container">
-            <h2>Check the ingredients <i class="fa-solid fa-check fa-sm"></i> <small>(Click on the ingredient to strike it)</small></h2>
-            <p><b>Tip 1:</b> The first ingredient always costs <span>10</span> <img src="https://novaragnarok.com/data/items/icons2/32573.png" alt="Spectral Nanner"> <b>Spectral Nanner</b>, and you need <span>36</span> <img src="https://novaragnarok.com/data/items/icons2/32573.png" alt="Spectral Nanner"> <b>Spectral Nanner</b> per daily ( <span>180</span> <img src="https://novaragnarok.com/data/items/icons2/29561.png" alt="Halloween coin"> <b>Halloween Coins</b> )</p>
-            <p><b>Tip 2:</b> Use <b>@wn</b> <span class="code">@whatnpc</span> <b>@wd</b> <span class="code">@whodrops</span> or <b>@ws</b> <span class="code">@whosells</span> to acquire them easier.</p>
-            <section class="grid-ingredient-wrapper">
-
-                <!-- 1 -->
-                <div class="first-dish">
-                    <div class="ingredient-list">
+    <div>
+        <main class="body-container">
+            <h1>Select your dish <i class="fa-solid fa-lightbulb fa-xs"></i></h1>
+            <section id="content-table" class="grid-dish-wrapper">
+                <div class="clickable hide-one">
+                    <label for="Blood Bisque"><img src="https://novaragnarok.com/data/items/icons2/32489.png" alt="Nova Ragnarok dish"> Blood Bisque</label>
+                </div>
+                <div class="clickable hide-two">
+                    <label for="Chili con Goblin"><img src="https://novaragnarok.com/data/items/icons2/32490.png" alt="Nova Ragnarok dish"> Chili con Goblin</label>
+                </div>
+                <div class="clickable hide-three">
+                    <label for="Screeching Potluck"><img src="https://novaragnarok.com/data/items/icons2/32491.png" alt="Nova Ragnarok dish"> Screeching Potluck</label>
+                </div>
+                <div class="clickable hide-four">
+                    <label for="Spooky Saute"><img src="https://novaragnarok.com/data/items/icons2/32492.png" alt="Nova Ragnarok dish"> Spooky Saute</label>
+                </div>
+                <div class="clickable hide-five">
+                    <label for="Bones au Gratin"><img src="https://novaragnarok.com/data/items/icons2/32493.png" alt="Nova Ragnarok dish"> Bones au Gratin</label>
+                </div>
+                <div class="clickable hide-six">
+                    <label for="Meaty Fingers"><img src="https://novaragnarok.com/data/items/icons2/32494.png" alt="Nova Ragnarok dish"> Meaty Fingers</label>
+                </div>
+                <div class="clickable hide-seven">
+                    <label for="Quivering Kibbeling"><img src="https://novaragnarok.com/data/items/icons2/32495.png" alt="Nova Ragnarok dish"> Quivering Kibbeling</label>
+                </div>
+                <div class="clickable hide-eight">
+                    <label for="Vampire Special"><img src="https://novaragnarok.com/data/items/icons2/32496.png" alt="Nova Ragnarok dish"> Vampire Special</label>
+                </div>
+                <div class="clickable hide-nine">
+                    <label for="Rafflesia on Platter"><img src="https://novaragnarok.com/data/items/icons2/32497.png" alt="Nova Ragnarok dish"> Rafflesia on Platter</label>
+                </div>
+                <div class="clickable hide-ten">
+                    <label for="Haunted Roll"><img src="https://novaragnarok.com/data/items/icons2/32498.png" alt="Nova Ragnarok dish"> Haunted Roll</label>
+                </div>
+                <div class="clickable hide-eleven">
+                    <label for="Grilled Mandragora Roots"><img src="https://novaragnarok.com/data/items/icons2/32499.png" alt="Nova Ragnarok dish"> Grilled Mandragora Roots</label>
+                </div>
+                <div class="clickable hide-twelve">
+                    <label for="Fried Brain Sandwich"><img src="https://novaragnarok.com/data/items/icons2/32500.png" alt="Nova Ragnarok dish"> Fried Brain Sandwich</label>
+                </div>
+            </section>
+            <div class="ingredients-container">
+                <h2>Check the ingredients <i class="fa-solid fa-check fa-sm"></i> <small>(Click on the ingredient to strike it)</small></h2>
+                <p><b>Tip 1:</b> The first ingredient always costs <span>10</span> <img src="https://novaragnarok.com/data/items/icons2/32573.png" alt="Spectral Nanner"> <b>Spectral Nanner</b>, and you need <span>36</span> <img src="https://novaragnarok.com/data/items/icons2/32573.png" alt="Spectral Nanner"> <b>Spectral Nanner</b> per daily ( <span>180</span> <img src="https://novaragnarok.com/data/items/icons2/29561.png" alt="Halloween coin"> <b>Halloween Coins</b> )</p>
+                <p><b>Tip 2:</b> Use <b>@wn</b> <span class="code">@whatnpc</span> <b>@wd</b> <span class="code">@whodrops</span> or <b>@ws</b> <span class="code">@whosells</span> to acquire them easier.</p>
+                <section class="grid-ingredient-wrapper">
+                    <!-- 1 -->
+                    <div class="first-dish ingredient-list" style="display: none;">
                         <ul>
                             <p class="title">Blood Bisque</p>
                             <hr class="my-2">
@@ -572,11 +570,8 @@ footer > a > span:hover {
                             </button>
                         </div>
                     </div>
-                </div>
-
-                <!-- 2 -->
-                <div class="second-dish">
-                    <div class="ingredient-list">
+                    <!-- 2 -->
+                    <div class="second-dish ingredient-list" style="display: none;">
                         <ul>
                             <p class="title">Chili con Goblin</p>
                             <hr class="my-2">
@@ -593,11 +588,8 @@ footer > a > span:hover {
                             </button>
                         </div>
                     </div>
-                </div>
-
-                <!-- 3 -->
-                <div class="third-dish">
-                    <div class="ingredient-list">
+                    <!-- 3 -->
+                    <div class="third-dish ingredient-list" style="display: none;">
                         <ul>
                             <p class="title">Screeching Potluck</p>
                             <hr class="my-2">
@@ -614,11 +606,8 @@ footer > a > span:hover {
                             </button>
                         </div>
                     </div>
-                </div>
-
-                <!-- 4 -->
-                <div class="fourth-dish">
-                    <div class="ingredient-list">
+                    <!-- 4 -->
+                    <div class="fourth-dish ingredient-list" style="display: none;">
                         <ul>
                             <p class="title">Spooky Saute</p>
                             <hr class="my-2">
@@ -635,11 +624,8 @@ footer > a > span:hover {
                             </button>
                         </div>
                     </div>
-                </div>
-
-                <!-- 5 -->
-                <div class="fifth-dish">
-                    <div class="ingredient-list">
+                    <!-- 5 -->
+                    <div class="fifth-dish ingredient-list" style="display: none;">
                         <ul>
                             <p class="title">Bones au Gratin</p>
                             <hr class="my-2">
@@ -656,11 +642,8 @@ footer > a > span:hover {
                             </button>
                         </div>
                     </div>
-                </div>
-
-                <!-- 6 -->
-                <div class="sixth-dish">
-                    <div class="ingredient-list">
+                    <!-- 6 -->
+                    <div class="sixth-dish ingredient-list" style="display: none;">
                         <ul>
                             <p class="title">Meaty Fingers</p>
                             <hr class="my-2">
@@ -677,11 +660,8 @@ footer > a > span:hover {
                             </button>
                         </div>
                     </div>
-                </div>
-
-                <!-- 7 -->
-                <div class="seventh-dish">
-                    <div class="ingredient-list">
+                    <!-- 7 -->
+                    <div class="seventh-dish ingredient-list" style="display: none;">
                         <ul>
                             <p class="title">Quivering Kibbeling</p>
                             <hr class="my-2">
@@ -696,11 +676,8 @@ footer > a > span:hover {
                             </button>
                         </div>
                     </div>
-                </div>
-
-                <!-- 8 -->
-                <div class="eight-dish">
-                    <div class="ingredient-list">
+                    <!-- 8 -->
+                    <div class="eight-dish ingredient-list" style="display: none;">
                         <ul>
                             <p class="title">Vampire Special</p>
                             <hr class="my-2">
@@ -715,11 +692,9 @@ footer > a > span:hover {
                             </button>
                         </div>
                     </div>
-                </div>
-                
-                <!-- 9 -->
-                <div class="nine-dish">
-                    <div class="ingredient-list">
+        
+                    <!-- 9 -->
+                    <div class="nine-dish ingredient-list" style="display: none;">
                         <ul>
                             <p class="title">Rafflesia on Platter</p>
                             <hr class="my-2">
@@ -734,11 +709,8 @@ footer > a > span:hover {
                             </button>
                         </div>
                     </div>
-                </div>
-
-                <!-- 10 -->
-                <div class="tenth-dish">
-                    <div class="ingredient-list">
+                    <!-- 10 -->
+                    <div class="tenth-dish ingredient-list" style="display: none;">
                         <ul>
                             <p class="title">Haunted Roll</p>
                             <hr class="my-2">
@@ -753,11 +725,8 @@ footer > a > span:hover {
                             </button>
                         </div>
                     </div>
-                </div>
-
-                <!-- 11 -->
-                <div class="eleven-dish">
-                    <div class="ingredient-list">
+                    <!-- 11 -->
+                    <div class="eleven-dish ingredient-list" style="display: none;">
                         <ul>
                             <p class="title">Grilled Mandragora Roots</p>
                             <hr class="my-2">
@@ -772,11 +741,8 @@ footer > a > span:hover {
                             </button>
                         </div>
                     </div>
-                </div>
-
-                <!-- 12 -->
-                <div class="twelve-dish">
-                    <div class="ingredient-list">
+                    <!-- 12 -->
+                    <div class="twelve-dish ingredient-list" style="display: none;">
                         <ul>
                             <p class="title">Fried Brain Sandwich</p>
                             <hr class="my-2">
@@ -791,11 +757,11 @@ footer > a > span:hover {
                             </button>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
         
-        </div>
-    </main>
+            </div>
+        </main>
+    </div>
 
     <footer class="mt-auto">
         <p>Created by <i class="fa-brands fa-discord"></i> Myndi#5041</p>
@@ -1481,7 +1447,7 @@ footer > a > span:hover {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
 
     <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <!-- JS -->
     <script src="assets/js/script.js"></script>
 </body>
