@@ -52,12 +52,18 @@
 
   --text-gray: 0, 0%, 91%;
 
-  --number-purple: 244, 55%, 70%;
   --number: 120, 68%, 62%;
+  --number-cyan: 36, 90%, 60%;
+  --number-purple: 244, 55%, 70%;
+
+  /* 36, 89%, 59%; */
+  /* #D2E4C4 pale mint */
+  /* #F3A738 orange */
 }
 
 * {
     box-sizing: content-box;
+    line-height: auto;
 }
 
 *:hover {
@@ -77,6 +83,39 @@
     border-radius: .5em;
 }
 
+.npc {
+    padding: .25em .75em;
+    color: hsl(var(--light)) !important;
+    background-color: hsl(var(--number));
+    border-radius: 1em;
+    font-weight: 700;
+}
+
+.mob {
+    padding: .25em .75em;
+    color: hsl(var(--light)) !important;
+    background-color: hsl(var(--important-lighter));
+    border-radius: 1em;
+    font-weight: 700;
+}
+
+.market {
+    padding: .25em .75em;
+    color: hsl(var(--light)) !important;
+    background-color: hsl(var(--header-light));
+    border-radius: 1em;
+    font-weight: 700;
+}
+
+.location {
+    padding: .25em .75em;
+    color: hsl(var(--light)) !important;
+    background-color: hsl(var(--number-purple));
+    border-radius: 1em;
+    font-weight: 700;
+}
+
+/* Body */
 body {
     display: flex;
     flex-direction: column;
@@ -212,7 +251,7 @@ input[type="checkbox"] {
     font-size: 1.5rem;
 
     margin: 0;
-    margin-bottom: .25em;
+    margin-bottom: .5em;
 
     color: hsl(var(--header-light));
 }
@@ -226,19 +265,13 @@ input[type="checkbox"] {
 }
 
 .ingredients-container p {
-    display: flex;
-    align-items: center;
-    gap: .25em;
-
     margin: 0;
     padding: 0;
+
+    margin-block-end: 1em;
     
     font-size: .9rem;
     color: hsl(var(--text-gray));
-}
-
-.ingredients-container p:nth-child(4) {
-    margin-bottom: .75em;
 }
 
 .ingredients-container > p > img {
@@ -248,7 +281,7 @@ input[type="checkbox"] {
 
 .ingredients-container > p > span {
     font-weight: 700;
-    color: hsl(var(--number));
+    color: hsl(var(--number-cyan));
 }
 
 .grid-ingredient-wrapper {
@@ -314,31 +347,31 @@ input[type="checkbox"] {
     width: 2em;
 
     font-weight: 700;
-    color: hsl(var(--number));
+    color: hsl(var(--number-cyan));
     text-align: center;
 }
 
-.ingredient-list ul:nth-child(2) {
-    margin: 0;
-    padding: 0;
-}
-
-.ingredient-list ul:nth-child(2) li {
+.ingredient-list .btn-plus {
     display: flex;
-    gap: .5em;
+    justify-content: center;
+    align-items: center;
 
-    padding-left: 1em;
-    border-inline-start: .15em solid hsl(var(--light));
+    width: 20px;
+    height: 30px;
+    
+    background-color: transparent;
+
+    border: none;
+    border-radius: .5em;
 }
 
-.ingredient-list ul:nth-child(2) a {
-    padding-bottom: .2em;
-    text-decoration: none;
-    color: hsl(var(--important-light));
+.ingredient-list .btn-plus > i {
+    margin: auto;
+    color: hsl(var(--light));
 }
 
-.ingredient-list ul:nth-child(2) a:hover {
-    color: hsl(var(--important-light), 50%);
+.ingredient-list .btn-plus:is(:hover, :active, :focus) i {
+    color: hsl(var(--light), 70%);
 }
 
 .ingredients-container:has([value="Blood Bisque"]:checked) .first-dish {
@@ -481,6 +514,42 @@ footer > a > span:hover {
   }
 }
 
+/* Modal */
+.modal-header {
+    border: none;
+    margin: 0;
+    padding: 1em;
+}
+
+.modal-content {
+    color: hsl(var(--text-gray));
+    background-color: hsl(var(--container-light));
+}
+
+.modal-body table {
+    color: hsl(var(--text-gray));
+}
+
+.modal-body table > tbody > th {
+    font-weight: 700;
+}
+
+.modal-body table > thead > tr > th:nth-child(4) {
+    text-align: center;
+}
+
+.modal-body table > tbody > tr > td:nth-child(4) {
+    text-align: center;
+}
+
+.modal-body a {
+    text-decoration: none;
+    color: hsl(var(--light));
+}
+
+.modal-body a:hover {
+    color: hsl(var(--light), 50%);
+}
 </style>
 
 <body>
@@ -542,7 +611,7 @@ footer > a > span:hover {
 
             <h2>Check the ingredients <i class="fa-solid fa-check fa-sm"></i> <small>(Click on the ingredient to strike it)</small></h2>
             <p><b>Tip 1:</b> The first ingredient always costs <span>10</span> <img src="https://novaragnarok.com/data/items/icons2/32573.png" alt="Spectral Nanner"> <b>Spectral Nanner</b>, and you need <span>36</span> <img src="https://novaragnarok.com/data/items/icons2/32573.png" alt="Spectral Nanner"> <b>Spectral Nanner</b> per daily ( <span>180</span> <img src="https://novaragnarok.com/data/items/icons2/29561.png" alt="Halloween coin"> <b>Halloween Coins</b> )</p>
-            <p><b>Tip 2:</b> Use <b>@wn</b> <span class="code">@whatnpc</span>, <b>@wd</b> <span class="code">@whodrops</span> or <b>@ws</b> <span class="code">@whosells</span> to acquire them easier.</p>
+            <p><b>Tip 2:</b> Use <b>@wn</b> <span class="code">@whatnpc</span> <b>@wd</b> <span class="code">@whodrops</span> or <b>@ws</b> <span class="code">@whosells</span> to acquire them easier.</p>
             <section class="grid-ingredient-wrapper">
 
                 <!-- 1 -->
@@ -555,16 +624,13 @@ footer > a > span:hover {
                         <li><span>20</span><img src="https://novaragnarok.com/data/items/icons2/7563.png" alt="Nova Ragnarok ingredient">  Bloody Rune</li>
                         <li><span>10</span><img src="https://novaragnarok.com/data/items/icons2/702.png" alt="Nova Ragnarok ingredient">  Animal Gore</li>
                     </ul>
-                    <ul>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=32575" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=6252" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=657" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7134" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7563" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=702" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                    </ul>
+                    <div>
+                        <button class="btn-plus" type="button" data-bs-toggle="modal" data-bs-target="#modal-dish-one">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
                 </div>
-                
+
                 <!-- 2 -->
                 <div  class="ingredient-list second-dish">
                     <ul>
@@ -575,14 +641,11 @@ footer > a > span:hover {
                         <li><span>20</span><img src="https://novaragnarok.com/data/items/icons2/7122.png" alt="Nova Ragnarok ingredient"> Burning Hair</li>
                         <li><span>10</span><img src="https://novaragnarok.com/data/items/icons2/7286.png" alt="Nova Ragnarok ingredient"> Red Chiles</li>
                     </ul>
-                    <ul>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=32501" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=566" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7456" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7455" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7122" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7286" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                    </ul>
+                    <div>
+                        <button class="btn-plus" type="button" data-bs-toggle="modal" data-bs-target="#modal-dish-two">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- 3 -->
@@ -595,14 +658,11 @@ footer > a > span:hover {
                         <li><span>5</span><img src="https://novaragnarok.com/data/items/icons2/1017.png" alt="Nova Ragnarok ingredient"> Mole Whisker</li>
                         <li><span>5</span><img src="https://novaragnarok.com/data/items/icons2/1043.png" alt="Nova Ragnarok ingredient"> Orc Claw</li>
                     </ul>
-                    <ul>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=32503" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=2408" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=1901" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=737" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=1017" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=1043" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                    </ul>
+                    <div>
+                        <button class="btn-plus" type="button" data-bs-toggle="modal" data-bs-target="#modal-dish-three">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- 4 -->
@@ -615,14 +675,11 @@ footer > a > span:hover {
                         <li><span>20</span><img src="https://novaragnarok.com/data/items/icons2/1063.png" alt="Nova Ragnarok ingredient"> Fang</li>
                         <li><span>25</span><img src="https://novaragnarok.com/data/items/icons2/1039.png" alt="Nova Ragnarok ingredient"> Little Evil Wing</li>
                     </ul>
-                    <ul>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=32575" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=621" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=602" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7457" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=1063" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=1093" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                    </ul>
+                    <div>
+                        <button class="btn-plus" type="button" data-bs-toggle="modal" data-bs-target="#modal-dish-four">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- 5 -->
@@ -635,14 +692,11 @@ footer > a > span:hover {
                         <li><span>30</span><img src="https://novaragnarok.com/data/items/icons2/25276.png" alt="Nova Ragnarok ingredient"> Clean Bone</li>
                         <li><span>30</span><img src="https://novaragnarok.com/data/items/icons2/932.png" alt="Nova Ragnarok ingredient"> Skel-bone</li>
                     </ul>
-                    <ul>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=32502" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=628" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=736" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=965" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=25276" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=932" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                    </ul>
+                    <div>
+                        <button class="btn-plus" type="button" data-bs-toggle="modal" data-bs-target="#modal-dish-five">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- 6 -->
@@ -655,14 +709,11 @@ footer > a > span:hover {
                         <li><span>5</span><img src="https://novaragnarok.com/data/items/icons2/2610.png" alt="Nova Ragnarok ingredient"> Gold Ring</li>
                         <li><span>25</span><img src="https://novaragnarok.com/data/items/icons2/957.png" alt="Nova Ragnarok ingredient"> Decayed Nail</li>
                     </ul>
-                    <ul>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=32504" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7011" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=1803" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=6262" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=2610" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=957" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                    </ul>
+                    <div>
+                        <button class="btn-plus" type="button" data-bs-toggle="modal" data-bs-target="#modal-dish-six">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- 7 -->
@@ -673,12 +724,11 @@ footer > a > span:hover {
                         <li><span>25</span><img src="https://novaragnarok.com/data/items/icons2/7001.png" alt="Nova Ragnarok ingredient"> Mould Powder</li>
                         <li><span>25</span><img src="https://novaragnarok.com/data/items/icons2/7220.png" alt="Nova Ragnarok ingredient"> Ectoplasm</li>
                     </ul>
-                    <ul>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=32576" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=919" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7001" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7220" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                    </ul>
+                    <div>
+                        <button class="btn-plus" type="button" data-bs-toggle="modal" data-bs-target="#modal-dish-seven">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- 8 -->
@@ -689,12 +739,11 @@ footer > a > span:hover {
                         <li><span>15</span><img src="https://novaragnarok.com/data/items/icons2/550.png" alt="Nova Ragnarok ingredient"> Rice Cake</li>
                         <li><span>20</span><img src="https://novaragnarok.com/data/items/icons2/7006.png" alt="Nova Ragnarok ingredient"> Wing of Red Bat</li>
                     </ul>
-                    <ul>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=32503" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=2505" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=550" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7006" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                    </ul>
+                    <div>
+                        <button class="btn-plus" type="button" data-bs-toggle="modal" data-bs-target="#modal-dish-eight">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
                 </div>
                 
                 <!-- 9 -->
@@ -705,12 +754,11 @@ footer > a > span:hover {
                         <li><span>20</span><img src="https://novaragnarok.com/data/items/icons2/7100.png" alt="Nova Ragnarok ingredient"> Sharp Leaf</li>
                         <li><span>25</span><img src="https://novaragnarok.com/data/items/icons2/7298.png" alt="Nova Ragnarok ingredient"> Fig Leaf</li>
                     </ul>
-                    <ul>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=32502" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=6112" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7100" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7298" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                    </ul>
+                    <div>
+                        <button class="btn-plus" type="button" data-bs-toggle="modal" data-bs-target="#modal-dish-nine">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- 10 -->
@@ -721,12 +769,11 @@ footer > a > span:hover {
                         <li><span>15</span><img src="https://novaragnarok.com/data/items/icons2/7268.png" alt="Nova Ragnarok ingredient"> Little Ghost Doll</li>
                         <li><span>15</span><img src="https://novaragnarok.com/data/items/icons2/1025.png" alt="Nova Ragnarok ingredient"> Cobweb</li>
                     </ul>
-                    <ul>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=32576" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=535" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7268" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=1025" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                    </ul>
+                    <div>
+                        <button class="btn-plus" type="button" data-bs-toggle="modal" data-bs-target="#modal-dish-ten">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- 11 -->
@@ -737,12 +784,11 @@ footer > a > span:hover {
                         <li><span>20</span><img src="https://novaragnarok.com/data/items/icons2/7188.png" alt="Nova Ragnarok ingredient"> Brown Root</li>
                         <li><span>10</span><img src="https://novaragnarok.com/data/items/icons2/6217.png" alt="Nova Ragnarok ingredient"> Mandragora Flowerpot</li>
                     </ul>
-                    <ul>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=32504" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=902" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7188" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=6217" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                    </ul>
+                    <div>
+                        <button class="btn-plus" type="button" data-bs-toggle="modal" data-bs-target="#modal-dish-eleven">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- 12 -->
@@ -753,12 +799,11 @@ footer > a > span:hover {
                         <li><span>15</span><img src="https://novaragnarok.com/data/items/icons2/1051.png" alt="Nova Ragnarok ingredient"> Detonator</li>
                         <li><span>15</span><img src="https://novaragnarok.com/data/items/icons2/548.png" alt="Nova Ragnarok ingredient"> Cheese</li>
                     </ul>
-                    <ul>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=32501" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=580" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=1051" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                        <li><a href="https://www.novaragnarok.com/?module=vending&action=view&id=548" target="_blank"><i class="fa-solid fa-shop"></i></a></li>
-                    </ul>
+                    <div>
+                        <button class="btn-plus" type="button" data-bs-toggle="modal" data-bs-target="#modal-dish-twelve">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
                 </div>
             </section>
         
@@ -770,6 +815,667 @@ footer > a > span:hover {
         <span class="d-none d-md-inline">|</span>
         <a href="https://www.buymeacoffee.com/myndi"><i class="fa-solid fa-mug-saucer"></i> <span>Buy me a coffee</span></a>
     </footer>
+
+    <!-- 1 -->
+    <div class="modal fade" id="modal-dish-one" tabindex="-1" aria-labelledby="modal-list" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col"></th>
+                        <th scope="col" class="text-start">Item</th>
+                        <th scope="col">Acquisition</th>
+                        <th scope="col">Market</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/32575.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Fresh Blood</td>
+                        <td><span class="npc">NPC</span> Bad Monkey</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=32575" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/6252.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Blood of Wolf</td>
+                        <td><span class="mob">MOB</span> Desert Wolf</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=6252" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/657.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Berserk Potion</td>
+                        <td><span class="npc">NPC</span> Tool Dealer</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=657" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/7134.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Medicine Bowl</td>
+                        <td><span class="npc">NPC</span> Alchemist Supplies</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7134" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/7563.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Bloody Rune</td>
+                        <td><span class="location">LOC</span> Rachel Sanctuary</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7563" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/702.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Animal Gore</td>
+                        <td><span class="mob">MOB</span> Coyote</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=702" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="modal fade" id="modal-dish-two" tabindex="-1" aria-labelledby="modal-list" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col"></th>
+                        <th scope="col" class="text-start">Item</th>
+                        <th scope="col">Acquisition</th>
+                        <th scope="col">Market</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/32501.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Minced Meat</td>
+                        <td><span class="npc">NPC</span> Bad Monkey</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=32501" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/566.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Tom Yum Goongs</td>
+                        <td><span class="market">MAR</span> <a href="https://irowiki.org/wiki/Tom_Yung_Goong_Quest" target="_blank" class="text-decoration-underline">Quest</a></td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=566" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/7456.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Red Spice</td>
+                        <td><span class="npc">NPC</span> Many</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7456" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/7455.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Spicy Sauce</td>
+                        <td><span class="npc">NPC</span> Many</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7455" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/7122.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Burning Hair</td>
+                        <td><span class="mob">MOB</span> Explosion</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7122" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/7286.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Red Chiles</td>
+                        <td><span class="mob">MOB</span> Kraben</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7286" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="modal fade" id="modal-dish-three" tabindex="-1" aria-labelledby="modal-list" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col"></th>
+                        <th scope="col" class="text-start">Item</th>
+                        <th scope="col">Acquisition</th>
+                        <th scope="col">Market</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/32503.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Egg Yolk</td>
+                        <td><span class="npc">NPC</span> Bad Monkey</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=32503" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/2408.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Shackles</td>
+                        <td><span class="mob">MOB</span> Zombie Prisoner</a></td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=2408" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/1901.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Violin</td>
+                        <td><span class="npc">NPC</span> Many</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=1901" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/737.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Black Ladle</td>
+                        <td><span class="npc">NPC</span> Many</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=737" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/1017.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Mole Whisker</td>
+                        <td><span class="mob">MOB</span> Martin</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=1017" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/1043.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Orc Claw</td>
+                        <td><span class="mob">MOB</span> Orc Zombie</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=1043" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="modal fade" id="modal-dish-four" tabindex="-1" aria-labelledby="modal-list" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col"></th>
+                        <th scope="col" class="text-start">Item</th>
+                        <th scope="col">Acquisition</th>
+                        <th scope="col">Market</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/32575.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Fresh Blood</td>
+                        <td><span class="npc">NPC</span> Bad Monkey</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=32575" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/621.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Bitter Herb</td>
+                        <td><span class="mob">MOB</span> Uzhas</a></td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=621" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/602.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Butterfly Wing</td>
+                        <td><span class="npc">NPC</span> Tool Dealer</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=602" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/7457.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Cooking Oil</td>
+                        <td><span class="npc">NPC</span> Many</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7457" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/1063.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Fang</td>
+                        <td><span class="mob">MOB</span> Orc Archer</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=1063" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/1039.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Little Evil Wing</td>
+                        <td><span class="mob">MOB</span> Mini Demon</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=1039" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+          </div>
+        </div>
+    </div>
+    
+    <!-- 5 -->
+    <div class="modal fade" id="modal-dish-five" tabindex="-1" aria-labelledby="modal-list" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col"></th>
+                        <th scope="col" class="text-start">Item</th>
+                        <th scope="col">Acquisition</th>
+                        <th scope="col">Market</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/32502.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Sweet Rice</td>
+                        <td><span class="npc">NPC</span> Bad Monkey</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=32502" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/628.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Well-dried Bone</td>
+                        <td><span class="mob">MOB</span> Pirate Skeleton</a></td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=628" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/736.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">China</td>
+                        <td><span class="npc">NPC</span> Many</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=736" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/965.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Clam Shell</td>
+                        <td><span class="mob">MOB</span> Red Eruma</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=965" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/25276.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Clean Bone</td>
+                        <td><span class="mob">MOB</span> Coyote</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=25276" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/932.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Skel-bone</td>
+                        <td><span class="location">LOC</span> Sunken Ship</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=932" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="modal fade" id="modal-dish-six" tabindex="-1" aria-labelledby="modal-list" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col"></th>
+                        <th scope="col" class="text-start">Item</th>
+                        <th scope="col">Acquisition</th>
+                        <th scope="col">Market</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/32504.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Weisswurst</td>
+                        <td><span class="npc">NPC</span> Bad Monkey</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=32504" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/7011.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Claw of Monkey</td>
+                        <td><span class="mob">MOB</span> Choco</a></td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7011" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/1803.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Knuckle Duster</td>
+                        <td><span class="npc">NPC</span> Many</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=1803" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/6262.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Cool Gravy</td>
+                        <td><span class="npc">NPC</span> Many</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=6262" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/2610.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Gold Ring</td>
+                        <td><span class="location">LOC</span> Geffenia</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=2610" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/957.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Decayed Nail</td>
+                        <td><span class="mob">MOB</span> Zombie</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=957" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="modal fade" id="modal-dish-seven" tabindex="-1" aria-labelledby="modal-list" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col"></th>
+                        <th scope="col" class="text-start">Item</th>
+                        <th scope="col">Acquisition</th>
+                        <th scope="col">Market</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/32576.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Moldy Flour</td>
+                        <td><span class="npc">NPC</span> Bad Monkey</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=32576" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/919.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Animal Skin</td>
+                        <td><span class="npc">NPC</span> Many</a></td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=919" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/7001.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Mould Powder</td>
+                        <td><span class="mob">MOB</span> Punk</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7001" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/7220.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Ectoplasm</td>
+                        <td><span class="mob">MOB</span> Lude</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7220" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="modal fade" id="modal-dish-eight" tabindex="-1" aria-labelledby="modal-list" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col"></th>
+                        <th scope="col" class="text-start">Item</th>
+                        <th scope="col">Acquisition</th>
+                        <th scope="col">Market</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/32503.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Egg Yolk</td>
+                        <td><span class="npc">NPC</span> Bad Monkey</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=32503" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/2505.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Manteau</td>
+                        <td><span class="npc">NPC</span> Many</a></td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=2505" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/550.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Rice Cake</td>
+                        <td><span class="mob">MOB</span> Evil Cloud Hermit</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=550" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/7006.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Wing of Red Bat</td>
+                        <td><span class="mob">MOB</span> Drainliar</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7006" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="modal fade" id="modal-dish-nine" tabindex="-1" aria-labelledby="modal-list" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col"></th>
+                        <th scope="col" class="text-start">Item</th>
+                        <th scope="col">Acquisition</th>
+                        <th scope="col">Market</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/32502.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Sweet Rice</td>
+                        <td><span class="npc">NPC</span> Bad Monkey</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=32502" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/6112.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Fresh Plant</td>
+                        <td><span class="npc">NPC</span> Pet Groomer</a></td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=6112" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/7100.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Sharp Leaf</td>
+                        <td><span class="mob">MOB</span> Dryad</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7100" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/7298.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Fig Leaf</td>
+                        <td><span class="mob">MOB</span> Leaf Cat</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7298" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="modal fade" id="modal-dish-ten" tabindex="-1" aria-labelledby="modal-list" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col"></th>
+                        <th scope="col" class="text-start">Item</th>
+                        <th scope="col">Acquisition</th>
+                        <th scope="col">Market</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/32576.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Moldy Flour</td>
+                        <td><span class="npc">NPC</span> Bad Monkey</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=32576" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/535.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Pumpkin</td>
+                        <td><span class="npc">NPC</span> Many</a></td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=535" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/7268.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Little Ghost Doll</td>
+                        <td><span class="location">LOC</span> Louyang Dungeon</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7268" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/1025.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Cobweb</td>
+                        <td><span class="mob">MOB</span> Argos</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=1025" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- 11 -->
+    <div class="modal fade" id="modal-dish-eleven" tabindex="-1" aria-labelledby="modal-list" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col"></th>
+                        <th scope="col" class="text-start">Item</th>
+                        <th scope="col">Acquisition</th>
+                        <th scope="col">Market</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/32504.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Weisswurst</td>
+                        <td><span class="npc">NPC</span> Bad Monkey</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=32504" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/902.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Tree Root</td>
+                        <td><span class="npc">NPC</span> Tool Dealer</a></td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=902" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/7188.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Brown Root</td>
+                        <td><span class="mob">MOB</span> Dryad</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=7188" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/6217.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Mandragora Flowerpot</td>
+                        <td><span class="mob">MOB</span> Wild Ginseng</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=6217" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- 12 -->
+    <div class="modal fade" id="modal-dish-twelve" tabindex="-1" aria-labelledby="modal-list" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col"></th>
+                        <th scope="col" class="text-start">Item</th>
+                        <th scope="col">Acquisition</th>
+                        <th scope="col">Market</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/32501.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Minced Meat</td>
+                        <td><span class="npc">NPC</span> Bad Monkey</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=32501" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/580.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Bread</td>
+                        <td><span class="npc">NPC</span> Many</a></td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=580" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/1051.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Detonator</td>
+                        <td><span class="mob">MOB</span> Marine Sphere</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=1051" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><img src="https://novaragnarok.com/data/items/icons2/548.png" alt="Nova Ragnarok ingredient"></th>
+                        <td class="text-start">Cheese</td>
+                        <td><span class="mob">MOB</span> Evil Cloud Hermit</td>
+                        <td><a href="https://www.novaragnarok.com/?module=vending&action=view&id=548" target="_blank"><i class="fa-solid fa-shop"></i></a></td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+            </div>
+          </div>
+        </div>
+    </div>
 
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>

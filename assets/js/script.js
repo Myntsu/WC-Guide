@@ -1,16 +1,12 @@
-// -----------------
 // Enabling popover
-// -----------------
-
 const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
 const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
 
-// -----------------
-// Enabling tooltip
-// -----------------
 
+// Enabling tooltip
 const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
 const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
 
 // ===== Document ready =====
 $(document).ready(function() {
@@ -45,7 +41,6 @@ $(document).ready(function() {
       mybutton.style.display = "none";
     }
   }
-
 });
 
 $(function() {
@@ -56,4 +51,8 @@ $(function() {
 
 $("li").click(function() {
   $(this).toggleClass('stroked');
-  });
+});
+
+$("#toggle").click(function(){
+  $(".target").toggle
+});
