@@ -53,10 +53,6 @@ $("li").click(function() {
   $(this).toggleClass('stroked');
 });
 
-$(".btn-hide").click(function() {
-  $(this).hide();
-});
-
 $(".hide-one").click(function(){
   $(".first-dish").toggle();
 });
