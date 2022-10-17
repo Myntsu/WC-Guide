@@ -164,7 +164,8 @@ body {
 small {
     font-size: .75rem;
     align-self: center;
-    color: hsl(var(--number-purple))
+    color: hsl(var(--number-purple));
+    font-weight: 700;
 }
 
 /* Recipes grid */
@@ -247,6 +248,14 @@ label > img {
     margin-bottom: .5em;
 
     color: hsl(var(--header-light));
+}
+
+@media only screen and (max-width: 766px) {
+
+    .ingredients-container h2 {
+        margin-bottom: 0;
+    }
+
 }
 
 .ingredients-container i {
