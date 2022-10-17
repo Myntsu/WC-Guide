@@ -603,10 +603,13 @@ footer > a > span:hover {
       <div class="ingredients-container">
           <h2>2. Check the ingredients <i class="fa-solid fa-check fa-sm"></i> <small>(Click on the ingredient to strike it)</small></h2>
           <p><b>Tip 1:</b> The first ingredient always costs <span>10</span> <img src="https://novaragnarok.com/data/items/icons2/32573.png" alt="Spectral Nanner"> <b>Spectral Nanner</b>, and you need <span>36</span> <img src="https://novaragnarok.com/data/items/icons2/32573.png" alt="Spectral Nanner"> <b>Spectral Nanner</b> per daily ( <span>180</span> <img src="https://novaragnarok.com/data/items/icons2/29561.png" alt="Halloween coin"> <b>Halloween Coins</b> )</p>
+
           <p><b>Tip 2:</b> Use <b>@wn</b> <span class="code">@whatnpc</span> <b>@wd</b> <span class="code">@whodrops</span> or <b>@ws</b> <span class="code">@whosells</span> to acquire them easier.</p>
+
           <section class="grid-ingredient-wrapper">
+
               <!-- 1 -->
-              <div class="first-dish ingredient-list alert alert-dismissible fade show" style="display: none;" role="alert">
+              <div class="first-dish ingredient-list" style="display: none;">
                   <ul>
                       <p class="title">Blood Bisque</p>
                       <hr class="my-2">
@@ -618,7 +621,7 @@ footer > a > span:hover {
                       <li><span>10</span><img src="https://novaragnarok.com/data/items/icons2/702.png" alt="Nova Ragnarok ingredient">  Animal Gore</li>
                   </ul>
                   <div>
-                    <button class="btn-plus" type="button" data-bs-dismiss="alert" aria-label="Close">
+                    <button class="btn-plus collapse-one" type="button" aria-label="Close">
                       <i class="fa-solid fa-xmark fa-lg"></i>
                     </button>
                     <button class="btn-plus" type="button" data-bs-toggle="modal" data-bs-target="#modal-dish-one">
@@ -627,7 +630,7 @@ footer > a > span:hover {
                   </div>
               </div>
               <!-- 2 -->
-              <div class="second-dish ingredient-list alert alert-dismissible fade show" style="display: none;">
+              <div class="second-dish ingredient-list" style="display: none;">
                   <ul>
                       <p class="title">Chili con Goblin</p>
                       <hr class="my-2">
@@ -639,7 +642,7 @@ footer > a > span:hover {
                       <li><span>10</span><img src="https://novaragnarok.com/data/items/icons2/7286.png" alt="Nova Ragnarok ingredient"> Red Chiles</li>
                   </ul>
                   <div>
-                    <button class="btn-plus" type="button" data-bs-dismiss="alert" aria-label="Close">
+                    <button class="btn-plus collapse-two" type="button" aria-label="Close">
                       <i class="fa-solid fa-xmark fa-lg"></i>
                     </button>
                     <button class="btn-plus" type="button" data-bs-toggle="modal" data-bs-target="#modal-dish-two">
@@ -648,7 +651,7 @@ footer > a > span:hover {
                   </div>
               </div>
               <!-- 3 -->
-              <div class="third-dish ingredient-list alert alert-dismissible fade show" style="display: none;">
+              <div class="third-dish ingredient-list" style="display: none;">
                   <ul>
                       <p class="title">Screeching Potluck</p>
                       <hr class="my-2">
@@ -660,7 +663,7 @@ footer > a > span:hover {
                       <li><span>5</span><img src="https://novaragnarok.com/data/items/icons2/1043.png" alt="Nova Ragnarok ingredient"> Orc Claw</li>
                   </ul>
                   <div>
-                    <button class="btn-plus" type="button" data-bs-dismiss="alert" aria-label="Close">
+                    <button class="btn-plus collapse-three" type="button" aria-label="Close">
                       <i class="fa-solid fa-xmark fa-lg"></i>
                     </button>
                     <button class="btn-plus" type="button" data-bs-toggle="modal" data-bs-target="#modal-dish-three">
@@ -669,7 +672,7 @@ footer > a > span:hover {
                   </div>
               </div>
               <!-- 4 -->
-              <div class="fourth-dish ingredient-list alert alert-dismissible fade show" style="display: none;">
+              <div class="fourth-dish ingredient-list" style="display: none;">
                   <ul>
                       <p class="title">Spooky Saute</p>
                       <hr class="my-2">
@@ -681,7 +684,7 @@ footer > a > span:hover {
                       <li><span>25</span><img src="https://novaragnarok.com/data/items/icons2/1039.png" alt="Nova Ragnarok ingredient"> Little Evil Wing</li>
                   </ul>
                   <div>
-                    <button class="btn-plus" type="button" data-bs-dismiss="alert" aria-label="Close">
+                    <button class="btn-plus collapse-four" type="button" aria-label="Close">
                       <i class="fa-solid fa-xmark fa-lg"></i>
                     </button>
                     <button class="btn-plus" type="button" data-bs-toggle="modal" data-bs-target="#modal-dish-four">
@@ -690,7 +693,7 @@ footer > a > span:hover {
                   </div>
               </div>
               <!-- 5 -->
-              <div class="fifth-dish ingredient-list alert alert-dismissible fade show" style="display: none;">
+              <div class="fifth-dish ingredient-list" style="display: none;">
                   <ul>
                       <p class="title">Bones au Gratin</p>
                       <hr class="my-2">
@@ -702,7 +705,7 @@ footer > a > span:hover {
                       <li><span>30</span><img src="https://novaragnarok.com/data/items/icons2/932.png" alt="Nova Ragnarok ingredient"> Skel-bone</li>
                   </ul>
                   <div>
-                    <button class="btn-plus" type="button" data-bs-dismiss="alert" aria-label="Close">
+                    <button class="btn-plus collapse-five" type="button" data-target="" aria-label="Close">
                       <i class="fa-solid fa-xmark fa-lg"></i>
                     </button>
                     <button class="btn-plus" type="button" data-bs-toggle="modal" data-bs-target="#modal-dish-five">
@@ -711,7 +714,7 @@ footer > a > span:hover {
                   </div>
               </div>
               <!-- 6 -->
-              <div class="sixth-dish ingredient-list alert alert-dismissible fade show" style="display: none;">
+              <div class="sixth-dish ingredient-list" style="display: none;">
                   <ul>
                       <p class="title">Meaty Fingers</p>
                       <hr class="my-2">
@@ -723,7 +726,7 @@ footer > a > span:hover {
                       <li><span>25</span><img src="https://novaragnarok.com/data/items/icons2/957.png" alt="Nova Ragnarok ingredient"> Decayed Nail</li>
                   </ul>
                   <div>
-                    <button class="btn-plus" type="button" data-bs-dismiss="alert" aria-label="Close">
+                    <button class="btn-plus collapse-six" type="button" data-target="" aria-label="Close">
                       <i class="fa-solid fa-xmark fa-lg"></i>
                     </button>
                     <button class="btn-plus" type="button" data-bs-toggle="modal" data-bs-target="#modal-dish-six">
@@ -732,7 +735,7 @@ footer > a > span:hover {
                   </div>
               </div>
               <!-- 7 -->
-              <div class="seventh-dish ingredient-list alert alert-dismissible fade show" style="display: none;">
+              <div class="seventh-dish ingredient-list" style="display: none;">
                   <ul>
                       <p class="title">Quivering Kibbeling</p>
                       <hr class="my-2">
@@ -742,7 +745,7 @@ footer > a > span:hover {
                       <li><span>25</span><img src="https://novaragnarok.com/data/items/icons2/7220.png" alt="Nova Ragnarok ingredient"> Ectoplasm</li>
                   </ul>
                   <div>
-                    <button class="btn-plus" type="button" data-bs-dismiss="alert" aria-label="Close">
+                    <button class="btn-plus collapse-seven" type="button" data-target="" aria-label="Close">
                       <i class="fa-solid fa-xmark fa-lg"></i>
                     </button>
                     <button class="btn-plus" type="button" data-bs-toggle="modal" data-bs-target="#modal-dish-seven">
@@ -751,7 +754,7 @@ footer > a > span:hover {
                   </div>
               </div>
               <!-- 8 -->
-              <div class="eight-dish ingredient-list alert alert-dismissible fade show" style="display: none;">
+              <div class="eight-dish ingredient-list" style="display: none;">
                   <ul>
                       <p class="title">Vampire Special</p>
                       <hr class="my-2">
@@ -761,7 +764,7 @@ footer > a > span:hover {
                       <li><span>20</span><img src="https://novaragnarok.com/data/items/icons2/7006.png" alt="Nova Ragnarok ingredient"> Wing of Red Bat</li>
                   </ul>
                   <div>
-                    <button class="btn-plus" type="button" data-bs-dismiss="alert" aria-label="Close">
+                    <button class="btn-plus collapse-eight" type="button" data-target="" aria-label="Close">
                       <i class="fa-solid fa-xmark fa-lg"></i>
                     </button>
                     <button class="btn-plus" type="button" data-bs-toggle="modal" data-bs-target="#modal-dish-eight">
@@ -769,9 +772,8 @@ footer > a > span:hover {
                     </button>
                   </div>
               </div>
-
               <!-- 9 -->
-              <div class="nine-dish ingredient-list alert alert-dismissible fade show" style="display: none;">
+              <div class="nine-dish ingredient-list" style="display: none;">
                   <ul>
                       <p class="title">Rafflesia on Platter</p>
                       <hr class="my-2">
@@ -781,7 +783,7 @@ footer > a > span:hover {
                       <li><span>25</span><img src="https://novaragnarok.com/data/items/icons2/7298.png" alt="Nova Ragnarok ingredient"> Fig Leaf</li>
                   </ul>
                   <div>
-                    <button class="btn-plus" type="button" data-bs-dismiss="alert" aria-label="Close">
+                    <button class="btn-plus collapse-nine" type="button" data-target="" aria-label="Close">
                       <i class="fa-solid fa-xmark fa-lg"></i>
                     </button>
                     <button class="btn-plus" type="button" data-bs-toggle="modal" data-bs-target="#modal-dish-nine">
@@ -790,7 +792,7 @@ footer > a > span:hover {
                   </div>
               </div>
               <!-- 10 -->
-              <div class="tenth-dish ingredient-list alert alert-dismissible fade show" style="display: none;">
+              <div class="tenth-dish ingredient-list" style="display: none;">
                   <ul>
                       <p class="title">Haunted Roll</p>
                       <hr class="my-2">
@@ -800,7 +802,7 @@ footer > a > span:hover {
                       <li><span>15</span><img src="https://novaragnarok.com/data/items/icons2/1025.png" alt="Nova Ragnarok ingredient"> Cobweb</li>
                   </ul>
                   <div>
-                    <button class="btn-plus" type="button" data-bs-dismiss="alert" aria-label="Close">
+                    <button class="btn-plus collapse-ten" type="button" data-target="" aria-label="Close">
                       <i class="fa-solid fa-xmark fa-lg"></i>
                     </button>
                     <button class="btn-plus" type="button" data-bs-toggle="modal" data-bs-target="#modal-dish-ten">
@@ -809,7 +811,7 @@ footer > a > span:hover {
                   </div>
               </div>
               <!-- 11 -->
-              <div class="eleven-dish ingredient-list alert alert-dismissible fade show" style="display: none;">
+              <div class="eleven-dish ingredient-list" style="display: none;">
                   <ul>
                       <p class="title">Grilled Mandragora Roots</p>
                       <hr class="my-2">
@@ -819,7 +821,7 @@ footer > a > span:hover {
                       <li><span>10</span><img src="https://novaragnarok.com/data/items/icons2/6217.png" alt="Nova Ragnarok ingredient"> Mandragora Flowerpot</li>
                   </ul>
                   <div>
-                    <button class="btn-plus" type="button" data-bs-dismiss="alert" aria-label="Close">
+                    <button class="btn-plus collapse-eleven" type="button" data-target="" aria-label="Close">
                       <i class="fa-solid fa-xmark fa-lg"></i>
                     </button>
                     <button class="btn-plus" type="button" data-bs-toggle="modal" data-bs-target="#modal-dish-eleven">
@@ -828,7 +830,7 @@ footer > a > span:hover {
                   </div>
               </div>
               <!-- 12 -->
-              <div class="twelve-dish ingredient-list alert alert-dismissible fade show" style="display: none;">
+              <div class="twelve-dish ingredient-list" style="display: none;">
                   <ul>
                       <p class="title">Fried Brain Sandwich</p>
                       <hr class="my-2">
@@ -838,7 +840,7 @@ footer > a > span:hover {
                       <li><span>15</span><img src="https://novaragnarok.com/data/items/icons2/548.png" alt="Nova Ragnarok ingredient"> Cheese</li>
                   </ul>
                   <div>
-                    <button class="btn-plus" type="button" data-bs-dismiss="alert" aria-label="Close">
+                    <button class="btn-plus collapse-twelve" type="button" data-target="" aria-label="Close">
                       <i class="fa-solid fa-xmark fa-lg"></i>
                     </button>
                     <button class="btn-plus" type="button" data-bs-toggle="modal" data-bs-target="#modal-dish-twelve">
@@ -846,6 +848,7 @@ footer > a > span:hover {
                     </button>
                   </div>
               </div>
+              
           </section>
 
       </div>
