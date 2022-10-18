@@ -2,6 +2,7 @@
   --light: 0, 0%, 99%; /* white */
   --dark: 221, 44%, 19%; /* dark blue */
   --gray: 223, 10%, 59%; /* gray */
+  --gray-dark: 0, 0%, 24%; /* actual dark */
 
   --header-light: 49, 85%, 65%; /* pale golden */
 
@@ -12,14 +13,16 @@
   --container-dark: 221, 50%, 27%; /* darker blue */
 
   --important-light: 343, 84%, 57%; /* pale wine */
+  --important-lighter: 343, 100%, 66%;
 
   --bg-light: 221, 40%, 49%; /* higher contrast/light than -dark */
   --bg-dark: 221, 64%, 19%; /* higher contrast than -dark */
 
   --text-gray: 0, 0%, 91%;
 
-  --number-purple: 244, 55%, 70%;
   --number: 120, 68%, 62%;
+  --number-orange: 36, 90%, 60%;
+  --number-purple: 244, 55%, 70%;
 }
 
 *:hover {
@@ -39,8 +42,6 @@ main {
   background-color: hsl(var(--dark));
   padding: 3rem 9rem;
 
-  background-image: linear-gradient(0deg, hsl(var(--bg-dark)) 80%, transparent),
-                    url('/assets/img/bg/ragnarok-x-game-class-hd-wallpaper-1920x1080-uhdpaper.com-31.0_b.jpg');
   background-repeat: repeat-x;
   background-position: top center;
 
@@ -102,6 +103,7 @@ main::after {
 
 .header {
   color: hsl(var(--header-light));
+  font-weight: 700;
 }
 
 .number {
@@ -115,8 +117,119 @@ main::after {
 }
 
 .important {
-  font-weight: bold;
+  font-weight: 700;
+  text-decoration: none;
   color: hsl(var(--important-light));
+}
+
+.important:hover {
+  color: hsl(var(--important-light), 50%);
+}
+
+.tip {
+  font-weight: bold;
+  color: hsl(var(--number-orange));
+}
+
+.code {
+  margin: 0 .15em;
+  padding: .35em .75em;
+  color: hsl(var(--text-gray));
+  background-color: hsl(var(--gray-dark));
+  border-radius: .5em;
+}
+
+.skill {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(1, 1fr);
+  place-content: center;
+  width: 70px;
+  /* gap: 0; */
+  padding: .45em .75em;
+  color: hsl(var(--dark));
+  background-color: hsl(var(--light));
+  border-radius: .5em;
+  font-weight: 700;
+}
+
+.skill img {
+  /* display: inline-block; */
+}
+
+.hidden {
+  opacity: 0;
+  transition: all 2s;
+}
+
+.grayed {
+  filter: grayscale(100%);
+  transition: all 3s;
+}
+
+.blurred {
+  filter: blur(10px);
+  transition: all 1.5s;
+}
+
+.scaled {
+  opacity: 0;
+  scale: 0;
+  filter: blur(3px);
+  transition: all 2s;
+}
+
+.translated {
+  opacity: 0;
+  filter: blur(2px);
+  transform: translate(-100%);
+  transition: all 2s;
+}
+
+.translated-right {
+  opacity: 0;
+  filter: blur(2px);
+  transform: translate(100%);
+  transition: all 2s;
+}
+
+@media(prefers-reduced-motion) {
+  .hidden, .grayed, .blurred, .scaled, .translated  {
+    transition: none;
+  }
+}
+
+.show {
+  opacity: 1;
+  filter: blur(0);
+  scale: 1;
+  transform: translate(0);
+}
+
+#btn-back-to-top {
+  display: none;
+
+  bottom: 20px;
+  right: 20px;
+
+  width: 40px;
+  height: 40px;
+
+  color: hsl(var(--light));
+  background-color: hsl(var(--important-lighter));
+
+  border: none;
+  border-radius: 50%;
+
+  position: fixed;
+}
+
+#btn-back-to-top:hover {
+  background-color: hsl(var(--important-light));
+}
+
+#btn-back-to-top:active {
+  scale: 1.05;
 }
 
 /* P swap on hover */
@@ -137,7 +250,6 @@ main::after {
   position: relative;
   isolation: isolate;
 
-  background-image: url('/assets/img/bg/ragnarok-x-game-class-hd-wallpaper-1920x1080-uhdpaper.com-31.0_b.jpg');
   background-position: 50% 45%;
 
   border-radius: .5em .5em 0 0 !important;
@@ -333,6 +445,12 @@ main::after {
     outline: .1ex solid hsl(var(--light), 5%);
     outline-offset: -.1ex;
   }
+
+  #pets-tab {
+    width: 100%;
+    outline: .1ex solid hsl(var(--light), 5%);
+    outline-offset: -.1ex;
+  }
 }
 
 .gear-container {
@@ -347,6 +465,10 @@ main::after {
     overflow-x: scroll;
     justify-content: start;
   }
+}
+
+.gear-container span {
+  user-select: none;
 }
 
 .gear-slot {
@@ -408,6 +530,37 @@ main::after {
   z-index: 3;
 }
 
+.pet-row {
+  width: 800px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: .25em;
+
+  background-color: white;
+  border-radius: .5em;
+}
+
+.pet-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: .5em;
+
+  padding: 1em;
+}
+
+.pet-col img {
+  object-fit: none;
+}
+
+.pet-col p {
+  color: hsl(var(--number-purple));
+  font-size: .85rem;
+  font-weight: 700;
+}
+
 /* Calculations + math */
 #Calculations {
   color: hsl(var(--text-gray));
@@ -444,63 +597,214 @@ main::after {
 /* End */
 
 /* Status, Battle Stats, Pets */
-.stats-battle-pets {
+.stats-battle {
   display: flex;
   flex-wrap: wrap;
-  align-items: stretch;
   gap: 1em;
+
+  color: hsl(var(--text-gray));
 }
 
-.stats-battle-pets > div {
-  flex: 1;
+.stats-battle > div {
   display: flex;
   flex-direction: column;
 }
 
-.stats-battle-pets-cont {
-  flex: 1;
+.stats-battle-cont {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1em;
+  width: 100%;
+}
+
+#Status {
+  display: flex;
+  gap: .5em;
 
   background-color: hsl(var(--container-light));
   border-radius: .5em;
 }
 
-#Status, #Battle-Stats, #Pets {
-  color: hsl(var(--text-gray));
-  background-color: hsl(var(--container-lighter));
-}
-
-#Status {
+#Status > div:nth-child(1) {
   display: flex;
-  flex-wrap: wrap;
-  width: 100%;
+  flex-direction: column;
 }
 
-#Status span:nth-child(1) {
+.stats-window-grid {
+  display: grid;
+  grid-column: auto;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 0;
+
+  background-color: hsl(var(--container-lighter));
+  border-radius: .5em;
+}
+
+.stats-window-grid div {
+  display: flex;
+  flex-direction: column;
+  width: 90px;
+}
+
+.stats-window-grid p {
+  display: flex;
+  margin: 0;
+}
+
+.stats-window-grid p span:nth-child(1) {
   color: hsl(var(--number-purple));
 }
 
-#Status span:nth-child(2) {
-  color: hsl(var(--number));
+.stats-window-grid p span:nth-child(2) {
+  margin-inline-start: auto;
+  font-weight: 700;
+  padding-inline-end: .25em;
+}
+
+@media only screen and (max-width: 766px) {
+  #Status {
+    flex-wrap: wrap;
+  }
+  
+  .stats-window-grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+  }
+
+  .stats-window-grid div:nth-child(2) {
+    border-inline-end: 1px solid hsl(var(--light));
+    padding-inline-end: .75em;
+  }
+
+  .stats-window-grid div:nth-child(3) {
+    padding-inline-start: .75em;
+  }
+}
+
+@media only screen and (max-width: 570px) {
+  .stats-window-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  .stats-window-grid div:nth-child(2) {
+    border-inline-end: none;
+    padding-inline-end: 0;
+  }
+
+  .stats-window-grid div:nth-child(3) {
+    padding-inline-start: 0;
+  }
+}
+
+.stats-window p:not(:first-child) {
+  display: flex;
+  margin: 0;
+}
+
+.stats-window span:nth-child(1) {
+  color: hsl(var(--number-purple));
+}
+
+.stats-window span:nth-child(2) {
+  font-weight: 700;
 }
 
 #Battle-Stats {
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  width: 100%;
+  /* flex-wrap: wrap; */
+  gap: .5em;
+  background-color: hsl(var(--container-light));
+  border-radius: .5em;
 }
 
-#Battle-Stats span:nth-child(1) {
+.battle-stats-window {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+
+  color: hsl(var(--text-gray));
+  background-color: hsl(var(--container-lighter));
+  border-radius: .5em;
+}
+
+.battle-stats-grid {
+  display: grid;
+  grid-column: auto;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1em;
+}
+
+.battle-stats-grid > * {
+  width: 200px;
+  border-radius: .5em;
+  background-color: hsl(var(--bg-light), 30%);
+}
+
+.battle-stats-grid p {
+  display: flex;
+  margin: 0;
+}
+
+.battle-stats-grid span:nth-child(1) {
   color: hsl(var(--header-light));
 }
 
-#Battle-Stats span:nth-child(2) {
-  color: hsl(var(--number));
+.battle-stats-grid span {
+  font-weight: 700;
 }
-/* End */
+
+.battle-stats-grid > div p:nth-child(1) {
+  color: hsl(var(--important-lighter));
+  text-shadow: 3px 3px 0px solid hsl(var(--light));
+  font-size: .85rem;
+  font-weight: 700;
+  top: -10px;
+  left: 15px;
+  z-index: 2;
+  user-select: none;
+}
+
+@media only screen and (max-width: 880px) {
+
+  #Battle-Stats {
+    flex-wrap: wrap;
+  }
+
+  .battle-stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+  }
+
+  .battle-stats-grid > * {
+    width: auto;
+  }
+}
+
+@media only screen and (max-width: 766px) {
+  .battle-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (max-width: 570px) {
+  .battle-stats-grid {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+}
+
+/* Skills */
+#Skills > div {
+  border-radius: .5em;
+  background-color: hsl(var(--container-light));
+}
+
+
 
 /* Footer */
 footer {

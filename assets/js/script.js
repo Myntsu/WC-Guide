@@ -8,37 +8,40 @@ const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]
 const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
 
-// ===== Document ready =====
-$(document).ready(function() {
+//Get the button
+let mybutton = document.getElementById("btn-back-to-top");
 
-  // ===== Scroll to Top =====
-  
-  const backToTopButton = document.querySelector("#btn-back-to-top");
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function () {
+  scrollFunction();
+};
 
-  const scrollContainer = () => {
-    return document.documentElement || document.body;
-  };
-
-  const goToTop = () => {
-    document.body.scrollIntoView({
-      behavior: "smooth"
-    });
-  };
-
-  backToTopButton.addEventListener("click", goToTop);
-
-  //Get the button
-  mybutton = document.getElementById("btn-back-to-top");
-
-  // When the user scrolls down 20px from the top of the document, show the button
-  window.onscroll = function() {scrollFunction()};
-
-  // Display and hide
-  function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-      mybutton.style.display = "block";
-    } else {
-      mybutton.style.display = "none";
-    }
+function scrollFunction() {
+  if (
+    document.body.scrollTop > 200 ||
+    document.documentElement.scrollTop > 200
+  ) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
   }
+}
+// When the user clicks on the button, scroll to the top of the document
+mybutton.addEventListener("click", backToTop);
+
+function backToTop() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    console.log(entry)
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show')
+    }
+  });
 });
+
+const hiddenElements = document.querySelectorAll('.hidden, .blurred, .scaled, .translated, .translated-right');
+hiddenElements.forEach((el) => observer.observe(el));
