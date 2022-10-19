@@ -112,11 +112,11 @@
         <section id="Data-Observations" class="mb-4">
           <div id="Data" class="m-0 p-0 px-1 mb-3 mb-lg-0">
             <h3 class="fs-5">Data</h3>
-            <div class="d-flex gap-1 p-3 flex-wrap flex-column div-hover">
+            <div class="d-flex gap-1 p-3 flex-wrap flex-column">
               <div class="d-flex gap-1 flex-wrap">
                 <p class="m-0 text-default"><b class="header">ACD required</b> <i class="fa-solid fa-angles-right fa-sm"></i> <span class="number">34%</span> </p>
                 <p class="m-0 text-swap">Has <span class="number-purple">0.5 Cast Delay</span>, <span class="number-purple">0.3s CD</span>.</p>
-                <i class="fa-solid fa-arrow-pointer ms-auto"></i>
+                <button class="toggle-texts ms-auto" type="button" aria-label="Toggle information in and out"><i class="fa-solid fa-eye"></i></button>
               </div>
               <p class="m-0 text-default"><b class="header">ASPD required</b> <i class="fa-solid fa-angles-right fa-sm"></i> <span class="number">185</span></p>
               <p class="m-0 text-swap">Using <span class="number-purple">34% ACD</span>.</p>
@@ -137,7 +137,7 @@
 
         <!-- Equipment -->
         <section id="Equipment" class="mb-4">
-          <!-- Tabs -->
+          <!-- Tabs Buttons -->
           <div class="d-flex flex-wrap" id="Equip-tab" role="tablist">
             <h2 class="fs-5 me-auto">Equipment</h2>
             <div class="tab-buttons">
@@ -149,8 +149,8 @@
             </div>
           </div>
 
-            <!-- Tabs content -->
-          <div class="tab-content col-12">
+          <!-- Tabs content -->
+          <div class="tab-content">
 
               <!-- Gear -->
             <div id="gear-display" class="tab-pane fade show active" role="tabpanel" aria-labelledby="gear-tab" tabindex="0">
@@ -510,7 +510,7 @@
                     The higher the balance between them, the better. There's no such thing as one greater than the other. As their %s work as a product of the values.
                   </p>
                   <p>
-                    You can learn more about it <a href="https://www.novaragnarok.com/wiki/Damage_Formula" target="_blank" class="important" aria-label="Damage formula wikipedia">here</a>.
+                    You can learn more about it in the <a href="https://www.novaragnarok.com/wiki/Damage_Formula" target="_blank" class="important" aria-label="Damage formula wikipedia">Wikipedia</a>.
                   </p>
                 </div>
                 <div class="battle-stats-window mt-auto">
@@ -560,12 +560,11 @@
             </div>
             <p>This is my personal recommendation for skills you must have. There will be extra points, so feel free to fill them up whoever you want.</p>
             
-            <div class="skill-priority mb-3">
+            <div class="skill-priority">
               <!-- 1st Job -->
               <div class="skill-priority-cont">
                 <div>
                   <p class="header">1st job</p>
-                  <p class="number-purple">(39/49 points)</p>
                 </div>
                 <div>
                   <div><span class="skill">1 <img src="https://static.divine-pride.net/images/skill/2.png" alt="Sword Mastery"></span> <span class="toggle">Sword Mastery</span></div>
@@ -578,7 +577,6 @@
               <div class="skill-priority-cont">
                 <div>
                   <p class="header">2nd job</p>
-                  <p class="number-purple">(37/69 points)</p>
                 </div>
                 <div>
                   <div><span class="skill">1 <img src="https://static.divine-pride.net/images/skill/63.png" alt="Riding"></span> <span class="toggle">Riding</span></div>
@@ -594,7 +592,6 @@
               <div class="skill-priority-cont">
                 <div>
                   <p class="header">3rd job</p>
-                  <p class="number-purple">(40/69 points)</p>
                 </div>
                 <div>
                   <div><span class="skill">5 <img src="https://static.divine-pride.net/images/skill/2007.png" alt="Dragon Training"></span> <span class="toggle">Dragon Training</span></div>
@@ -639,11 +636,81 @@
 
         <!-- Consumables -->
         <section id="Consumables" class="mb-4">
-          <h2 class="fs-5">Consumables</h2>
-          <div class="p-3">
-            List of consumables goes in here.
-            <br>
-            <b>Draft-idea:</b> Some introduction or description plus something I haven't figured out yet.
+          <!-- Tab Buttons -->
+          <div class="d-flex flex-wrap" id="Consumablesjkjk-tab" role="tablist">
+            <h2 class="fs-5 me-auto">Consumables</h2>
+            <div class="tab-buttons">
+              <button class="active" id="always-carry-tab" data-bs-toggle="tab" data-bs-target="#always-carry-display" type="button" role="tab" aria-controls="always-carry-display" aria-selected="true">Always carry</button>
+              <button id="endeavor-tab" data-bs-toggle="tab" data-bs-target="#endeavor-display" type="button" role="tab" aria-controls="endeavor-display" aria-selected="false">Endeavor</button>
+              <button id="farming-tab" data-bs-toggle="tab" data-bs-target="#farming-display" type="button" role="tab" aria-controls="farming-display" aria-selected="false">Farming</button>
+              <button id="runes-tab" data-bs-toggle="tab" data-bs-target="#runes-display" type="button" role="tab" aria-controls="runes-display" aria-selected="false">Runes</button>
+            </div>
+          </div>
+          <!-- Tabs content -->
+          <div class="tab-content">
+            <!-- Gear -->
+            <div class="d-flex justify-content-center pt-4">
+              <div class="fake-div">
+                <p class="m-0 mb-2">This is a list of consumables that I recommend.
+                If you want to learn more about them, type <b>@ii</b> <span class="code contrast">@iteminfo</span> ingame or where to buy them in the <a href="https://www.novaragnarok.com/?module=vending" target="_blank" class="important link-contrast">Market</a>.</p>
+              </div>
+            </div>
+            <div id="always-carry-display" class="tab-pane fade show active" role="tabpanel" aria-labelledby="always-carry-tab" tabindex="0">
+              <div class="consumables-container">
+                <div>
+                  <p><span class="header">Always carry:</span> Consumables that you should always carry in your inventory no matter what.</p>
+                  <div class="consumables-wrapper">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt nostrum cumque nisi dolorem libero repellendus, omnis optio molestias voluptatem nesciunt assumenda maiores, fuga laudantium. Fuga recusandae debitis eaque itaque nesciunt.
+                    Culpa accusamus aliquam omnis amet aperiam labore sequi earum consectetur esse facere eum natus sint quis quas blanditiis, autem ad aut quo corrupti molestias assumenda porro? Repellat impedit facere dignissimos!
+                    Veritatis, ullam provident error dolores minima, distinctio nihil, ipsam cupiditate voluptas debitis cumque tenetur vel id dolore molestias repudiandae aliquid. Veniam vitae voluptatibus incidunt consequatur est nobis alias neque delectus?
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="endeavor-display" class="tab-pane fade" role="tabpanel" aria-labelledby="endeavor-tab" tabindex="0">
+              <div class="consumables-container">
+                <div>
+                  <p><span class="header">Endeavor:</span> Consumables obtained at <span class="code contrast">@go office</span> second floor.</p>
+                  <div class="consumables-wrapper">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt nostrum cumque nisi dolorem libero repellendus, omnis optio molestias voluptatem nesciunt assumenda maiores, fuga laudantium. Fuga recusandae debitis eaque itaque nesciunt.
+                    Culpa accusamus aliquam omnis amet aperiam labore sequi earum consectetur esse facere eum natus sint quis quas blanditiis, autem ad aut quo corrupti molestias assumenda porro? Repellat impedit facere dignissimos!
+                    Veritatis, ullam provident error dolores minima, distinctio nihil, ipsam cupiditate voluptas debitis cumque tenetur vel id dolore molestias repudiandae aliquid. Veniam vitae voluptatibus incidunt consequatur est nobis alias neque delectus?
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="farming-display" class="tab-pane fade" role="tabpanel" aria-labelledby="farming-tab" tabindex="0">
+              <div class="consumables-container">
+                <div>
+                  <p><span class="header">Farming:</span> Consumables to boost your farming efficiency or survival.</p>
+                  <div class="consumables-wrapper">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt nostrum cumque nisi dolorem libero repellendus, omnis optio molestias voluptatem nesciunt assumenda maiores, fuga laudantium. Fuga recusandae debitis eaque itaque nesciunt.
+                    Culpa accusamus aliquam omnis amet aperiam labore sequi earum consectetur esse facere eum natus sint quis quas blanditiis, autem ad aut quo corrupti molestias assumenda porro? Repellat impedit facere dignissimos!
+                    Veritatis, ullam provident error dolores minima, distinctio nihil, ipsam cupiditate voluptas debitis cumque tenetur vel id dolore molestias repudiandae aliquid. Veniam vitae voluptatibus incidunt consequatur est nobis alias neque delectus?
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="runes-display" class="tab-pane fade" role="tabpanel" aria-labelledby="runes-tab" tabindex="0">
+              <div class="consumables-container">
+                <div>
+                  <p><span class="header">Runes:</span> Recommended list of runes.</p>
+                  <div class="consumables-wrapper">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt nostrum cumque nisi dolorem libero repellendus, omnis optio molestias voluptatem nesciunt assumenda maiores, fuga laudantium. Fuga recusandae debitis eaque itaque nesciunt.
+                    Culpa accusamus aliquam omnis amet aperiam labore sequi earum consectetur esse facere eum natus sint quis quas blanditiis, autem ad aut quo corrupti molestias assumenda porro? Repellat impedit facere dignissimos!
+                    Veritatis, ullam provident error dolores minima, distinctio nihil, ipsam cupiditate voluptas debitis cumque tenetur vel id dolore molestias repudiandae aliquid. Veniam vitae voluptatibus incidunt consequatur est nobis alias neque delectus?
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-center">
+              <div class="fake-div mt-1 pb-4 div-hover">
+                <p class="ms-auto show-default"><span class="tip">Weight issues?</span> Consider lowering the item quantity.</p>
+                <p class="ms-auto swap"><span class="tip">Weight issues?</span> Stop eating, lmao.</p>
+                <p class="ms-auto"><span class="tip">Need to craft?</span> Check the <a href="https://www.novaragnarok.com/wiki/Creation_Database" target="_blank" class="important link-contrast">Creation Database</a>.</p>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -661,6 +728,14 @@
           <h2 class="fs-5">Guide</h2>
           <div class="p-3">
             Guide goes in here.
+            <br>
+            <b>Draft-idea:</b> Acronyms list.
+            <br>
+            <b>To add:</b> 
+            <br>
+            Calculator link below damage calculations.
+            <br>
+            Rework personal stats section. <b>Idea:</b> Split them in required vs total stats (for calculating purposes).
           </div>
         </section>
       </div> <!-- Main container -->
@@ -695,7 +770,5 @@
 <button type="button" id="btn-back-to-top">
   <i class="fas fa-arrow-up"></i>
 </button>
-
-
 </body>
 </html> 

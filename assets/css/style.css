@@ -3,6 +3,7 @@
   --dark: 221, 44%, 19%; /* dark blue */
   --gray: 223, 10%, 59%; /* gray */
   --gray-dark: 0, 0%, 24%; /* actual dark */
+  --gray-darker: 0, 0%, 14%;
 
   --header-light: 49, 85%, 65%; /* pale golden */
 
@@ -122,6 +123,10 @@ main::after {
   color: hsl(var(--important-light));
 }
 
+.important.link-contrast {
+  color: hsl(var(--important-lighter));
+}
+
 .important:hover {
   color: hsl(var(--important-light), 50%);
 }
@@ -139,6 +144,10 @@ main::after {
   border-radius: .5em;
 }
 
+.code.contrast {
+  background-color: hsl(var(--gray-darker));
+}
+
 .skill {
   display: grid;
   grid-auto-flow: column;
@@ -153,7 +162,7 @@ main::after {
 }
 
 .skill:hover {
-  color: hsl(var(--dark));
+  color: hsl(var(--gray-dark));
   background-color: hsl(var(--light));
 }
 
@@ -232,17 +241,12 @@ main::after {
   scale: 1.05;
 }
 
-/* P swap on hover */
+.text-default {
+  display: block;
+}
+
 .text-swap {
   display: none;
-}
-
-.div-hover:is(:focus, :hover):has(.text-default) .text-default {
-  display: none;
-}
-
-.div-hover:is(:focus, :hover):has(.text-default) .text-swap {
-  display: block;
 }
 
 /* Build + Links */
@@ -842,7 +846,7 @@ main::after {
   background-color: hsl(var(--container-light));
 }
 
-.toggle-names {
+.toggle-names, .toggle-texts {
   padding: .25em 1em;
   color: hsl(var(--text-gray));
   background-color: hsl(var(--important-lighter));
@@ -853,11 +857,11 @@ main::after {
   text-transform: uppercase;
 }
 
-.toggle-names:hover {
+.toggle-names:hover, .toggle-texts:hover {
   background-color: hsl(var(--important-light));
 }
 
-.toggle-names:active {
+.toggle-names:active, .toggle-texts:active {
   box-shadow: 0 0 0 3px hsl(var(--important-light), 30%);
 }
 
@@ -895,7 +899,7 @@ main::after {
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-start;
-  gap: .25em;
+  gap: .4em;
 }
 
 .skill-priority-cont > div:nth-child(2) > div {
@@ -961,10 +965,86 @@ main::after {
 }
 
 /* Consumables */
-#Consumables > div {
+#Consumables button {
+  text-decoration: none;
+  border: none;
+
   color: hsl(var(--text-gray));
-  background-color: hsl(var(--container-light));
+  background-color: hsl(var(--bg-dark));
+
+  padding: .25em 1em;
+}
+
+#Consumables button:is(:hover, :focus) {
+  background-color: hsl(var(--important-light));
+}
+
+#Consumables button:is(:active) {
+  background-color: hsl(var(--important-light), 80%);
+}
+
+.consumables-container {
+  display: flex;
+  justify-content: center;
+  
+  border-radius: .5em 0 .5em .5em;
+}
+
+.consumables-container p {
+  margin: 0;
+}
+
+.consumables-container > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 800px;
+}
+
+.consumables-wrapper {
+  display: block;
+
+  padding: 1em;
+
+  color: hsl(var(--dark));
+  background-color: hsl(var(--light));
   border-radius: .5em;
+}
+
+.fake-div {
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+}
+
+.fake-div p {
+  margin: 0;
+}
+
+@media only screen and (max-width: 1130px){
+  .consumables-container {
+    overflow-x: scroll;
+    /* justify-content: start; */
+  }
+}
+
+@media only screen and (max-width: 880px) {
+  .fake-div, .consumables-container p {
+    padding: 0 1em;
+  }
+}
+
+@media only screen and (max-width: 570px) {
+  .gear-container, .consumables-container {
+    border-radius: 0 0;
+  }
+
+  #always-carry-tab, #endeavor-tab, #farming-tab, #runes-tab {
+    width: 50%;
+    outline: .1ex solid hsl(var(--light), 5%);
+    outline-offset: -.1ex;
+  }
 }
 
 /* Item farming */
@@ -1034,4 +1114,16 @@ footer > a > span:hover {
   footer a {
     padding-bottom: .75em;
   }
+}
+
+.swap {
+  display: none;
+}
+
+.div-hover:is(:focus, :hover):has(.show-default) .show-default {
+  display: none;
+}
+
+.div-hover:is(:focus, :hover):has(.show-default) .swap {
+  display: block;
 }

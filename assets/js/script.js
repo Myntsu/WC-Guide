@@ -47,6 +47,12 @@ function backToTop() {
 // const hiddenElements = document.querySelectorAll('.hidden, .blurred, .scaled, .translated, .translated-right');
 // hiddenElements.forEach((el) => observer.observe(el));
 
-$( ".toggle-names" ).click(function() {
-  $( ".toggle" ).toggle();
+$(".toggle-names").click(function() {
+  $(".toggle").toggle();
 });
+
+$(".toggle-texts").click(function() {
+  $(".text-swap").toggle();
+  $(".text-default").toggle();
+  e.stopPropagation();
+})
