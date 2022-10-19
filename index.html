@@ -51,11 +51,12 @@
   <main style="background-image: linear-gradient(0deg, hsl(var(--bg-dark)) 80%, transparent),
   url('assets/img/bg/ragnarok-x-game-class-hd-wallpaper-1920x1080-uhdpaper.com-31.0_b.jpg');">
 
-      <!-- Information + content table -->
+      <!-- Build + content table -->
       <div class="build main-container p-0" style="background-image: url('assets/img/bg/ragnarok-x-game-class-hd-wallpaper-1920x1080-uhdpaper.com-31.0_b.jpg');">
         <h2 class="ps-3 pt-3 m-0">Nova Ragnarok</h2>
         <h1 class="ps-3 py-1 m-0">Wind Cutter</h1>
         <h3 class="ps-3 pb-3 m-0"><b>PVE</b> <span>• Rune Knight</span></h3>
+        <span class="updated-date">Last updated: 18/October/2022</span>
         <div class="content-table">
           <a class="link" aria-current="page" href="#Equipment">Equipment</a>
           <a class="link" href="#Stats">Stats</a>
@@ -65,19 +66,19 @@
       </div>
 
       
-      <div class="main-container px-3 px-lg-4 py-3 py-lg-4">
+      <div class="main-container">
         
         <!-- Introduction -->
-        <div class="col-12 mb-4">
+        <section id="Introduction" class="mb-4">
           <h2 class="fs-5">Introduction</h2>
-          <div id="Author" class="px-3 pt-2 pb-3">
-            <h3 class="fs-5 m-0 p-0 pt-3 pb-2">Author</h3>
+          <div id="Author" class="p-3">
+            <h3 class="fs-5 mt-2">Author</h3>
             <p>Hello! My nickname is <a href="https://discord.com/users/124421052569878528/" target="_blank" class="important">Myndi.</a></p>
             <p>I have been playing Ragnarok for around 2 years, and <a href="https://www.novaragnarok.com/wiki/Rune_Knight" target="_blank" class="important">Wind Cutter</a> almost ever since.</p>
             <p>My main goal is to have fun and help as many people as I can, so I made this guide for you! 💕</p>
-            <p>Hopefully this build is as helpful for you as it was for me. So without further ado, let's begin.</p>
+            <p class="mb-3">Hopefully this build is as helpful for you as it was for me. So without further ado, let's begin.</p>
 
-            <h3 class="fs-5 pt-3">About this build</h3>
+            <h3 class="fs-5">About this build</h3>
             <p class="mb-1">My personal vision of <a href="https://www.novaragnarok.com/wiki/Rune_Knight" target="_blank" class="important">Wind Cutter</a> is Dungeon farming, such as Einbech 3, Juperos, Thanatos, Odin 4, etc.</p>
             <div class="py-2 m-0">
               <div class="px-3 py-2 list-container shadow-container">
@@ -99,10 +100,10 @@
               </div>
             </div>
           </div>
-        </div>
+        </section>
 
         <!-- Data + observations -->
-        <div class="data-obs-flex m-0 p-0 mb-4">
+        <section id="Data-Observations" class="mb-4">
           <div id="Data" class="m-0 p-0 px-1 mb-3 mb-lg-0">
             <h3 class="fs-5">Data</h3>
             <div class="d-flex gap-1 p-3 flex-wrap flex-column div-hover">
@@ -126,10 +127,10 @@
               <p class="m-0"><b class="header">Battle Stats</b> doesn't include RNG enchants, Pets (<span class="number-purple">Eggs</span>), Base Weapon Attack (<span class="number">280</span>), Refine Attack (<span class="number">+15; 105</span>) or Shadow Gear Refine Attack (<span class="number">+9; 9</span>).</p>
             </div>
           </div>
-        </div>
+        </section>
 
-
-        <div id="Equipment">
+        <!-- Equipment -->
+        <section id="Equipment" class="mb-4">
           <!-- Tabs -->
           <div class="d-flex flex-wrap" id="Equip-tab" role="tablist">
             <h2 class="fs-5 me-auto">Equipment</h2>
@@ -148,7 +149,7 @@
               <!-- Gear -->
             <div id="gear-display" class="tab-pane fade show active" role="tabpanel" aria-labelledby="gear-tab" tabindex="0">
 
-              <div class="gear-container m-0 p-0 py-4 hidden">
+              <div class="gear-container m-0 p-0 py-4">
                 <div class="gear-col pt-1">
                   <div class="d-flex flex-column gear-slot gap-1 align-items-end justify-content-center">
                     <div class="d-flex justify-content-end gap-1"><span class="number-purple">+8</span><span>Black Ribbon</span><img src="https://www.novaragnarok.com/data/items/icons2/5899.png" alt="Black Ribbon"></div>
@@ -361,7 +362,7 @@
                     <i class="fa-regular fa-lightbulb"></i>
                   </div>
                 </div>
-                <div class="calc-container border-rounded shadow-container row p-0 m-0 p-3 hidden">
+                <div class="calc-container border-rounded shadow-container row p-0 m-0 p-3">
                   <div class="header w-100 d-flex align-items-baseline m-0 p-0"><p class="me-auto p-0 fw-bold">Average damage against</p> <div class="fw-bold" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Disclaimer: This is flat damage, not damage per second."><i class="fa-solid fa-triangle-exclamation fa-sm text-white"></i></div></div>
                   <!-- Dummy -->
                   <div class="col-12 col-md-6 m-0 p-0 p-2">
@@ -449,19 +450,19 @@
               
 
           </div> <!-- Tabs content -->
-        </div> <!-- Tabs -->
+        </section>
 
-        <div id="Stats" class="stats-battle mb-4">
+        <!-- Stats -->
+        <section id="Stats" class="mb-4">
           <!-- Status -->
-          <div>
-            <h2 class="fs-5">Stats</h2>
-            <div class="stats-battle-cont">
+          <h2 class="fs-5">Stats</h2>
+            <div id="Stats-Container">
               <!-- Status -->
-              <div id="Status" class="p-3 hidden">
+              <div id="Status" class="p-3">
                 <div>
                   <h3 class="fs-5 header">Status</h3>
                   <p class="w-100">
-                    My recommendation is to leave <b class="header">Str</b> & <b class="header">Dex</b> at <span class="number">120</span> at all times, and the rest at <span class="number">100</span> minimum (<span class="number-purple">buffs considered</span>).
+                    My recommendation is to leave <b class="header">Str</b> & <b class="header">Dex</b> at <span class="fw-bold">120</span> at all times, and the rest at <span class="fw-bold">100</span> minimum (<span class="number-purple">buffs considered</span>).
                   </p>
                   <p class="tip m-0">Have extra points?</p>
                   <p class="m-0"><i class="fa-solid fa-plus fa-xs"></i> <span class="header">Agi</span> for extra damage due to <img src="https://www.novaragnarok.com/data/items/icons2/5899.png" alt="Black Ribbon"> <a href="https://www.novaragnarok.com/?module=vending&action=view&id=5899" target="_blank" class="important">Black Ribbon</a>.</p>
@@ -469,19 +470,18 @@
                   <p class="m-0"><i class="fa-solid fa-plus fa-xs"></i> <span class="header">Int</span> if you lack or run out of SP.</p>
                   <p><i class="fa-solid fa-plus fa-xs"></i> <span class="header">Luk</span> to increase your hit rate and damage a little bit.</p>
                 </div>
-
-                <div>
-                  <h3 class="fs-5 header">My personal stats</h3>
-                  <div class="stats-window-grid p-3">
+                <div class="p-3">
+                  <h3 class="fs-6 fw-bold">My personal stats</h3>
+                  <div class="stats-window-grid">
                     <div>
                       <p><b class="header">Str</b> <span>120</span></p>
                       <p><b class="header">Agi</b> <span>96</span></p>
                       <p><b class="header">Vit</b> <span>84</span></p>
                     </div>
                     <div>
-                      <p>(<span>+82</span>) <span>202</span></p>
-                      <p>(<span>+39</span>) <span>135</span></p>
-                      <p>(<span>+35</span>) <span>119</span></p>
+                      <p><span>(+82)</span> <span>202</span></p>
+                      <p><span>(+39)</span> <span>135</span></p>
+                      <p><span>(+35)</span> <span>119</span></p>
                     </div>
                     <div>
                       <p><b class="header">Int</b> <span>80</span></p>
@@ -489,15 +489,15 @@
                       <p><b class="header">Luk</b> <span>87</span></p>
                     </div>
                     <div>
-                      <p>(<span>+44</span>) <span>124</span></p>
-                      <p>(<span>+37</span>) <span>157</span></p>
-                      <p>(<span>+33</span>) <span>120</span></p>
+                      <p><span>(+44)</span> <span>124</span></p>
+                      <p><span>(+37)</span> <span>157</span></p>
+                      <p><span>(+33)</span> <span>120</span></p>
                     </div>
                   </div>
                 </div>
               </div>
               <!-- Battle Stats -->
-              <div id="Battle-Stats" class="p-3 hidden">
+              <div id="Battle-Stats" class="p-3">
                 <div>
                   <h3 class="fs-5 header">Battle Stats</h3>
                   <p class="w-100">
@@ -507,7 +507,7 @@
                     You can learn more about it <a href="https://www.novaragnarok.com/wiki/Damage_Formula" target="_blank" class="important">here</a>.
                   </p>
                 </div>
-                <div class="battle-stats-window">
+                <div class="battle-stats-window mt-auto">
                   <div class="p-3">
                     <p class="fw-bold">Type @bs <span class="code">@battlestats</span> in game.</p>
                     <div class="battle-stats-grid">
@@ -540,46 +540,122 @@
                 </div>
               </div>
             </div>
-          </div> <!-- Status -->
-        </div>
+        </section>
 
-        <div id="Skills">
+        <!-- Skills -->
+        <section id="Skills" class="mb-4">
           <h2 class="fs-5">Skills</h2>
-          <div>
-            <h3>Skill allocation priority</h3>
-            <p>Testing a skill level <span class="skill">10 <img src="https://static.divine-pride.net/images/skill/7.png" alt=""></span> Magnum Break</p>
-            <h3>Buffs</h3>
-            <h3>Refresh time</h3>
-            <h3>Offensive skills</h3>
+
+          <!-- Collapse all section -->
+          <div class="p-3">
+            <div class="d-flex w-100 mb-2">
+              <h3 class="fs-5 header">Distribution priority</h3>
+              <button class="toggle-names ms-auto" type="button"><i class="fa-solid fa-eye"></i></button>
+            </div>
+            <p>This is my personal recommendation for skills you must have. There will be extra points, so feel free to fill them up whoever you want.</p>
+            
+            <div class="skill-priority mb-3">
+              <!-- 1st Job -->
+              <div class="skill-priority-cont">
+                <div>
+                  <p class="header">1st job</p>
+                  <p class="number-purple">(39/49 points)</p>
+                </div>
+                <div>
+                  <div><span class="skill">1 <img src="https://static.divine-pride.net/images/skill/2.png" alt="Sword Mastery"></span> <span class="toggle">Sword Mastery</span></div>
+                  <div><span class="skill">10 <img src="https://static.divine-pride.net/images/skill/3.png" alt="Two-Handed Sword Mastery"></span> <span class="toggle">Two-Handed Sword Mastery</span></div>
+                  <div><span class="skill">10 <img src="https://static.divine-pride.net/images/skill/4.png" alt="Increase HP Recovery"></span> <span class="toggle">Increase HP Recovery</span></div>
+                  <div><span class="skill">10 <img src="https://static.divine-pride.net/images/skill/7.png" alt="Magnum Break"></span> <span class="toggle">Magnum Break</span></div>
+                </div>
+              </div>
+              <!-- 2nd job -->
+              <div class="skill-priority-cont">
+                <div>
+                  <p class="header">2nd job</p>
+                  <p class="number-purple">(37/69 points)</p>
+                </div>
+                <div>
+                  <div><span class="skill">1 <img src="https://static.divine-pride.net/images/skill/63.png" alt="Riding"></span> <span class="toggle">Riding</span></div>
+                  <div><span class="skill">1 <img src="https://static.divine-pride.net/images/skill/64.png" alt="Cavalier Mastery"></span> <span class="toggle">Cavalier Mastery</span></div>
+                  <div><span class="skill">10 <img src="https://static.divine-pride.net/images/skill/60.png" alt="Two-Hand Quicken"></span> <span class="toggle">Two-Hand Quicken</span></div>
+                  <div><span class="skill">5 <img src="https://static.divine-pride.net/images/skill/355.png" alt="Aura Blade"></span> <span class="toggle">Aura Blade</span></div>
+                  <div><span class="skill">10 <img src="https://static.divine-pride.net/images/skill/356.png" alt="Parrying"></span> <span class="toggle">Parrying</span></div>
+                  <div><span class="skill">5 <img src="https://static.divine-pride.net/images/skill/357.png" alt="Concentration"></span> <span class="toggle">Concentration</span></div>
+                  <div><span class="skill">5 <img src="https://static.divine-pride.net/images/skill/397.png" alt="Spiral Pierce"></span> <span class="toggle">Spiral Pierce</span></div>
+                </div>
+              </div>
+              <!-- 3rd job -->
+              <div class="skill-priority-cont">
+                <div>
+                  <p class="header">3rd job</p>
+                  <p class="number-purple">(40/69 points)</p>
+                </div>
+                <div>
+                  <div><span class="skill">5 <img src="https://static.divine-pride.net/images/skill/2007.png" alt="Dragon Training"></span> <span class="toggle">Dragon Training</span></div>
+                  <div><span class="skill">10 <img src="https://static.divine-pride.net/images/skill/2010.png" alt="Rune Mastery"></span> <span class="toggle">Rune Mastery</span></div>
+                  <div><span class="skill">10 <img src="https://static.divine-pride.net/images/skill/2001.png" alt="Enchant Blade"></span> <span class="toggle">Enchant Blade</span></div>
+                  <div><span class="skill">5 <img src="https://static.divine-pride.net/images/skill/2005.png" alt="Wind Cutter"></span> <span class="toggle">Wind Cutter</span></div>
+                  <div><span class="skill">10 <img src="https://static.divine-pride.net/images/skill/2002.png" alt="Sonic Wave"></span> <span class="toggle">Sonic Wave</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- THIS REQUIRES MASSIVE REWORK -->
+            <div class="skills-usage d-none">
+              <div>
+                <h3 class="fs-5 header">Buffs</h3>
+                <div>
+                  <div >
+                    <p class="w-100 m-0">This is use order.</p>
+                    <div class="d-flex align-items-center gap-1 flex-wrap"><img src="https://static.divine-pride.net/images/skill/7.png" alt="Magnum Break"><i class="fa-solid fa-caret-right"></i><img src="https://static.divine-pride.net/images/skill/357.png" alt="Concentration"><i class="fa-solid fa-caret-right"></i><img src="https://static.divine-pride.net/images/skill/355.png" alt="Aura Blade"><i class="fa-solid fa-caret-right"></i><img src="https://static.divine-pride.net/images/skill/356.png" alt="Parrying"><i class="fa-solid fa-caret-right"></i><img src="https://static.divine-pride.net/images/skill/60.png" alt="Two-Hand Quicken"><i class="fa-solid fa-caret-right"></i><img src="https://static.divine-pride.net/images/skill/2001.png" alt="Enchant Blade"></div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h3 class="fs-5 header">Refresh time</h3>
+                <div>
+                  <p class="fw-bold"><span class="number">10</span> seconds</p>
+                  <img src="https://static.divine-pride.net/images/skill/7.png" alt="Magnum Break" class="ms-3 mb-2">
+                  <p class="fw-bold"><span class="number">1</span> minute</p>
+                  <div class="d-flex align-items-center gap-1 ms-3 mb-2"><img src="https://static.divine-pride.net/images/skill/357.png" alt="Concentration"><img src="https://static.divine-pride.net/images/skill/355.png" alt="Aura Blade"><img src="https://static.divine-pride.net/images/skill/356.png" alt="Parrying"></div>
+                  <p class="fw-bold"><span class="number">5</span> minutes</p>
+                  <div class="d-flex align-items-center gap-1 ms-3 mb-2"><img src="https://static.divine-pride.net/images/skill/60.png" alt="Two-Hand Quicken"><img src="https://static.divine-pride.net/images/skill/2001.png" alt="Enchant Blade"></div>
+                </div>
+              </div>
+              <div>
+                <h3 class="fs-5 header">Offensive skills</h3>
+                <div>idk what to do with this 3 sections, maybe i will remove it, but for now, just a WIP</div>
+              </div>
+            </div>
+            <!-- THIS REQUIRES MASSIVE REWORK -->
           </div>
-        </div>
+        </section>
 
-      </div>
+        <!-- Consumables -->
+        <section id="Consumables" class="mb-4">
+          <h2 class="fs-5">Consumables</h2>
+          <div class="p-3">
+            List of consumables goes in here.
+          </div>
+        </section>
 
+        <!-- Farming items -->
+        <section id="Farming-Items" class="mb-4">
+          <h2 class="fs-5">Farming</h2>
+          <div class="p-3">
+            List of items goes in here.
+            <br>
+            <b>Draft-idea:</b> Split it in 2 or 4, kind of like the pros/cons list.
+          </div>
+        </section>
 
-        <!-- for all the above, BE A ACCORDION -->
-        <h3>Consumables</h3>
-        <span>1s</span>
-        <div>
-          <h2>Dungeon farming items</h2>
-          <ul>
-            <li>a</li>
-          </ul>
-        </div>
-        <h3>Runes</h3>
-        <span>1</span>
-        <h2>Guide</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore maxime qui non eum a, similique amet perferendis consequatur ut voluptates porro ea reiciendis, cum, consectetur magnam sunt vel culpa saepe.
-        Quo ut dicta commodi necessitatibus voluptatum nobis tempore illum sed voluptates sunt, autem quisquam blanditiis animi quam temporibus omnis. Magni, non numquam perspiciatis saepe repudiandae earum itaque explicabo vero odit?
-        Accusantium animi deleniti, officiis fuga ratione vel magnam, numquam velit amet saepe harum, quos minima cupiditate rerum nemo id repellat tempore! Quaerat saepe molestiae voluptatem delectus, exercitationem adipisci? Voluptatem, animi!
-        Sapiente, quia molestias. Impedit error nam quibusdam voluptatum necessitatibus ea consequatur quidem dicta tempore quia deserunt sapiente vero, eaque obcaecati molestiae sit cum hic! Dolorem sequi quis iste quisquam perspiciatis?
-        Explicabo iure sed reiciendis accusamus distinctio quasi reprehenderit quisquam pariatur totam. Et in doloremque sit earum, eveniet ducimus ad delectus. Asperiores quia necessitatibus cumque error reiciendis. Labore, magni pariatur! Harum.
-        Quam, facere. Cupiditate molestias voluptatem nemo architecto autem nihil qui maiores, voluptatum inventore accusamus deleniti eum laudantium atque iusto officia blanditiis dignissimos? Quaerat ipsa enim autem beatae, in soluta est!
-        Numquam nesciunt nostrum deserunt ullam quasi omnis, harum qui inventore, quas distinctio minus saepe odit quis quo. Architecto nisi maxime odio esse nihil aliquam voluptatem quaerat! Reprehenderit nisi sed labore!
-        Distinctio reiciendis deleniti ea non voluptas iste alias sunt, nulla, error ab asperiores! Maxime, atque fugit? Quo optio earum quia? Quas soluta maiores dolorum tempore dolores porro aut debitis amet.
-        Omnis corporis necessitatibus dolorum molestias vitae nisi iusto a, illum dignissimos, repellat corrupti iste voluptates assumenda. Accusantium dolore voluptatum quasi voluptatem sit obcaecati, recusandae accusamus suscipit rerum. Mollitia, officia aliquam.
-        Odio, eius nam! Dolorum, maiores voluptatum porro sed, voluptatibus nihil asperiores facere saepe cupiditate aspernatur nostrum vitae amet unde neque nam molestias tempora assumenda ducimus. Similique repellendus in quos et?</p>
-      </div>
+        <section id="Guide">
+          <h2 class="fs-5">Guide</h2>
+          <div class="p-3">
+            Guide goes in here.
+          </div>
+        </section>
+      </div> <!-- Main container -->
 
   </main>
 

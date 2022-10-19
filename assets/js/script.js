@@ -45,3 +45,7 @@ const observer = new IntersectionObserver((entries) => {
 
 const hiddenElements = document.querySelectorAll('.hidden, .blurred, .scaled, .translated, .translated-right');
 hiddenElements.forEach((el) => observer.observe(el));
+
+$( ".toggle-names" ).click(function() {
+  $( ".toggle" ).toggle();
+});
