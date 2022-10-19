@@ -1001,7 +1001,7 @@ footer p {
 
 footer a {
   text-decoration: none;
-  color: hsl(var(--important-light));
+  color: hsl(var(--important-lighter));
 }
 
 footer a:hover {
