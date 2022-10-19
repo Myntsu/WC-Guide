@@ -157,7 +157,7 @@ main::after {
   background-color: hsl(var(--light));
 }
 
-.hidden {
+/* .hidden {
   opacity: 0;
   transition: all 2s;
 }
@@ -204,7 +204,7 @@ main::after {
   filter: blur(0);
   scale: 1;
   transform: translate(0);
-}
+} */
 
 #btn-back-to-top {
   display: none;
@@ -311,6 +311,10 @@ main::after {
     outline: .1ex solid hsl(var(--light), 5%);
     outline-offset: -.2ex;
   }
+
+  .updated-date {
+    bottom: 90px;
+  }
 }
 
 @media only screen and (max-width: 400px) {
@@ -318,6 +322,10 @@ main::after {
     width: 100% !important;
     outline: .1ex solid hsl(var(--light), 5%);
     outline-offset: -.2ex;
+  }
+
+  .updated-date {
+    bottom: 180px;
   }
 }
 
