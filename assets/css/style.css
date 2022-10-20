@@ -890,10 +890,6 @@ main::after {
   margin: 0;
 }
 
-.skill-priority-cont > div:nth-child(1) p:nth-child(2) {
-  font-size: .75rem;
-}
-
 .skill-priority-cont > div:nth-child(2) {
   display: flex;
   flex-wrap: wrap;
