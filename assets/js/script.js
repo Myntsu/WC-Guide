@@ -34,19 +34,6 @@ function backToTop() {
   document.documentElement.scrollTop = 0;
 }
 
-// // Observer function
-// const observer = new IntersectionObserver((entries) => {
-//   entries.forEach((entry) => {
-//     console.log(entry)
-//     if (entry.isIntersecting) {
-//       entry.target.classList.add('show')
-//     }
-//   });
-// });
-
-// const hiddenElements = document.querySelectorAll('.hidden, .blurred, .scaled, .translated, .translated-right');
-// hiddenElements.forEach((el) => observer.observe(el));
-
 $(".toggle-names").click(function() {
   $(".toggle").toggle();
   e.stopPropagation();

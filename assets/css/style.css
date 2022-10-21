@@ -153,6 +153,7 @@ main::after {
   color: hsl(var(--text-gray));
   background-color: hsl(var(--gray-dark));
   border-radius: .5em;
+  line-break: none;
 }
 
 .code.contrast {
@@ -185,55 +186,6 @@ main::after {
   color: hsl(var(--gray-dark));
   background-color: hsl(var(--light));
 }
-
-/* .hidden {
-  opacity: 0;
-  transition: all 2s;
-}
-
-.grayed {
-  filter: grayscale(100%);
-  transition: all 3s;
-}
-
-.blurred {
-  filter: blur(10px);
-  transition: all 1.5s;
-}
-
-.scaled {
-  opacity: 0;
-  scale: 0;
-  filter: blur(3px);
-  transition: all 2s;
-}
-
-.translated {
-  opacity: 0;
-  filter: blur(2px);
-  transform: translate(-100%);
-  transition: all 2s;
-}
-
-.translated-right {
-  opacity: 0;
-  filter: blur(2px);
-  transform: translate(100%);
-  transition: all 2s;
-}
-
-@media(prefers-reduced-motion) {
-  .hidden, .grayed, .blurred, .scaled, .translated  {
-    transition: none;
-  }
-}
-
-.show {
-  opacity: 1;
-  filter: blur(0);
-  scale: 1;
-  transform: translate(0);
-} */
 
 #btn-back-to-top {
   display: none;
@@ -364,15 +316,13 @@ main::after {
 
 /* Author */
 #Author {
-  border-radius: .5em;
+  color: hsl(var(--text-gray));
   background-color: hsl(var(--container-light));
+  border-radius: .5em;
 }
 
 #Author p {
   margin: 0;
-  padding: 0;
-
-  color: hsl(var(--text-gray));
 }
 
 #Author h3 {
@@ -390,7 +340,6 @@ main::after {
 .list-container {
   background-color: hsl(var(--container-lighter));
   border-radius: .5em;
-  max-width: 100%;
   width: 49%;
 }
 
@@ -602,6 +551,8 @@ main::after {
 
 /* Calculations + math */
 #Calculations {
+  display: flex;
+  flex-direction: column;
   color: hsl(var(--text-gray));
   width: 100%;
   max-width: 800px;
@@ -1124,6 +1075,44 @@ main::after {
   color: hsl(var(--text-gray));
   background-color: hsl(var(--container-light));
   border-radius: .5em;
+}
+
+.farming-container-grid {
+  display: grid;
+  grid-column: auto;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1em;
+}
+
+.farming-container {
+  padding: 1em;
+  background-color: hsl(var(--container-lighter));
+  border-radius: .5em;
+
+  position: relative;
+}
+
+.farming-container h3 {
+  position: absolute;
+  top: -10px;
+  left: 50px;
+}
+
+.farming-container h3 {
+  margin: 0;
+}
+
+.farming-container ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-inline-start: .5em;
+}
+
+@media only screen and (max-width: 880px) {
+  .farming-container-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 /* Guide */
