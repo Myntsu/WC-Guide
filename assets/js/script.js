@@ -59,6 +59,6 @@ $(".toggle-texts").click(function() {
 })
 
 $(".toggle-images").click(function(){
-  $(".consumable-toggle").toggle("slow");
-  $(".consumable-text").slideToggle();
+  $(".consumable-toggle").toggle();
+  $(".consumable-text").toggle();
 })
