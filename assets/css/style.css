@@ -137,6 +137,7 @@ main::after {
 }
 
 .code {
+  display: inline-block;
   margin: 0 .15em;
   padding: .35em .75em;
   color: hsl(var(--text-gray));
@@ -146,6 +147,14 @@ main::after {
 
 .code.contrast {
   background-color: hsl(var(--gray-darker));
+}
+
+.recommendation {
+  margin: auto .15em;
+  padding: .35em .5em;
+  color: hsl(var(--text-gray));
+  background-color: hsl(var(--number-purple));
+  border-radius: .5em;
 }
 
 .skill {
@@ -846,7 +855,7 @@ main::after {
   background-color: hsl(var(--container-light));
 }
 
-.toggle-names, .toggle-texts {
+.toggle-names, .toggle-texts, .toggle-images {
   padding: .25em 1em;
   color: hsl(var(--text-gray));
   background-color: hsl(var(--important-lighter));
@@ -961,7 +970,7 @@ main::after {
 }
 
 /* Consumables */
-#Consumables button {
+#Consumables .tab-buttons button {
   text-decoration: none;
   border: none;
 
@@ -986,26 +995,94 @@ main::after {
   border-radius: .5em 0 .5em .5em;
 }
 
-.consumables-container p {
-  margin: 0;
-}
-
 .consumables-container > div {
   display: flex;
-  flex-direction: column;
   justify-content: center;
 
   width: 800px;
 }
 
-.consumables-wrapper {
-  display: block;
+.consumables-container > div > div {
+  display: flex;
+  flex-direction: column;
+}
 
-  padding: 1em;
+.consumables-container > div > * {
+  /* flex: 1 0 0; */
+}
+
+.consumables-wrapper {
+  flex: 1 0 0;
+
+  width: 400px;
+  height: 200px;
+
+  padding: 1.5em 1em;
 
   color: hsl(var(--dark));
   background-color: hsl(var(--light));
   border-radius: .5em;
+
+  overflow-y: scroll;
+}
+
+.consumables-wrapper::-webkit-scrollbar {
+  width: 20px;
+  border-radius: 0 .5em .5em 0;
+}
+
+.consumables-wrapper::-webkit-scrollbar-track {
+  border-radius: 0 .5em .5em 0;
+}
+
+.consumables-wrapper::-webkit-scrollbar-thumb {
+  background: hsl(var(--dark), 30%); 
+  border-radius: 0 .5em .5em 0;
+}
+
+.consumables-wrapper::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--dark), 60%); 
+}
+
+.small-consu-grid {
+  flex: 1 0 0;
+
+  display: grid;
+  grid-auto-flow: row;
+  gap: 28.7px;
+}
+
+.consu-grid-div {
+  padding: .55em 0 .55em 1em;
+  color: hsl(var(--dark));
+  background-image: linear-gradient(
+    to left,
+    hsl(var(--light)) 98%,
+    hsl(var(--light)) 98%,
+    hsl(var(--important-light)) 2%,
+    hsl(var(--important-light)) 2%);
+  border-radius: .5em 0 0 .5em;
+  user-select: none;
+  margin: 0;
+}
+
+.consumables-wrapper.first-wrap {
+  border-radius: 0 .5em .5em .5em;
+}
+
+.consumables-wrapper.last-wrap {
+  border-radius: .5em .5em .5em 0;
+}
+
+.toggle-images {
+  padding: .25em 1em;
+  color: hsl(var(--text-gray));
+  background-color: hsl(var(--important-lighter));
+  font-size: .75rem;
+  font-weight: 700;
+  border: none;
+  border-radius: .5em;
+  text-transform: uppercase;
 }
 
 .fake-div {
@@ -1018,16 +1095,56 @@ main::after {
   margin: 0;
 }
 
+.toggle-images {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+
+.consumable-text {
+  display: none;
+  width: 100%;
+
+  color: hsl(var(--dark));
+}
+
+.consumable-text > div {
+  padding-block-start: 1.25em;
+}
+
+.consumable-text > div p:last-child {
+  margin: 0;
+}
+
+.tablet-consu {
+  display: none !important;
+}
+
 @media only screen and (max-width: 1130px){
   .consumables-container {
     overflow-x: scroll;
-    /* justify-content: start; */
   }
 }
 
 @media only screen and (max-width: 880px) {
-  .fake-div, .consumables-container p {
-    padding: 0 1em;
+  .small-consu-grid {
+    display: none !important;
+  }
+
+  .consumables-container > div {
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+
+  .tablet-consu {
+    flex: 0 0 0 !important;
+    display: flex !important;
+    padding: 1em 0 .5em;
+  }
+
+  .consumables-wrapper {
+    flex: 1 0 200px !important;
   }
 }
 
@@ -1036,7 +1153,7 @@ main::after {
     border-radius: 0 0;
   }
 
-  #always-carry-tab, #endeavor-tab, #farming-tab, #runes-tab {
+  #general-tab, #endeavor-tab, #utility-tab, #runes-tab {
     width: 50%;
     outline: .1ex solid hsl(var(--light), 5%);
     outline-offset: -.1ex;
@@ -1110,16 +1227,4 @@ footer > a > span:hover {
   footer a {
     padding-bottom: .75em;
   }
-}
-
-.swap {
-  display: none;
-}
-
-.div-hover:is(:focus, :hover):has(.show-default) .show-default {
-  display: none;
-}
-
-.div-hover:is(:focus, :hover):has(.show-default) .swap {
-  display: block;
 }

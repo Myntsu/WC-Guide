@@ -49,10 +49,16 @@ function backToTop() {
 
 $(".toggle-names").click(function() {
   $(".toggle").toggle();
+  e.stopPropagation();
 });
 
 $(".toggle-texts").click(function() {
   $(".text-swap").toggle();
   $(".text-default").toggle();
   e.stopPropagation();
+})
+
+$(".toggle-images").click(function(){
+  $(".consumable-toggle").toggle("slow");
+  $(".consumable-text").slideToggle();
 })
