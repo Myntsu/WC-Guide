@@ -75,18 +75,18 @@
       
       <div class="collapse" id="Content-Table">
         <div class="main-container deployable-table">
-          <h2>Content table</h2>
+          <h2 class="d-none">Content table</h2>
           <ol>
             <li><a href="#Introduction" class="">Introduction</a></li>
             <li><a href="#Data" class="">Data</a></li>
-            <li><a href="#Observations" class="">Observations</a></li>
             <li><a href="#Equipment" class="">Equipment</a></li>
             <li><a href="#Calculations" class="">Calculations</a></li>
             <li><a href="#Status" class="">Status</a></li>
             <li><a href="#Battle-Stats" class="">Battle Stats</a></li>
             <li><a href="#Skills" class="">Skills</a></li>
             <li><a href="#Consumables" class="">Consumables</a></li>
-            <li><a href="#Farming" class="">Farming</a></li>
+            <li><a href="#Autoloot" class="">Autoloot</a></li>
+            <li><a href="#Farming-Equipment">Farming Equip</a></li>
             <li><a href="#New-Player" class="">New Player</a></li>
           </ol>
         </div>
@@ -668,7 +668,7 @@
         <!-- Consumables -->
         <section id="Consumables" class="mb-4">
           <!-- Tab Buttons -->
-          <div class="d-flex flex-wrap" id="Consumablesjkjk-tab" role="tablist">
+          <div class="d-flex flex-wrap" id="Consumables-tab" role="tablist">
             <h2 class="fs-5 me-auto">Consumables</h2>
             <div class="tab-buttons">
               <button class="active" id="general-tab" data-bs-toggle="tab" data-bs-target="#general-display" type="button" role="tab" aria-controls="general-display" aria-selected="true">General</button>
@@ -860,25 +860,67 @@
         </section>
 
         <!-- Farming items -->
-        <section id="Farming-Items" class="mb-4">
+        <section id="Farming" class="mb-4">
           <h2 class="fs-5">Farming</h2>
           <div class="p-3">
-            <div class="overflow-auto">
+            <div id="Autoloot">
               <h3 class="header fs-5">Autoloot</h3>
-              <p class="mb-1">The following list is my from my personal use. If you don't see an specific list, like in example <span class="number-purple">Odin 4</span>, then that means I use the <span class="number-purple">General</span> autoloot.</p>
-              <p class="m-0">General <span class="code contrast">@autoloot 0.9</span></p>
-              <p class="m-0">Einbech 3 • <span class="number-purple">All Ores</span></p>
-              <p class="mb-1"><span class="code contrast">@alootid +25809|+25810|+25811|+25812|+25813|+25814|+9517</span></p>
-              <p class="m-0">Juperos • <span class="number-purple">Core/Gear</span></p>
-              <p class="mb-1"><span class="code contrast">@alootid +34716|+34717|+34712</spanc></p>
-              <p class="m-0">Illusion Luanda + Twins • <span class="number-purple">Farm</span></p>
-              <p class="mb-1"><span class="code contrast">@alootid +25633|+25638|+25899|+35055|+100004|+100003</spanc></p>
-              <p class="m-0">All Illusion Dungeons • <span class="number-purple">Quests</span></p>
-              <p class="mb-1"><span class="code contrast">@alootid +7564|+19344|+25619|+5127|+2519|+25899|+25897|+7324|+35055|+25633|+25638|+100004|+100003</spanc></p>
+              <p class="mb-1">The following list is my from my personal use, although I'm. If you don't see an specific list, like in example <span class="number-purple">Odin 4</span>, then that means I use the <span class="number-purple">General</span> autoloot.</p>
+              <div class="autoloot-list">
+                <!-- General -->
+                <input type="text" class="code contrast w-50" name="test" id="" cols="5" rows="1" placeholder="Paste it here if you wish to check it"></input>
+                <div class="d-flex align-items-center">
+                  <p>General <span id="General-Autoloot" class="code contrast">@autoloot 0.9</span><button onclick="copyToClipboard('#General-Autoloot')"><i class="fa-solid fa-copy"></i></button></p>
+                  <button type="button" class="toggle-autoloot ms-auto eye-toggle-2"><i class="fa-solid fa-eye"></i></button>
+                  <button type="button" class="toggle-autoloot ms-auto eye-toggle-2" style="display: none;"><i class="fa-solid fa-eye-slash"></i></button>
+                </div>
+                <!-- Einbech 3 -->
+                <div>
+                  <p>Einbech 3 <span class="tag">Farm</span>
+                    <button onclick="copyToClipboard('#Einbech3-Autoloot')"><i class="fa-solid fa-copy"></i></button>
+                  </p>
+                  <p class="autoloot-text"><span id="Einbech3-Autoloot" class="code contrast">@alootid +25809|+25810|+25811|+25812|+25813|+25814|+9517</span></p>
+                </div>
+                <!-- Juperos -->
+                <div>
+                  <p>Juperos <span class="tag">Farm</span>
+                    <button onclick="copyToClipboard('#Juperos-Autoloot')"><i class="fa-solid fa-copy"></i></button>
+                    </p>
+                  <p class="autoloot-text"><span id="Juperos-Autoloot" class="code contrast">@alootid +34716|+34717|+34712</span></p>
+                </div>
+                <!-- Luanda + Twins -->
+                <div>
+                  <p>Illusion Luanda + Twins <span class="tag">Farm</span>
+                    <button onclick="copyToClipboard('#Luanda-Twins-Autoloot')"><i class="fa-solid fa-copy"></i></button>
+                  </p>
+                  <p class="autoloot-text"><span id="Luanda-Twins-Autoloot" class="code contrast">@alootid +25633|+25638|+25899|+35055|+100004|+100003</span></p>
+                </div>
+                <!-- All Illusion -->
+                <div>
+                  <p>All Illusion Dungeons <span class="tag">Quest</span>
+                    <button onclick="copyToClipboard('#All-Illusion-Autoloot')"><i class="fa-solid fa-copy"></i></button>
+                  </p>
+                  <p class="autoloot-text"><span id="All-Illusion-Autoloot" class="code contrast">@alootid +7564|+19344|+25619|+5127|+2519|+25899|+25897|+7324|+35055|+25633|+25638|+100004|+100003</span></p>
+                </div>
+                <!-- Elunium & Oridecon -->
+                <div>
+                  <p>Elunium & Oridecon <span class="tag">Farm</span>
+                    <button onclick="copyToClipboard('#Elunium-Oridecon-Autoloot')"><i class="fa-solid fa-copy"></i></button>
+                  </p>
+                  <p class="autoloot-text"><span id="Elunium-Oridecon-Autoloot" class="code contrast">@alootid +985|+984</span></p>
+                </div>
+                <!-- Horror Toy Factory -->
+                <div>
+                  <p>Horror Toy Factory <span class="tag">Important</span>
+                    <button onclick="copyToClipboard('#Horror-Toy-Autoloot')"><i class="fa-solid fa-copy"></i></button>
+                  </p>
+                  <p class="autoloot-text"><span id="Horror-Toy-Autoloot" class="code contrast">@alootid +969|+7230|+7642|+7644|+7643</span></p>
+                </div>
+              </div>
             </div>
             <h3 class="header fs-5">Equipment</h3>
             <p>Farming is all about optimizing your efficiency, speed and damage. While some items here are required for a better experience, they're not a must. <span class="number-purple">If you woud like to suggest an item, please let me know.</span></p>
-            <div class="farming-container-grid">
+            <div id="Farming-Equipment" class="farming-container-grid">
               <div class="farming-container shadow-container">
                 <h3 class="header fs-6">General</h3>
                 <ul>

@@ -72,6 +72,7 @@ main::after {
 
 .main-container.deployable-table {
   border-radius: 0;
+  padding: 0;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -158,6 +159,8 @@ main::after {
   background-color: hsl(var(--gray-dark));
   border-radius: .5em;
   line-break: none;
+  font-size: .9rem;
+  font-weight: 400;
 }
 
 .code.contrast {
@@ -171,8 +174,9 @@ main::after {
   border-radius: .5em;
   font-size: .6rem;
   text-transform: uppercase;
-  bottom: -10px;
-  right: 10px;
+  bottom: 12px;
+  right: -15px;
+  z-index: 2;
 }
 
 .new {
@@ -246,15 +250,28 @@ main::after {
 }
 
 /* Build + Links */
+#Content-Table ol {
+  list-style: none;
+
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1em;
+
+  padding: .5em 0 0 0;
+  margin: 0;
+}
+
 #Content-Table a {
   color: hsl(var(--text-gray));
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 #Content-Table a:hover {
   color: hsl(var(--text-gray), 50%);
   text-decoration: underline;
 }
+
 
 .build {
   position: relative;
@@ -896,7 +913,7 @@ main::after {
   background-color: hsl(var(--container-light));
 }
 
-.toggle-names, .toggle-texts, .toggle-images {
+.toggle-names, .toggle-texts, .toggle-images, .toggle-autoloot {
   align-self: flex-start;
   display: flex;
   align-items: center;
@@ -914,11 +931,11 @@ main::after {
   color: hsl(var(--dark));
 }
 
-.toggle-names:hover, .toggle-texts:hover {
+.toggle-names:hover, .toggle-texts:hover, .toggle-autoloot:hover {
   background-color: hsl(var(--important-lighter));
 }
 
-.toggle-names:active, .toggle-texts:active {
+.toggle-names:active, .toggle-texts:active, .toggle-autoloot:active {
   background-color: hsl(var(--important-light));
   box-shadow: 0 0 0 3px hsl(var(--important-light), 40%);
 }
@@ -1167,7 +1184,7 @@ main::after {
 }
 
 /* Item farming */
-#Farming-Items > div {
+#Farming > div {
   color: hsl(var(--text-gray));
   background-color: hsl(var(--container-light));
   border-radius: .5em;
@@ -1205,10 +1222,49 @@ main::after {
   padding-inline-start: .5em;
 }
 
+.autoloot-list {
+  display: flex;
+  flex-direction: column;
+  gap: .25em;
+
+  background-color: hsl(var(--container-lighter));
+  border-radius: .5em;
+  padding: 1em;
+  margin: 1em 0;
+
+  overflow-x: auto;
+}
+
+.autoloot-list p {
+  margin: 0;
+  font-weight: 700;
+}
+
+.autoloot-list > div p:nth-child(1) {
+  margin-block-end: .25em;
+}
+
+.autoloot-list > div p:nth-child(2) {
+  display: none;
+  margin-block-end: .5em;
+}
+
+.autoloot-list button {
+  color: hsl(var(--light));
+  background-color: transparent;
+  border: none;
+}
+
 @media only screen and (max-width: 880px) {
   .farming-container-grid {
     grid-template-columns: repeat(1, 1fr);
   }
+}
+
+input.code {
+  border: none;
+  box-shadow: 0 0 0;
+  margin-bottom: .5em;
 }
 
 /* Guide */

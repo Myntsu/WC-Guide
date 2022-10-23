@@ -49,8 +49,9 @@ $(".toggle-images").click(function(){
   $(".consumable-text").toggle();
 })
 
-$(".eye-swap").click(function(){
- $(this).classToggle
+$(".toggle-autoloot").click(function() {
+  $(".autoloot-text").slideToggle("slow");
+  $(".eye-toggle-2").toggle();
 })
 
 document.querySelectorAll("collapsible").style.display = "none";
@@ -68,4 +69,12 @@ for (i = 0; i < collapse.length; i++) {
       content.style.display = "block";
     }
   });
+}
+
+function copyToClipboard(element) {
+  var $temp = $("<input>");
+  $("body").append($temp);
+  $temp.val($(element).text()).select();
+  document.execCommand("copy");
+  $temp.remove();
 }
