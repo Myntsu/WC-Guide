@@ -36,16 +36,36 @@ function backToTop() {
 
 $(".toggle-names").click(function() {
   $(".toggle").toggle();
-  e.stopPropagation();
+  $(".eye-toggle").toggle();
 });
 
 $(".toggle-texts").click(function() {
   $(".text-swap").toggle();
   $(".text-default").toggle();
-  e.stopPropagation();
 })
 
 $(".toggle-images").click(function(){
   $(".consumable-toggle").toggle();
   $(".consumable-text").toggle();
 })
+
+$(".eye-swap").click(function(){
+ $(this).classToggle
+})
+
+document.querySelectorAll("collapsible").style.display = "none";
+var collapse = document.getElementsByClassName("btn-collapse");
+var collapsible = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < collapse.length; i++) {
+  collapse[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = collapsible;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}

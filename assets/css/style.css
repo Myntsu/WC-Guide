@@ -70,6 +70,10 @@ main::after {
   border-radius: 0 0 .5em .5em;
 }
 
+.main-container.deployable-table {
+  border-radius: 0;
+}
+
 @media only screen and (max-width: 1200px) {
   main {
       padding: 3rem 0;
@@ -160,13 +164,27 @@ main::after {
   background-color: hsl(var(--gray-darker));
 }
 
-.recommendation {
-  display: inline-block;
-  padding: .1em .35em;
+.new, .updated, .wip {
+  position: absolute;
+  padding: .2em .4em;
   color: hsl(var(--text-gray));
-  background-color: hsl(var(--number-purple));
   border-radius: .5em;
-  font-size: .75rem;
+  font-size: .6rem;
+  text-transform: uppercase;
+  bottom: -10px;
+  right: 10px;
+}
+
+.new {
+  background-color: hsl(var(--important-lighter));
+}
+
+.updated {
+  background-color: hsl(var(--number-orange));
+}
+
+.wip {
+  background-color: hsl(var(--number-purple));
 }
 
 .skill {
@@ -180,11 +198,17 @@ main::after {
   background-color: hsl(var(--bg-light), 50%);
   border-radius: .5em;
   font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .skill:hover {
   color: hsl(var(--gray-dark));
   background-color: hsl(var(--light));
+}
+
+.skill:active {
+  opacity: .5;
 }
 
 #btn-back-to-top {
@@ -222,6 +246,16 @@ main::after {
 }
 
 /* Build + Links */
+#Content-Table a {
+  color: hsl(var(--text-gray));
+  text-decoration: underline;
+}
+
+#Content-Table a:hover {
+  color: hsl(var(--text-gray), 50%);
+  text-decoration: underline;
+}
+
 .build {
   position: relative;
   isolation: isolate;
@@ -240,6 +274,16 @@ main::after {
   opacity: 0.7;
 
   border-radius: .5em .5em 0 0;
+}
+
+.updated-date-title {
+  position: absolute;
+  font-size: .75rem;
+  right: 5px;
+  bottom: 60px;
+  color: hsl(var(--light), 70%);
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 .updated-date {
@@ -262,7 +306,7 @@ main::after {
 }
 
 .build h3 > span {
-  color: hsl(var(--light))
+  color: hsl(var(--light));
 }
 
 .content-table {
@@ -281,6 +325,18 @@ main::after {
   padding: .5em;
 }
 
+.deploy-content-table {
+  position: absolute;
+  right: 5px;
+  bottom: 0;
+
+  padding: .5em;
+  
+  color: hsl(var(--light));
+  background-color: transparent;
+  border: none;
+}
+
 @media only screen and (max-width: 990px) {
   .content-table .link {
     width: 50% !important;
@@ -288,8 +344,17 @@ main::after {
     outline-offset: -.2ex;
   }
 
+  .updated-date-title {
+    bottom: 105px;
+  }
+
   .updated-date {
     bottom: 90px;
+  }
+
+  .new, .updated, .wip {
+    position: static;
+    font-size: .7rem;
   }
 }
 
@@ -298,6 +363,10 @@ main::after {
     width: 100% !important;
     outline: .1ex solid hsl(var(--light), 5%);
     outline-offset: -.2ex;
+  }
+
+  .updated-date-title {
+    bottom: 195px;
   }
 
   .updated-date {
@@ -362,7 +431,6 @@ main::after {
 
 #Data {
   min-width: 350px;
-
 }
 
 #Observations {
@@ -576,7 +644,7 @@ main::after {
 }
 
 @media only screen and (max-width: 400px) {
-  #Calculations span {
+  #Calculations span:last-child {
     display: none;
   }
 }
@@ -829,35 +897,57 @@ main::after {
 }
 
 .toggle-names, .toggle-texts, .toggle-images {
-  padding: .45em 1em;
-  color: hsl(var(--text-gray));
-  background-color: hsl(var(--important-lighter));
-  font-size: .75rem;
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  padding: .5em .75em;
+  color: hsl(var(--light));
+  background-color: transparent;
+  font-size: 1rem;
   font-weight: 700;
   border: none;
   border-radius: .5em;
   text-transform: uppercase;
 }
 
+.toggle-images {
+  color: hsl(var(--dark));
+}
+
 .toggle-names:hover, .toggle-texts:hover {
-  background-color: hsl(var(--important-light));
+  background-color: hsl(var(--important-lighter));
 }
 
 .toggle-names:active, .toggle-texts:active {
-  box-shadow: 0 0 0 3px hsl(var(--important-light), 30%);
+  background-color: hsl(var(--important-light));
+  box-shadow: 0 0 0 3px hsl(var(--important-light), 40%);
+}
+
+.toggle-images:hover {
+  color: hsl(var(--light));
+}
+
+.toggle-images:focus {
+  color: hsl(var(--light));
+  background-color: hsl(var(--important-light));
+  box-shadow: 0 0 0 3px hsl(var(--important-light), 40%);
 }
 
 .skill-priority {
   display: flex;
-  flex-direction: column;
-  gap: 1em;
-
-  width: 100%;
 
   padding: 1em;
 
   background-color: hsl(var(--container-lighter));
   border-radius: .5em;
+}
+
+.skill-priority > div {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+
+  width: 100%;
 }
 
 .skill-priority-cont {
@@ -1011,6 +1101,12 @@ main::after {
   color: hsl(var(--bg-dark));
 }
 
+.consumable-text.toggle {
+
+  color: hsl(var(--light));
+  width: 100%;
+}
+
 .consumable-text img, .consumable-toggle img {
   width: 24px;
   height: 24px;
@@ -1116,7 +1212,7 @@ main::after {
 }
 
 /* Guide */
-#Guide > div {
+#New-Player > div {
   color: hsl(var(--text-gray));
   background-color: hsl(var(--container-light));
   border-radius: .5em;
