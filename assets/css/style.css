@@ -913,7 +913,8 @@ main::after {
   background-color: hsl(var(--container-light));
 }
 
-.toggle-names, .toggle-texts, .toggle-images, .toggle-autoloot {
+   /* Light toggle */
+.toggle:is(.dark, .data, .skills, .consumables, .autoloot) {
   align-self: flex-start;
   display: flex;
   align-items: center;
@@ -927,26 +928,30 @@ main::after {
   text-transform: uppercase;
 }
 
-.toggle-images {
-  color: hsl(var(--dark));
-}
-
-.toggle-names:hover, .toggle-texts:hover, .toggle-autoloot:hover {
+.toggle:hover:is(.data, .skills, .consumables, .autoloot) {
   background-color: hsl(var(--important-lighter));
 }
 
-.toggle-names:active, .toggle-texts:active, .toggle-autoloot:active {
+.toggle:active:is(.data, .skills, .consumables, .autoloot) {
   background-color: hsl(var(--important-light));
   box-shadow: 0 0 0 3px hsl(var(--important-light), 40%);
 }
 
-.toggle-images:hover {
+   /* Dark toggle */
+.toggle.dark {
+  color: hsl(var(--dark));
+}
+
+.toggle.dark:hover {
   color: hsl(var(--light));
 }
 
-.toggle-images:focus {
-  color: hsl(var(--light));
-  background-color: hsl(var(--important-light));
+.toggle.dark:focus {
+  /* background-color: transparent !important; */
+}
+
+.eye-active {
+  background-color: hsl(var(--important-lighter)) !important;
   box-shadow: 0 0 0 3px hsl(var(--important-light), 40%);
 }
 
@@ -1060,11 +1065,11 @@ main::after {
   padding: .25em 1em;
 }
 
-#Consumables button:is(:hover, :focus) {
+#Consumables .tab-buttons button:is(:hover, :focus) {
   background-color: hsl(var(--important-light));
 }
 
-#Consumables button:is(:active) {
+#Consumables .tab-buttons button:is(:active) {
   background-color: hsl(var(--important-light), 80%);
 }
 

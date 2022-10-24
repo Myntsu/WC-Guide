@@ -34,42 +34,39 @@ function backToTop() {
   document.documentElement.scrollTop = 0;
 }
 
-$(".toggle-names").click(function() {
-  $(".toggle").toggle();
-  $(".eye-toggle").toggle();
-});
-
-$(".toggle-texts").click(function() {
-  $(".text-swap").toggle();
+// Data (ACD)
+$(".data").click(function() {
   $(".text-default").toggle();
+  $(".text-swap").toggle();
 })
 
-$(".toggle-images").click(function(){
+// Skills
+$(".skills").click(function() {
+  $(".name-toggle").toggle();
+  $(".eye-toggle-on").toggle();
+	if($(".eye-toggle-on").css('display') == 'none') {
+		$(".eye-toggle-on").addClass('eye-active');
+	} else {
+		$(".eye-toggle-on").removeClass('eye-active');
+	}
+});
+
+// Consumables
+$(".consumables").click(function(){
   $(".consumable-toggle").toggle();
   $(".consumable-text").toggle();
 })
 
-$(".toggle-autoloot").click(function() {
+// Autoloot
+$(".autoloot").click(function() {
   $(".autoloot-text").slideToggle("slow");
-  $(".eye-toggle-2").toggle();
+  $(".eye-toggle-off").toggle();
+  if($(".eye-toggle-off").css('display') == 'none') {
+		$(".eye-toggle-off").addClass('eye-active');
+	} else {
+		$(".eye-toggle-off").removeClass('eye-active');
+	}
 })
-
-document.querySelectorAll("collapsible").style.display = "none";
-var collapse = document.getElementsByClassName("btn-collapse");
-var collapsible = document.getElementsByClassName("collapsible");
-var i;
-
-for (i = 0; i < collapse.length; i++) {
-  collapse[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = collapsible;
-    if (content.style.display === "block") {
-      content.style.display = "none";
-    } else {
-      content.style.display = "block";
-    }
-  });
-}
 
 function copyToClipboard(element) {
   var $temp = $("<input>");
