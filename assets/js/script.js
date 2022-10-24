@@ -43,12 +43,6 @@ $(".data").click(function() {
 // Skills
 $(".skills").click(function() {
   $(".name-toggle").toggle();
-  $(".eye-toggle-on").toggle();
-	if($(".eye-toggle-on").css('display') == 'none') {
-		$(".eye-toggle-on").addClass('eye-active');
-	} else {
-		$(".eye-toggle-on").removeClass('eye-active');
-	}
 });
 
 // Consumables
@@ -60,12 +54,6 @@ $(".consumables").click(function(){
 // Autoloot
 $(".autoloot").click(function() {
   $(".autoloot-text").slideToggle("slow");
-  $(".eye-toggle-off").toggle();
-  if($(".eye-toggle-off").css('display') == 'none') {
-		$(".eye-toggle-off").addClass('eye-active');
-	} else {
-		$(".eye-toggle-off").removeClass('eye-active');
-	}
 })
 
 function copyToClipboard(element) {

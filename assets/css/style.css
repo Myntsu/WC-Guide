@@ -144,21 +144,25 @@ main::after {
 .tag {
   display: inline-block;
   margin: 0 .1em;
-  padding: .1em .35em;
+  padding: .1em .4em;
   color: hsl(var(--text-gray));
   background-color: hsl(var(--bg-dark));
-  border-radius: .5em;
+  border-radius: .25em;
   font-size: .75rem;
 }
 
 .code {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+
   margin: 0 .15em;
   padding: .35em .75em;
   color: hsl(var(--text-gray));
   background-color: hsl(var(--gray-dark));
-  border-radius: .5em;
-  line-break: none;
+  border-radius: .25em;
+
+  line-break: loose;
+
   font-size: .9rem;
   font-weight: 400;
 }
@@ -168,15 +172,11 @@ main::after {
 }
 
 .new, .updated, .wip {
-  position: absolute;
   padding: .2em .4em;
   color: hsl(var(--text-gray));
   border-radius: .5em;
-  font-size: .6rem;
+  font-size: .5rem;
   text-transform: uppercase;
-  bottom: 12px;
-  right: -15px;
-  z-index: 2;
 }
 
 .new {
@@ -345,13 +345,31 @@ main::after {
 .deploy-content-table {
   position: absolute;
   right: 5px;
-  bottom: 0;
+  top: 5px;
 
-  padding: .5em;
+  padding: .25em .5em 0;
+
+  display: flex;
+  align-items: center;
+  gap: .5em;
   
-  color: hsl(var(--light));
-  background-color: transparent;
+  color: hsl(var(--text-gray));
+  background-color: hsl(var(--bg-dark), 50%);
   border: none;
+  border-radius: .25em;
+
+  font-size: .85rem;
+  text-transform: uppercase;
+
+  transition: 100ms linear;
+}
+
+.deploy-content-table:hover {
+  background-color: hsl(var(--bg-dark));
+}
+
+.deploy-content-table:active {
+  translate: 0 2px;
 }
 
 @media only screen and (max-width: 990px) {
@@ -367,11 +385,6 @@ main::after {
 
   .updated-date {
     bottom: 90px;
-  }
-
-  .new, .updated, .wip {
-    position: static;
-    font-size: .7rem;
   }
 }
 
@@ -914,46 +927,48 @@ main::after {
 }
 
    /* Light toggle */
-.toggle:is(.dark, .data, .skills, .consumables, .autoloot) {
+.toggle:is(.dark, .data, .skills, .consumables, .autoloot, .copy) {
   align-self: flex-start;
+
   display: flex;
   align-items: center;
-  padding: .5em .75em;
+  justify-content: center;
+
+  width: 34px;
+  height: 34px;
+
   color: hsl(var(--light));
-  background-color: transparent;
-  font-size: 1rem;
-  font-weight: 700;
-  border: none;
-  border-radius: .5em;
-  text-transform: uppercase;
-}
-
-.toggle:hover:is(.data, .skills, .consumables, .autoloot) {
   background-color: hsl(var(--important-lighter));
+  border: none;
+  border-radius: .25em;
+
+  box-shadow: 2px 2px 0 0 hsl(var(--dark), 70%);
 }
 
-.toggle:active:is(.data, .skills, .consumables, .autoloot) {
-  background-color: hsl(var(--important-light));
-  box-shadow: 0 0 0 3px hsl(var(--important-light), 40%);
+.toggle:hover:is(.data, .skills, .consumables, .autoloot, .copy) {
+  background-color: hsl(var(--important-lighter), 80%);
 }
 
-   /* Dark toggle */
-.toggle.dark {
-  color: hsl(var(--dark));
+.toggle:active:is(.data, .skills, .consumables, .autoloot, .copy) {
+  translate: 2px 2px;
+  box-shadow: none;
 }
 
 .toggle.dark:hover {
   color: hsl(var(--light));
 }
 
-.toggle.dark:focus {
-  /* background-color: transparent !important; */
+.toggle.copy {
+  display: inline-block;
+  box-shadow: none;
 }
 
-.eye-active {
-  background-color: hsl(var(--important-lighter)) !important;
-  box-shadow: 0 0 0 3px hsl(var(--important-light), 40%);
+.toggle.copy:active {
+  translate: 0px 2px;
+  scale: 0.95;
 }
+
+/* End toggle */
 
 .skill-priority {
   display: flex;
@@ -1110,7 +1125,7 @@ main::after {
   padding: 1em;
 
   background-color: hsl(var(--light));
-  border-radius: .5em;
+  border-radius: 0 .5em .5em .5em;
 
   overflow-y: scroll;
   overscroll-behavior: contain;
@@ -1173,6 +1188,7 @@ main::after {
     width: 100%;
     overflow-y: hidden;
     overflow: auto;
+    border-radius: .5em;
   }
 }
 
@@ -1246,12 +1262,15 @@ main::after {
 }
 
 .autoloot-list > div p:nth-child(1) {
-  margin-block-end: .25em;
+  margin-block-end: .5em;
 }
 
 .autoloot-list > div p:nth-child(2) {
+  padding-block-end: .75em;
+}
+
+.autoloot-text {
   display: none;
-  margin-block-end: .5em;
 }
 
 .autoloot-list button {
