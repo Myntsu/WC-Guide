@@ -5,15 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Web dedicated to showcase a Wind Cutter build for Nova Ragnarok Server.">
+    <meta name="theme-color" content="#11254f">
     <title>Wind Cutter • Myndi - Cozy Nova</title>
     <meta property="og:type" content="website">
     <meta property="og:title" content="Wind Cutter Guide">
     <meta property="og:description" content="Comprehensive, concise and dynamic Ragnarok Online guide.">
     <meta property="og:url" content="https://myntsu.github.io/wind-cutter-guide/">
     <meta property="og:image" content="https://www.novaragnarok.com/themes/new/img/logo.png">
+    <meta property="og:image:alt" content="Logo">
     <meta property="og:image:width" content="320" />
     <meta property="og:image:height" content="180" />
 
+    <link rel="canonical" href="https://myntsu.github.io/wind-cutter-guide/"/>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -51,31 +54,28 @@
     <!-- JS -->
     <script defer src="assets/js/script.js"></script>
 </head>
-<body>
-
-  <!-- Main -->
-  <main style="background-image: linear-gradient(0deg, hsl(var(--bg-dark)) 80%, transparent),
-  url('assets/img/bg/tinywow_ragnarok-x-game-class-hd-wallpaper-1920x1080-uhdpaper.com-31.0_b_6942489.webp');">
+<body style="background-image: linear-gradient(0deg, hsl(var(--bg-dark)) 80%, transparent),
+url('assets/img/bg/tinywow_ragnarok-x-game-class-hd-wallpaper-1920x1080-uhdpaper.com-31.0_b_6942489.webp');">
 
       <!-- Build + content table -->
-      <div class="build main-container p-0 position-relative" style="background-image: url('assets/img/bg/tinywow_ragnarok-x-game-class-hd-wallpaper-1920x1080-uhdpaper.com-31.0_b_6942489.webp');">
+      <header class="build header-container p-0 position-relative" style="background-image: url('assets/img/bg/tinywow_ragnarok-x-game-class-hd-wallpaper-1920x1080-uhdpaper.com-31.0_b_6942489.webp');" role="banner">
         <button class="deploy-content-table" type="button" data-bs-toggle="collapse" data-bs-target="#Content-Table" aria-expanded="false" aria-controls="Content-Table"><i class="fa-solid fa-table"></i> Content table</button>
         <h2 class="ps-3 pt-3 m-0">Nova Ragnarok</h2>
         <h1 class="ps-3 py-1 m-0">Wind Cutter</h1>
         <h2 class="ps-3 pb-3 m-0"><b>PVE</b> <span>• Rune Knight</span></h2>
         <span class="updated-date-title">Last updated:</span>
         <span class="updated-date">22/October/2022</span>
-        <div class="content-table">
+        <nav class="content-table" role="navigation">
           <a class="link" aria-current="page" href="#Equipment">Equipment</a>
           <a class="link" href="#Stats">Stats</a>
-          <a class="link position-relative" href="#Consumables">Consumables <span class="new">new</span></a>
+          <a class="link position-relative" href="#Consumables">Consumables</a>
           <a class="link position-relative" href="#New-Player">New Player <span class="wip">wip</span></a>
-        </div>
-      </div>
+        </nav>
+      </header>
       
       <!-- Hidden content table -->
-      <div class="collapse" id="Content-Table">
-        <div class="main-container deployable-table">
+      <nav class="collapse" id="Content-Table" role="navigation">
+        <div class="header-container deployable-table">
           <h2 class="d-none">Content table</h2>
           <ol>
             <li><a href="#Introduction" class="">Introduction</a></li>
@@ -91,10 +91,10 @@
             <li><a href="#New-Player" class="">New Player</a></li>
           </ol>
         </div>
-      </div>
+      </nav>
 
-      
-      <div class="main-container">
+      <!-- Main -->
+      <main class="main-container" role="main">
         
         <!-- Introduction -->
         <section id="Introduction" class="mb-4">
@@ -854,9 +854,9 @@
               <div class="d-flex align-items-center flex-wrap mb-2">
                 <p class="header m-0">General 
                   <span id="General-Autoloot" class="code contrast">@autoloot 0.9</span> 
-                  <button class="toggle copy" onclick="copyToClipboard('#General-Autoloot')" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy to clipboard"><i class="fa-solid fa-copy"></i></button>
+                  <button class="toggle copy" aria-label="Copy to clipboard" onclick="copyToClipboard('#General-Autoloot')" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy to clipboard"><i class="fa-solid fa-copy"></i></button>
                 </p>
-                <button type="button" class="toggle autoloot ms-auto" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Toggle details"><i class="fa-solid fa-eye"></i></button>
+                <button type="button" aria-label="Toggle autoloot code on and off" class="toggle autoloot ms-auto" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Toggle details"><i class="fa-solid fa-eye"></i></button>
               </div>
               <div class="autoloot-list position-relative">
                 <!-- Einbech 3 -->
@@ -864,7 +864,7 @@
                   <div>
                     <span>Einbech 3</span>
                     <span class="tag">Farm</span>
-                    <button class="toggle copy ms-auto" onclick="copyToClipboard('#Einbech3-Autoloot')" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy to clipboard"><i class="fa-solid fa-copy"></i></button>
+                    <button class="toggle copy ms-auto" aria-label="Copy to clipboard" onclick="copyToClipboard('#Einbech3-Autoloot')" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy to clipboard"><i class="fa-solid fa-copy"></i></button>
                   </div>
                   <div class="autoloot-text">
                     <img src="https://www.novaragnarok.com/data/items/icons2/25809.png" alt="Redium">
@@ -882,7 +882,7 @@
                   <div>
                     <span>Juperos</span>
                     <span class="tag">Farm</span>
-                    <button class="toggle copy ms-auto" onclick="copyToClipboard('#Juperos-Autoloot')" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy to clipboard"><i class="fa-solid fa-copy"></i></button>
+                    <button class="toggle copy ms-auto" aria-label="Copy to clipboard" onclick="copyToClipboard('#Juperos-Autoloot')" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy to clipboard"><i class="fa-solid fa-copy"></i></button>
                   </div>
                   <div class="autoloot-text">
                     <img src="https://www.novaragnarok.com/data/items/icons2/34716.png" alt="Old Gear">
@@ -896,7 +896,7 @@
                   <div>
                     <span>Illusion Luanda + Twins</span>
                     <span class="tag">Quest/Farm</span>
-                    <button class="toggle copy ms-auto" onclick="copyToClipboard('#Luanda-Twins-Autoloot')" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy to clipboard"><i class="fa-solid fa-copy"></i></button>
+                    <button class="toggle copy ms-auto" aria-label="Copy to clipboard" onclick="copyToClipboard('#Luanda-Twins-Autoloot')" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy to clipboard"><i class="fa-solid fa-copy"></i></button>
                   </div>
                   <div class="autoloot-text">
                     <img src="https://www.novaragnarok.com/data/items/icons2/25633.png" alt="Token of Wootan">
@@ -912,7 +912,7 @@
                   <div>
                     <span>Elunium & Oridecon</span>
                     <span class="tag">Farm</span>
-                    <button class="toggle copy ms-auto" onclick="copyToClipboard('#Elunium-Oridecon-Autoloot')" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy to clipboard"><i class="fa-solid fa-copy"></i></button>
+                    <button class="toggle copy ms-auto" aria-label="Copy to clipboard" onclick="copyToClipboard('#Elunium-Oridecon-Autoloot')" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy to clipboard"><i class="fa-solid fa-copy"></i></button>
                   </div>
                   <div class="autoloot-text">
                     <img src="https://www.novaragnarok.com/data/items/icons2/985.png" alt="Elunium">
@@ -926,7 +926,7 @@
                     <span>Old Glast Heim</span>
                     <span class="tag">Daily</span>
                     <span class="tip-question" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Use @autoloot 100"><i class="fa-solid fa-question"></i></span>
-                    <button class="toggle copy ms-auto" onclick="copyToClipboard('#Old-Glast-Autoloot')" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy to clipboard"><i class="fa-solid fa-copy"></i></button>
+                    <button class="toggle copy ms-auto" aria-label="Copy to clipboard" onclick="copyToClipboard('#Old-Glast-Autoloot')" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy to clipboard"><i class="fa-solid fa-copy"></i></button>
                   </div>
                   
                   <div class="autoloot-text">
@@ -945,7 +945,7 @@
                   <div>
                     <span>Horror Toy Factory </span>
                     <span class="tag">Daily</span>
-                    <button class="toggle copy ms-auto" onclick="copyToClipboard('#Horror-Toy-Autoloot')" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy to clipboard"><i class="fa-solid fa-copy"></i></button>
+                    <button class="toggle copy ms-auto" aria-label="Copy to clipboard" onclick="copyToClipboard('#Horror-Toy-Autoloot')" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy to clipboard"><i class="fa-solid fa-copy"></i></button>
                   </div>
                   <div class="autoloot-text">
                     <img src="https://www.novaragnarok.com/data/items/icons2/969.png" alt="Gold">
@@ -959,7 +959,7 @@
                   <div>
                     <span>All Illusion Dungeons</span>
                     <span class="tag">Quest/Farm</span>
-                    <button class="toggle copy ms-auto" onclick="copyToClipboard('#All-Illusion-Autoloot')" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy to clipboard"><i class="fa-solid fa-copy"></i></button>
+                    <button class="toggle copy ms-auto" aria-label="Copy to clipboard" onclick="copyToClipboard('#All-Illusion-Autoloot')" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy to clipboard"><i class="fa-solid fa-copy"></i></button>
                   </div>
                   <div class="autoloot-text">
                     <img src="https://www.novaragnarok.com/data/items/icons2/25266.png" alt="Dried Yggdrasil Leaf">
@@ -1038,7 +1038,7 @@
 
   </main>
 
-  <footer>
+  <footer role="contentinfo">
     <p>Created by <i class="fa-brands fa-discord"></i> Myndi#5041</p>
     <span class="d-none d-md-inline">|</span>
     <a href="https://www.buymeacoffee.com/myndi"><i class="fa-solid fa-mug-saucer"></i> <span>Buy me a coffee</span></a>

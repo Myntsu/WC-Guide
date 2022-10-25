@@ -31,15 +31,6 @@
 }
 
 body {
-  font-size: 1rem;
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 400;
-
-  color: hsl(var(--light));
-  background-color: hsl(var(--bg-dark));
-}
-
-main {
   background-color: hsl(var(--dark));
   padding: 3rem 9rem;
 
@@ -48,9 +39,16 @@ main {
 
   position: relative;
   isolation: isolate;
+
+  font-size: 1rem;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+
+  color: hsl(var(--light));
+  background-color: hsl(var(--bg-dark));
 }
 
-main::after {
+body::after {
   content: '';
   position: absolute;
   background-color: hsl(var(--bg-dark));
@@ -58,6 +56,21 @@ main::after {
   z-index: -2;
   opacity: .75;
   
+}
+
+.header-container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 1.25em;
+
+  background-color: hsl(var(--container-dark));
+
+  border-radius: 0 0 .5em .5em;
+}
+
+.header-container.deployable-table {
+  border-radius: 0;
+  padding: 0;
 }
 
 .main-container {
@@ -70,31 +83,30 @@ main::after {
   border-radius: 0 0 .5em .5em;
 }
 
-.main-container.deployable-table {
-  border-radius: 0;
-  padding: 0;
-}
-
 @media only screen and (max-width: 1200px) {
-  main {
+  body {
       padding: 3rem 0;
   }
 
-  .main-container {
+  .main-container, .header-container {
       width: 90% !important;
   }
 }
 
 @media only screen and (max-width: 880px) {
-  .main-container {
+  .main-container, .header-container {
       padding: 1em;
       width: 92.5% !important;
   }
 }
 
 @media only screen and (max-width: 570px) {
-  .main-container {
+  .main-container, .header-container {
       width: 95% !important;
+  }
+
+  .header-container {
+    background-position: center center !important;
   }
 }
 
