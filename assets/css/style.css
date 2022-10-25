@@ -141,6 +141,18 @@ main::after {
   color: hsl(var(--number-orange));
 }
 
+.tip-question {
+  display: inline-block;
+  margin: 0 .1em;
+  padding: .1em .55em;
+  color: hsl(var(--link-light));
+  background-color: hsl(var(--number-orange));
+  border-radius: .25em;
+  font-size: .75rem;
+
+  user-select: none;
+}
+
 .tag {
   display: inline-block;
   margin: 0 .1em;
@@ -149,6 +161,8 @@ main::after {
   background-color: hsl(var(--bg-dark));
   border-radius: .25em;
   font-size: .75rem;
+
+  user-select: none;
 }
 
 .code {
@@ -160,8 +174,6 @@ main::after {
   color: hsl(var(--text-gray));
   background-color: hsl(var(--gray-dark));
   border-radius: .25em;
-
-  line-break: loose;
 
   font-size: .9rem;
   font-weight: 400;
@@ -954,8 +966,8 @@ main::after {
   box-shadow: none;
 }
 
-.toggle.dark:hover {
-  color: hsl(var(--light));
+.toggle.consumables {
+  display: block;
 }
 
 .toggle.copy {
@@ -1116,9 +1128,6 @@ main::after {
 }
 
 .consumables-wrapper {
-  display: flex;
-  flex-direction: column;
-
   width: 400px;
   height: 200px;
 
@@ -1170,6 +1179,12 @@ main::after {
 
 .fake-div p {
   margin: 0;
+}
+
+.autoloot-text img {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
 }
 
 @media only screen and (max-width: 880px) {
@@ -1245,32 +1260,45 @@ main::after {
 
 .autoloot-list {
   display: flex;
-  flex-direction: column;
-  gap: .25em;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: .5em;
 
-  background-color: hsl(var(--container-lighter));
   border-radius: .5em;
-  padding: 1em;
-  margin: 1em 0;
-
-  overflow-x: auto;
+  margin: 0 0 1em;
 }
 
 .autoloot-list p {
   margin: 0;
+}
+
+.autoloot-list > div {
+  display: flex;
+  flex-direction: column;
+
+  width: calc(50% - 5px);
+
+  margin: 0;
+  padding: .75em;
+  background-color: hsl(var(--container-lighter));
+  border-radius: .5em;
+
+  overflow-x: auto;
+}
+
+.autoloot-list > div div:nth-child(1) {
+  display: flex;
+  align-items: center;
+  gap: .25em;
+}
+
+.autoloot-list > div div:nth-child(1) span:nth-child(1) {
   font-weight: 700;
 }
 
-.autoloot-list > div p:nth-child(1) {
-  margin-block-end: .5em;
-}
-
-.autoloot-list > div p:nth-child(2) {
-  padding-block-end: .75em;
-}
-
-.autoloot-text {
-  display: none;
+.autoloot-list > div div:nth-child(2) {
+  margin-block-start: .5em;
+  margin-block-end: .25em;
 }
 
 .autoloot-list button {
@@ -1279,9 +1307,21 @@ main::after {
   border: none;
 }
 
+.autoloot-text {
+  display: none;
+}
+
 @media only screen and (max-width: 880px) {
   .farming-container-grid {
     grid-template-columns: repeat(1, 1fr);
+  }
+
+  .autoloot-list > div {
+    width: 100%;
+  }
+
+  .toggle.copy {
+    display: none;
   }
 }
 

@@ -698,7 +698,7 @@
                   </div>
                   <!-- 1 -->
                   <div class="consumables-wrapper">
-                    <button class="toggle dark consumables ms-auto" type="button" aria-label="Toggle information in and out" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Swap information"><i class="fa-solid fa-right-left"></i></button>
+                    <button class="toggle consumables ms-auto" type="button" aria-label="Toggle information in and out" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Swap information"><i class="fa-solid fa-right-left"></i></button>
                     <div class="consumable-toggle" style="display: none;">
                       <div><img src="https://www.novaragnarok.com/data/items/icons2/34159.png" alt="Concentrated Golden Syrup Potion"> <span class="tag">Craft</span><span class="tag">Market</span> Genetic crafting.</div>
                       <div><img src="https://www.novaragnarok.com/data/items/icons2/34158.png" alt="Concentrated Blue Syrup Potion"> <span class="tag">Craft</span><span class="tag">Market</span> Genetic crafting.</div>
@@ -730,7 +730,7 @@
                   </div>
                   <!-- 2 -->
                   <div class="consumables-wrapper">
-                    <button class="toggle dark consumables ms-auto" type="button" aria-label="Toggle information in and out" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Swap information"><i class="fa-solid fa-right-left"></i></button>
+                    <button class="toggle consumables ms-auto" type="button" aria-label="Toggle information in and out" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Swap information"><i class="fa-solid fa-right-left"></i></button>
                     <div class="consumable-toggle" style="display: none;">
                       <div><img src="https://www.novaragnarok.com/data/items/icons2/34785.png" alt="Great Shining Gin Potion"> <span class="tag">NPC</span> Main Office - 2nd floor.</div>
                       <div><img src="https://www.novaragnarok.com/data/items/icons2/34580.png" alt="Great Maniacal Potion"> <span class="tag">NPC</span> Main Office - 2nd floor.</div>
@@ -760,7 +760,7 @@
                   </div>
                   <!-- 3 -->
                   <div class="consumables-wrapper">
-                    <button class="toggle dark consumables ms-auto" type="button" aria-label="Toggle information in and out" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Swap information"><i class="fa-solid fa-right-left"></i></button>
+                    <button class="toggle consumables ms-auto" type="button" aria-label="Toggle information in and out" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Swap information"><i class="fa-solid fa-right-left"></i></button>
                     <div class="consumable-toggle" style="display: none;">
                       <div><img src="https://www.novaragnarok.com/data/items/icons2/657.png" alt="Berserk Potion"> <span class="tag">NPC</span> Any Tool Dealer.</div>
                       <div><img src="https://www.novaragnarok.com/data/items/icons2/12437.png" alt="Enrich Celermine Juice"> <span class="tag">Craft</span><span class="tag">Market</span> Genetic crafting.</div>
@@ -806,7 +806,7 @@
                   </div>
                   <!-- 4 -->
                   <div class="consumables-wrapper">
-                    <button class="toggle dark consumables ms-auto" type="button" aria-label="Toggle information in and out" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Swap information"><i class="fa-solid fa-right-left"></i></button>
+                    <button class="toggle consumables ms-auto" type="button" aria-label="Toggle information in and out" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Swap information"><i class="fa-solid fa-right-left"></i></button>
                     <div class="consumable-toggle" style="display: none;">
                       <div><img src="https://www.novaragnarok.com/data/items/icons2/22540.png" alt="Lux Anima Rune"> <span class="tag">Craft</span> Rune Knight crafting.</div>
                       <div><img src="https://www.novaragnarok.com/data/items/icons2/12731.png" alt="Turisus Runestone"> <span class="tag">Craft</span> Rune Knight crafting.</div>
@@ -849,57 +849,130 @@
           <div class="p-3">
             <div id="Autoloot">
               <h3 class="header fs-5">Autoloot</h3>
-              <p class="mb-1">The following <a href="https://www.novaragnarok.com/wiki/Autoloot_setups" target="_blank" class="important">Autoloot</a> list is from my personal use. If you don't see an specific list (<span class="number-purple">like in example Odin 4</span>), chances are I simply use the <span class="header">General</span> autoloot.</p>
-              <div class="autoloot-list shadow-container position-relative">
-                <!-- General -->
-                <div class="d-flex align-items-center">
-                  <p class="header m-0">General <span id="General-Autoloot" class="code contrast">@autoloot 0.9</span> <button class="toggle copy" onclick="copyToClipboard('#General-Autoloot')" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy to clipboard"><i class="fa-solid fa-copy"></i></button></p>
-                  <button type="button" class="toggle autoloot ms-auto" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Toggle details"><i class="fa-solid fa-eye"></i></button>
-                </div>
-                <hr class="my-2">
+              <p class="mb-1">The following <a href="https://www.novaragnarok.com/wiki/Autoloot_setups" target="_blank" class="important">Autoloot</a> list is from my personal use. If you don't see an specific list (<span class="number-purple">like in example Odin 4</span>), chances are I simply use the general autoloot.</p>
+              <!-- General -->
+              <div class="d-flex align-items-center flex-wrap mb-2">
+                <p class="header m-0">General 
+                  <span id="General-Autoloot" class="code contrast">@autoloot 0.9</span> 
+                  <button class="toggle copy" onclick="copyToClipboard('#General-Autoloot')" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy to clipboard"><i class="fa-solid fa-copy"></i></button>
+                </p>
+                <button type="button" class="toggle autoloot ms-auto" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Toggle details"><i class="fa-solid fa-eye"></i></button>
+              </div>
+              <div class="autoloot-list position-relative">
                 <!-- Einbech 3 -->
-                <div>
-                  <p>Einbech 3 <span class="tag">Farm</span>
-                    <button class="toggle copy" onclick="copyToClipboard('#Einbech3-Autoloot')" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy to clipboard"><i class="fa-solid fa-copy"></i></button>
-                  </p>
-                  <div class="autoloot-text mb-1"><img src="https://www.novaragnarok.com/data/items/icons2/25809.png" alt="Redium">
-                    <img src="https://www.novaragnarok.com/data/items/icons2/25810.png" alt="Rindium"><img src="https://www.novaragnarok.com/data/items/icons2/25811.png" alt="Odium"><img src="https://www.novaragnarok.com/data/items/icons2/25812.png" alt="Purdium"><img src="https://www.novaragnarok.com/data/items/icons2/25813.png" alt="Whidium"><img src="https://www.novaragnarok.com/data/items/icons2/25814.png" alt="Dynite"><img src="https://www.novaragnarok.com/data/items/icons2/9517.png" alt="Unidentified Ore"></div>
+                <div class="shadow-container">
+                  <div>
+                    <span>Einbech 3</span>
+                    <span class="tag">Farm</span>
+                    <button class="toggle copy ms-auto" onclick="copyToClipboard('#Einbech3-Autoloot')" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy to clipboard"><i class="fa-solid fa-copy"></i></button>
+                  </div>
+                  <div class="autoloot-text">
+                    <img src="https://www.novaragnarok.com/data/items/icons2/25809.png" alt="Redium">
+                    <img src="https://www.novaragnarok.com/data/items/icons2/25810.png" alt="Rindium">
+                    <img src="https://www.novaragnarok.com/data/items/icons2/25811.png" alt="Odium">
+                    <img src="https://www.novaragnarok.com/data/items/icons2/25812.png" alt="Purdium">
+                    <img src="https://www.novaragnarok.com/data/items/icons2/25813.png" alt="Whidium">
+                    <img src="https://www.novaragnarok.com/data/items/icons2/25814.png" alt="Dynite">
+                    <img src="https://www.novaragnarok.com/data/items/icons2/9517.png" alt="Unidentified Ore">
+                  </div>
                   <p class="autoloot-text"><span id="Einbech3-Autoloot" class="code contrast">@alootid +25809|+25810|+25811|+25812|+25813|+25814|+9517</span></p>
                 </div>
                 <!-- Juperos -->
-                <div>
-                  <p>Juperos <span class="tag">Farm</span>
-                    <button class="toggle copy" onclick="copyToClipboard('#Juperos-Autoloot')" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy to clipboard"><i class="fa-solid fa-copy"></i></button>
-                    </p>
+                <div class="shadow-container">
+                  <div>
+                    <span>Juperos</span>
+                    <span class="tag">Farm</span>
+                    <button class="toggle copy ms-auto" onclick="copyToClipboard('#Juperos-Autoloot')" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy to clipboard"><i class="fa-solid fa-copy"></i></button>
+                  </div>
+                  <div class="autoloot-text">
+                    <img src="https://www.novaragnarok.com/data/items/icons2/34716.png" alt="Old Gear">
+                    <img src="https://www.novaragnarok.com/data/items/icons2/34717.png" alt="Ancient Core">
+                    <img src="https://www.novaragnarok.com/data/items/icons2/34712.png" alt="Juperium Energy">
+                  </div>
                   <p class="autoloot-text"><span id="Juperos-Autoloot" class="code contrast">@alootid +34716|+34717|+34712</span></p>
                 </div>
                 <!-- Luanda + Twins -->
-                <div>
-                  <p>Illusion Luanda + Twins <span class="tag">Farm</span>
-                    <button class="toggle copy" onclick="copyToClipboard('#Luanda-Twins-Autoloot')" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy to clipboard"><i class="fa-solid fa-copy"></i></button>
-                  </p>
-                  <p class="autoloot-text"><span id="Luanda-Twins-Autoloot" class="code contrast">@alootid +25633|+25638|+25899|+35055|+100004|+100003</span></p>
-                </div>
-                <!-- All Illusion -->
-                <div>
-                  <p>All Illusion Dungeons <span class="tag">Quest</span>
-                    <button class="toggle copy" onclick="copyToClipboard('#All-Illusion-Autoloot')" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy to clipboard"><i class="fa-solid fa-copy"></i></button>
-                  </p>
-                  <p class="autoloot-text"><span id="All-Illusion-Autoloot" class="code contrast">@alootid +7564|+19344|+25619|+5127|+2519|+25899|+25897|+7324|+35055|+25633|+25638|+100004|+100003</span></p>
+                <div class="shadow-container">
+                  <div>
+                    <span>Illusion Luanda + Twins</span>
+                    <span class="tag">Quest/Farm</span>
+                    <button class="toggle copy ms-auto" onclick="copyToClipboard('#Luanda-Twins-Autoloot')" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy to clipboard"><i class="fa-solid fa-copy"></i></button>
+                  </div>
+                  <div class="autoloot-text">
+                    <img src="https://www.novaragnarok.com/data/items/icons2/25633.png" alt="Token of Wootan">
+                    <img src="https://www.novaragnarok.com/data/items/icons2/25638.png" alt="Token of Megalith">
+                    <img src="https://www.novaragnarok.com/data/items/icons2/35055.png" alt="Twilight Illusion Stone">
+                    <img src="https://www.novaragnarok.com/data/items/icons2/100003.png" alt="Dusk Dissonance Stone">
+                    <img src="https://www.novaragnarok.com/data/items/icons2/100004.png" alt="Dawn Dissonance Stone">
+                  </div>
+                  <p class="autoloot-text"><span id="Luanda-Twins-Autoloot" class="code contrast">@alootid +25633|+25638|+35055|+100003|+100004</span></p>
                 </div>
                 <!-- Elunium & Oridecon -->
-                <div>
-                  <p>Elunium & Oridecon <span class="tag">Farm</span>
-                    <button class="toggle copy" onclick="copyToClipboard('#Elunium-Oridecon-Autoloot')" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy to clipboard"><i class="fa-solid fa-copy"></i></button>
-                  </p>
+                <div class="shadow-container">
+                  <div>
+                    <span>Elunium & Oridecon</span>
+                    <span class="tag">Farm</span>
+                    <button class="toggle copy ms-auto" onclick="copyToClipboard('#Elunium-Oridecon-Autoloot')" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy to clipboard"><i class="fa-solid fa-copy"></i></button>
+                  </div>
+                  <div class="autoloot-text">
+                    <img src="https://www.novaragnarok.com/data/items/icons2/985.png" alt="Elunium">
+                    <img src="https://www.novaragnarok.com/data/items/icons2/984.png" alt="Oridecon">
+                  </div>
                   <p class="autoloot-text"><span id="Elunium-Oridecon-Autoloot" class="code contrast">@alootid +985|+984</span></p>
                 </div>
+                <!-- Old Glast Heim -->
+                <div class="shadow-container">
+                  <div>
+                    <span>Old Glast Heim</span>
+                    <span class="tag">Daily</span>
+                    <span class="tip-question" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Use @autoloot 100"><i class="fa-solid fa-question"></i></span>
+                    <button class="toggle copy ms-auto" onclick="copyToClipboard('#Old-Glast-Autoloot')" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy to clipboard"><i class="fa-solid fa-copy"></i></button>
+                  </div>
+                  
+                  <div class="autoloot-text">
+                    <img src="https://www.novaragnarok.com/data/items/icons2/985.png" alt="Elunium">
+                    <img src="https://www.novaragnarok.com/data/items/icons2/757.png" alt="Rough Elunium">
+                    <img src="https://www.novaragnarok.com/data/items/icons2/756.png" alt="Rough Oridecon">
+                    <img src="https://www.novaragnarok.com/data/items/icons2/747.png" alt="Crystal Mirror">
+                    <img src="https://www.novaragnarok.com/data/items/icons2/997.png" alt="Great Nature">
+                  </div>
+                  <p class="autoloot-text"><span id="Old-Glast-Autoloot" class="code contrast">@alootid -985|-757|-756|-747|-997</span></p>
+                </div>
                 <!-- Horror Toy Factory -->
-                <div>
-                  <p>Horror Toy Factory <span class="tag">Important</span>
-                    <button class="toggle copy" onclick="copyToClipboard('#Horror-Toy-Autoloot')" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy to clipboard"><i class="fa-solid fa-copy"></i></button>
-                  </p>
-                  <p class="autoloot-text"><span id="Horror-Toy-Autoloot" class="code contrast">@alootid +969|+7230|+7642|+7644|+7643</span></p>
+                <div class="shadow-container">
+                  <div>
+                    <span>Horror Toy Factory </span>
+                    <span class="tag">Daily</span>
+                    <button class="toggle copy ms-auto" onclick="copyToClipboard('#Horror-Toy-Autoloot')" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy to clipboard"><i class="fa-solid fa-copy"></i></button>
+                  </div>
+                  <div class="autoloot-text">
+                    <img src="https://www.novaragnarok.com/data/items/icons2/969.png" alt="Gold">
+                    <img src="https://www.novaragnarok.com/data/items/icons2/7230.png" alt="Platinum Bullion">
+                    <img src="https://www.novaragnarok.com/data/items/icons2/7642.png" alt="Bloody Coin">
+                  </div>
+                  <p class="autoloot-text"><span id="Horror-Toy-Autoloot" class="code contrast">@alootid +969|+7230|+7642</span></p>
+                </div>
+                <!-- All Illusion -->
+                <div class="shadow-container w-100">
+                  <div>
+                    <span>All Illusion Dungeons</span>
+                    <span class="tag">Quest/Farm</span>
+                    <button class="toggle copy ms-auto" onclick="copyToClipboard('#All-Illusion-Autoloot')" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy to clipboard"><i class="fa-solid fa-copy"></i></button>
+                  </div>
+                  <div class="autoloot-text">
+                    <img src="https://www.novaragnarok.com/data/items/icons2/25266.png" alt="Dried Yggdrasil Leaf">
+                    <img src="https://www.novaragnarok.com/data/items/icons2/25267.png" alt="Suspicious Pentacle">
+                    <img src="https://www.novaragnarok.com/data/items/icons2/25265.png" alt="Shining Spore">
+                    <img src="https://www.novaragnarok.com/data/items/icons2/25264.png" alt="Cluster of Nightmares">
+                    <img src="https://www.novaragnarok.com/data/items/icons2/7564.png" alt="Rotten Meat">
+                    <img src="https://www.novaragnarok.com/data/items/icons2/25633.png" alt="Token of Wootan">
+                    <img src="https://www.novaragnarok.com/data/items/icons2/25638.png" alt="Token of Megalith">
+                    <img src="https://www.novaragnarok.com/data/items/icons2/25899.png" alt="Abyssal Essence">
+                    <img src="https://www.novaragnarok.com/data/items/icons2/35055.png" alt="Twilight Illusion Stone">
+                    <img src="https://www.novaragnarok.com/data/items/icons2/100003.png" alt="Dusk Dissonance Stone">
+                    <img src="https://www.novaragnarok.com/data/items/icons2/100004.png" alt="Dawn Dissonance Stone">
+                  </div>
+                  <p class="autoloot-text"><span id="All-Illusion-Autoloot" class="code contrast">@alootid +25266|+25267|+25265|+25264|+7564|+25633|+25638|+25899|+35055|+100003|+100004</span></p>
                 </div>
               </div>
             </div>
