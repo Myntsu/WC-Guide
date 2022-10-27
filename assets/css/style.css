@@ -35,8 +35,9 @@ html {
 }
 
 body {
-  background-image: linear-gradient(0deg, hsl(var(--bg-dark)) 80%, transparent),
-url('./assets/img/bg/tinywow_ragnarok-x-game-class-hd-wallpaper-1920x1080-uhdpaper.com-31.0_b_6942489.webp');
+  background-image: 
+    linear-gradient(0deg, hsl(var(--bg-dark)) 80%, transparent),
+    url('../img/bg/tinywow_ragnarok-x-game-class-hd-wallpaper-1920x1080-uhdpaper.com-31.0_b_6942489.webp');
 
   display: flex;
   flex-direction: column;
