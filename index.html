@@ -54,8 +54,46 @@
     <!-- JS -->
     <script defer src="assets/js/script.js"></script>
 </head>
-<body style="background-image: linear-gradient(0deg, hsl(var(--bg-dark)) 80%, transparent),
-url('assets/img/bg/tinywow_ragnarok-x-game-class-hd-wallpaper-1920x1080-uhdpaper.com-31.0_b_6942489.webp');">
+<body>
+
+<nav class="navbar navbar-expand-lg">
+    <a href="#" id="Cozy-Nova" class="header">
+      <img src="assets/img/logo/memberLoginLogo.webp" alt="Logo" width="24" height="24"> Cozy Nova
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="site-navbar-list">
+        <li>
+          <a class="" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Class Guides
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Class Guides
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="https://myntsu.github.io/wind-cutter-guide/">Wind Cutter</a></li>
+                </ul>
+              </li>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="">Autoloot</a>
+        </li>
+        <li>
+          <a href="https://myntsu.github.io/wind-cutter-guide/cooking.html">Halloween</a>
+        </li>
+      </ul>
+    </div>
+</nav>
 
   <!-- Header + content table -->
   <header class="build header-container" style="background-image: url('assets/img/bg/tinywow_ragnarok-x-game-class-hd-wallpaper-1920x1080-uhdpaper.com-31.0_b_6942489.webp');" role="banner">
@@ -74,7 +112,7 @@ url('assets/img/bg/tinywow_ragnarok-x-game-class-hd-wallpaper-1920x1080-uhdpaper
   </header>
   
   <!-- Hidden content table -->
-  <nav class="collapse" id="Content-Table" aria-label="Full content table list" role="navigation">
+  <div class="collapse" id="Content-Table" aria-label="Full content table list" role="navigation">
       <div class="content-table-list">
         <div><a href="#Introduction" class="">Introduction</a></div>
         <div><a href="#Data" class="">Data</a></div>
@@ -88,7 +126,7 @@ url('assets/img/bg/tinywow_ragnarok-x-game-class-hd-wallpaper-1920x1080-uhdpaper
         <div><a href="#Farming-Equipment">Farming Equip</a></div>
         <div><a href="#New-Player" class="">New Player</a></div>
       </div>
-  </nav>
+  </div>
 
   <!-- Main -->
   <main class="main-container" role="main">
@@ -959,7 +997,7 @@ url('assets/img/bg/tinywow_ragnarok-x-game-class-hd-wallpaper-1920x1080-uhdpaper
                     <button class="toggle copy ms-auto" aria-label="Copy to clipboard" onclick="copyToClipboard('#All-Illusion-Autoloot')" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy to clipboard"><i class="fa-solid fa-copy"></i></button>
                   </div>
                   <div class="autoloot-text">
-                    <img src="https://www.novaragnarok.com/data/items/icons2/25266.png" alt="Dried Yggdrasil Leaf" class="img-tooltip">
+                    <img src="https://www.novaragnarok.com/data/items/icons2/25266.png" alt="Dried Yggdrasil Leaf">
                     <img src="https://www.novaragnarok.com/data/items/icons2/25267.png" alt="Suspicious Pentacle">
                     <img src="https://www.novaragnarok.com/data/items/icons2/25265.png" alt="Shining Spore">
                     <img src="https://www.novaragnarok.com/data/items/icons2/25264.png" alt="Cluster of Nightmares">
@@ -1040,24 +1078,6 @@ url('assets/img/bg/tinywow_ragnarok-x-game-class-hd-wallpaper-1920x1080-uhdpaper
     <span class="d-none d-md-inline">|</span>
     <a href="https://www.buymeacoffee.com/myndi"><i class="fa-solid fa-mug-saucer"></i> <span>Buy me a coffee</span></a>
   </footer>
-
-  <!-- Modal -->
-  <div class="modal fade roboto-300-14" id="MyndiModal" tabindex="-1" aria-labelledby="#MyndiModalBody" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content bg-dark text-white">
-        <div class="modal-header">
-          <h5 class="modal-title fw-normal" id="MyndiModalBody">not functioning lul</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          test
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
 <!-- Back to top button -->
 <button type="button" id="btn-back-to-top">

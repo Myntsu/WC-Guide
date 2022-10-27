@@ -35,6 +35,9 @@ html {
 }
 
 body {
+  background-image: linear-gradient(0deg, hsl(var(--bg-dark)) 80%, transparent),
+url('./assets/img/bg/tinywow_ragnarok-x-game-class-hd-wallpaper-1920x1080-uhdpaper.com-31.0_b_6942489.webp');
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -62,6 +65,96 @@ body::after {
   z-index: -2;
   opacity: .75;
   
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+
+  width: 100vw;
+  height: 2.5em;
+
+  padding: 0 3em;
+  background-color: hsl(var(--bg-dark));
+
+  border-bottom: 1px solid hsl(var(--container-light));
+}
+
+#Cozy-Nova {
+  display: flex;
+  align-items: center;
+  gap: .25em;
+
+  margin: 0;
+
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+#Cozy-Nova {
+  display: inline-flex;
+}
+
+#Cozy-Nova:hover {
+  color: hsl(var(--header-light), 50%);
+}
+
+.navbar-toggler {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: .15em .35em;
+  
+  color: hsl(var(--text-gray));
+  border: none;
+  border-radius: .15em;
+  outline: 1px solid hsl(var(--text-gray));
+  
+  font-size: 1.5rem;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+  outline: 1px solid hsl(var(--text-gray), 50%);
+}
+
+.site-navbar-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2em;
+
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+}
+
+.site-navbar-list a {
+  color: hsl(var(--link-light));
+  text-decoration: none;
+}
+
+.site-navbar-list a:hover {
+  color: hsl(var(--link-light), 50%);
+}
+
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  background-color: hsl(var(--bg-dark)) !important;
+}
+
+.dropdown-menu {
+  background-color: hsl(var(--bg-dark));
+}
+
+.dropdown-menu a:hover {
+  color: hsl(var(--light));
+  background-color: hsl(var(--container-light));
 }
 
 /* Header + Links + Content table */
@@ -1360,25 +1453,6 @@ input.code {
   border-radius: .5em;
 }
 
-.img-tooltip {
-  position: relative;
-  cursor: pointer;
-}
-
-.img-tooltip:hover::after {
-  content: attr(alt);
-  position: absolute;
-  display: block;
-
-  width: fit-content;
-  bottom: 0;
-  left: 0;
-  background-color: red;
-
-  z-index: 2;
-}
-
-
 /* Footer */
 footer {
   display: flex;
@@ -1392,8 +1466,7 @@ footer {
   color: hsl(var(--light));
   background-color: hsl(var(--bg-dark));
 
-  box-shadow: 
-  0 0 50px 0 hsl(var(--container-light), 50%);
+  box-shadow: 0 0 50px 0 hsl(var(--container-light), 50%);
 }
 footer p {
   margin: 0;
