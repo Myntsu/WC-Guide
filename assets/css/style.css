@@ -76,26 +76,29 @@ body::after {
   background-color: hsl(var(--bg-dark)) !important;
 }
 
+.container-fluid {
+  width: 100%;
+  max-width: 1000px;
+
+  margin: auto;
+}
+
+
 #Cozy-Nova {
   display: flex;
   align-items: center;
   gap: .25em;
-
+  
   margin: 0;
   margin-inline-end: .5em;
-
+  
   text-decoration: none;
   text-transform: uppercase;
-}
-
-#Cozy-Nova {
-  display: inline-flex;
 }
 
 #Cozy-Nova:hover {
   color: hsl(var(--header-light), 50%);
 }
-
 
 .site-navbar-list a {
   color: hsl(var(--link-light));
